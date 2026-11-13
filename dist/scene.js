@@ -32,6 +32,8 @@ export function createScene(canvas, state, options = {}) {
   let ground = previous?.ground ?? 562;
   let targetGround = ground;
   let nextStep = 0;
+  let speed = 0;
+  let companionX = position * 10 - direction * 95;
   let stopped = false;
   let ready = false;
   let lastTime = 0;
@@ -106,12 +108,15 @@ export function createScene(canvas, state, options = {}) {
     const remaining = Math.hypot(distance * 10, distanceY);
     let moving = remaining > .5;
     if (moving) {
-      const fraction = Math.min(1, 280 * delta / remaining);
+      const desiredSpeed = Math.min(280, remaining * 10);
+      speed += (desiredSpeed-speed) * (1-Math.exp(-14*delta));
+      const fraction = Math.min(1, speed * delta / remaining);
       position += distance * fraction;
       ground += distanceY * fraction;
-      walkTime += delta;
+      walkTime += remaining * fraction / 280;
       if (walkTime >= nextStep) { options.onStep?.(); nextStep = walkTime + .33; }
     }
+    if (Math.hypot((target-position)*10,targetGround-ground) <= .5) {position=target;ground=targetGround;speed=0;}
     moving = Math.hypot((target - position) * 10, targetGround - ground) > .5;
     canvas.dataset.motion = moving ? 'walking' : 'idle';
     canvas.dataset.position = position.toFixed(2);
@@ -135,7 +140,9 @@ export function createScene(canvas, state, options = {}) {
     ctx.fillStyle='#0a2033dd';ctx.fillRect(position*10-badgeWidth/2,ground+8,badgeWidth,20);
     ctx.fillStyle='#dcf9f3';ctx.fillText(state.name,position*10,ground+23,180);ctx.restore();
     if (state.awake) {
-      const robotX = Math.max(65, Math.min(935, position * 10 - direction * 95));
+      const desiredCompanionX = Math.max(65, Math.min(935, position * 10 - direction * 95));
+      companionX = reducedMotion ? desiredCompanionX : companionX + (desiredCompanionX-companionX)*(1-Math.exp(-12*Math.max(delta,.001)));
+      const robotX = companionX;
       const robotPose = moving && !reducedMotion ? artwork.robotWalk[frame] : artwork.robot;
       sprite(robotPose, robotX, ground + bounce * .55, 155 * scale, direction, 0, moving && !reducedMotion ? 428/448 : 1);
     }
@@ -145,7 +152,8 @@ export function createScene(canvas, state, options = {}) {
       onArrival = null;
       callback();
     }
-    if (!stopped && Math.hypot((target - position) * 10, targetGround - ground) > .5) animation = requestAnimationFrame(draw);
+    const companionMoving = state.awake && Math.abs(companionX-Math.max(65,Math.min(935,position*10-direction*95)))>.6;
+    if (!stopped && (moving || companionMoving)) animation = requestAnimationFrame(draw);
   }
 
   ctx.fillStyle = '#152b40';
@@ -188,9 +196,7 @@ export function createScene(canvas, state, options = {}) {
       targetGround = Math.max(460, Math.min(582, y));
       direction = Math.sign(target - position) || direction;
       onArrival = callback;
-      lastTime = 0;
-      walkTime = 0;
-      nextStep = 0;
+      lastTime = performance.now();
       if (reducedMotion) { position = target; ground = targetGround; }
       if (ready) { cancelAnimationFrame(animation); animation = requestAnimationFrame(draw); }
       else if (canvas.dataset.assets === 'error') { onArrival = null; callback(); }

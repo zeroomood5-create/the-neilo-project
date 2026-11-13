@@ -23,3 +23,7 @@ Limits
 - The public v5 website is a separate deployment. The current expanded release runs locally on port 4176 and is published as source files to the linked repository.
 
 Additional baseline validation passed after integration: full First Signal journey and save/reload across five viewport sizes. The three scientific mission cards pass the structural validator and remain needs-review for named scientific sign-off.
+
+## Motion and production update
+
+The companion now follows smoothly across direction changes. Walk-cycle phase persists when a destination is changed, with eased starts and stops. The motion/video regression check passed. Production scripts and storyboard are in production/. These are prepared materials for the redesign; newly written lines and requested Flow clips are not yet recorded or integrated.

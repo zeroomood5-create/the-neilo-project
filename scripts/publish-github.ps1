@@ -8,10 +8,10 @@ if (!(Test-Path (Join-Path $target '.git'))) {
 }
 git -C $target pull --ff-only origin main
 if ($LASTEXITCODE) { throw 'Pull failed. Review remote changes before publishing.' }
-foreach ($directory in @('dist','scripts','tests','docs','data')) {
+foreach ($directory in @('dist','scripts','tests','docs','data','production')) {
     Copy-Item -LiteralPath (Join-Path $project $directory) -Destination $target -Recurse -Force
 }
-foreach ($file in @('README.md','package.json','server.mjs','.gitignore','LEVEL_INTEGRATION_PLAN.md','MISSION_CONTENT_WORKFLOW.md','RELEASE_CURRENT.md')) {
+foreach ($file in @('README.md','package.json','server.mjs','.gitignore','LEVEL_INTEGRATION_PLAN.md','MISSION_CONTENT_WORKFLOW.md','RELEASE_CURRENT.md','GAMEPLAY_REDESIGN_PLAN.md')) {
     Copy-Item -LiteralPath (Join-Path $project $file) -Destination $target -Force
 }
 git -C $target add -A

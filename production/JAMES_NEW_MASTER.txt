@@ -1,0 +1,34 @@
+Plants need suitable light, water, nutrients, temperature and air. Our two switches represent only part of that environment.
+
+
+CSA lists about 21–28 days for leaf lettuce and 45–65 days for soybeans. Our planner used the upper end of each range. Real growing conditions can change the result.
+
+
+The example soybeans need boiling. Lettuce can be eaten without cooking. Crops add different nutrients to meals, alongside stored food.
+
+
+RAD aboard Curiosity measured radiation on Mars. Our archive shows 84 absorbed dose rate readings, in micrograys per hour, from 1 January 2015.
+
+
+In a separate 2016 study at Butte M12, surrounding terrain blocked part of the sky. Researchers found a 4% decrease in expected dose rate there.
+
+
+A missing value means that measurement is unavailable. A reading at one place does not tell us whether another site is safe.
+
+
+Solar panels turn sunlight into electricity. Some spacecraft use sunlight to run their equipment.
+
+
+A battery stores energy. Spacecraft can use that stored energy when sunlight is unavailable.
+
+
+An electric motor transfers energy into motion. In our base, the pump uses part of the battery reserve.
+
+
+On Hubble, electricity powers instruments, computers, heaters and transmitters.
+
+
+Running more devices at once asks for more power. In our base, the pump and radio together exceed the supply limit.
+
+
+Pausing one job made room for the next. The battery reserve showed how much stored energy remained.

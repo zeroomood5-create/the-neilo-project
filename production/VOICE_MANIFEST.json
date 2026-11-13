@@ -1,0 +1,422 @@
+{
+  "date": "2026-11-13",
+  "pronunciation": "NEILO = NEE-loh",
+  "pause_between_lines_seconds": 2,
+  "reuse": [
+    {
+      "id": "voyage",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/voyage.mp3",
+      "text": "Welcome, explorers. Our journey has brought us to Mars. Look below. That research base once helped people learn how to live here."
+    },
+    {
+      "id": "wake",
+      "voice": "Valf - Young & Energetic",
+      "audio": "assets/audio/supplied-v1/wake.mp3",
+      "text": "Oh! You are new. I am NEILO. You are the first visitor in a very long time. Shall we explore together?"
+    },
+    {
+      "id": "crew-signal",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/crew-signal.mp3",
+      "text": "We are safe in orbit. It is wonderful to hear from the base. Prepare your supplies, then send us your ready signal. We will plan the next step together."
+    },
+    {
+      "id": "first-signal",
+      "voice": "Valf - Young & Energetic",
+      "audio": "assets/audio/supplied-v1/first-signal.mp3",
+      "text": "There it goes. Your first signal! You gave every system its turn. And now your crew knows we are here. Together."
+    },
+    {
+      "id": "mentor-energy",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/mentor-energy.mp3",
+      "text": "Every active device shares the same power supply. You can switch optional devices off and run important jobs one at a time."
+    },
+    {
+      "id": "mentor-agriculture",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/mentor-agriculture.mp3",
+      "text": "Before you run a device, check its supplies and the power it needs. Look at the whole base, then choose what to run first."
+    },
+    {
+      "id": "mentor-systems",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/mentor-systems.mp3",
+      "text": "Start with a check, then prepare the antenna. When the base is ready, test your message before you send it."
+    },
+    {
+      "id": "mentor-health",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/mentor-health.mp3",
+      "text": "Keep essential life-support systems running while you work. Take time to prepare the base before starting a new task."
+    },
+    {
+      "id": "guide-arrival",
+      "voice": "Valf - Young & Energetic",
+      "audio": "assets/audio/supplied-v1/guide-arrival.mp3",
+      "text": "Tap the floor to walk. See that little blue light? Tap it to take a closer look."
+    },
+    {
+      "id": "guide-companion",
+      "voice": "Valf - Young & Energetic",
+      "audio": "assets/audio/supplied-v1/guide-companion.mp3",
+      "text": "I’ll walk with you. Tap the floor to explore, or choose a glowing object. Tap me whenever you need a hand."
+    },
+    {
+      "id": "harness",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/harness.mp3",
+      "text": "A guidance fault. Fasten your harness. Your safety capsule will take you down to the research base. We are safe in orbit."
+    },
+    {
+      "id": "descent",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/descent.mp3",
+      "text": "Your capsule is approaching the base. Once inside, follow the lights."
+    },
+    {
+      "id": "enter",
+      "voice": "James - Calm, Comforting and Gentle",
+      "audio": "assets/audio/supplied-v1/enter.mp3",
+      "text": "The base is quiet. Beneath the workbench, a small robot waits. Take a closer look."
+    }
+  ],
+  "new_lines": [
+    {
+      "id": "garden-science-1",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "garden",
+      "source": {
+        "title": "CSA · Selecting crops for space",
+        "url": "https://www.asc-csa.gc.ca/eng/youth-educators/activities/fitness-and-nutrition/interplanetary-farming.asp"
+      },
+      "text": "Plants need suitable light, water, nutrients, temperature and air. Our two switches represent only part of that environment."
+    },
+    {
+      "id": "garden-science-2",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "garden",
+      "source": {
+        "title": "CSA · Selecting crops for space",
+        "url": "https://www.asc-csa.gc.ca/eng/youth-educators/activities/fitness-and-nutrition/interplanetary-farming.asp"
+      },
+      "text": "CSA lists about 21–28 days for leaf lettuce and 45–65 days for soybeans. Our planner used the upper end of each range. Real growing conditions can change the result."
+    },
+    {
+      "id": "garden-science-3",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "garden",
+      "source": {
+        "title": "CSA · Selecting crops for space",
+        "url": "https://www.asc-csa.gc.ca/eng/youth-educators/activities/fitness-and-nutrition/interplanetary-farming.asp"
+      },
+      "text": "The example soybeans need boiling. Lettuce can be eaten without cooking. Crops add different nutrients to meals, alongside stored food."
+    },
+    {
+      "id": "garden-question",
+      "voice": "Valf",
+      "use": "current-science",
+      "scene": "garden",
+      "text": "A new crop needs cooking. What should the crew include in its plan?"
+    },
+    {
+      "id": "field-science-1",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "field",
+      "source": {
+        "title": "NASA RadLab · API and units",
+        "url": "https://visualization.osdr.nasa.gov/radlab/gui/data-api/"
+      },
+      "text": "RAD aboard Curiosity measured radiation on Mars. Our archive shows 84 absorbed dose rate readings, in micrograys per hour, from 1 January 2015."
+    },
+    {
+      "id": "field-science-2",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "field",
+      "source": {
+        "title": "Ehresmann et al. · M12 study",
+        "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021JE006851"
+      },
+      "text": "In a separate 2016 study at Butte M12, surrounding terrain blocked part of the sky. Researchers found a 4% decrease in expected dose rate there."
+    },
+    {
+      "id": "field-science-3",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "field",
+      "source": {
+        "title": "NASA RadLab · API and units",
+        "url": "https://visualization.osdr.nasa.gov/radlab/gui/data-api/"
+      },
+      "text": "A missing value means that measurement is unavailable. A reading at one place does not tell us whether another site is safe."
+    },
+    {
+      "id": "field-question",
+      "voice": "Valf",
+      "use": "current-science",
+      "scene": "field",
+      "text": "The new site has no radiation reading. What belongs in your report?"
+    },
+    {
+      "id": "water-science-1",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "water",
+      "source": {
+        "title": "NASA Space Place · What powers a spacecraft?",
+        "url": "https://spaceplace.nasa.gov/what-powers-a-spacecraft/en/"
+      },
+      "text": "Solar panels turn sunlight into electricity. Some spacecraft use sunlight to run their equipment."
+    },
+    {
+      "id": "water-science-2",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "water",
+      "source": {
+        "title": "NASA Space Place · What powers a spacecraft?",
+        "url": "https://spaceplace.nasa.gov/what-powers-a-spacecraft/en/"
+      },
+      "text": "A battery stores energy. Spacecraft can use that stored energy when sunlight is unavailable."
+    },
+    {
+      "id": "water-science-3",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "water",
+      "source": {
+        "title": "NASA Space Place · What powers a spacecraft?",
+        "url": "https://spaceplace.nasa.gov/what-powers-a-spacecraft/en/"
+      },
+      "text": "An electric motor transfers energy into motion. In our base, the pump uses part of the battery reserve."
+    },
+    {
+      "id": "water-question",
+      "voice": "Valf",
+      "use": "current-science",
+      "scene": "water",
+      "text": "When the solar panels are in shadow, what can provide stored energy?"
+    },
+    {
+      "id": "power-science-1",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "power",
+      "source": {
+        "title": "NASA · Hubble electrical power",
+        "url": "https://science.nasa.gov/mission/hubble/observatory/design/electrical-power/"
+      },
+      "text": "On Hubble, electricity powers instruments, computers, heaters and transmitters."
+    },
+    {
+      "id": "power-science-2",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "power",
+      "source": {
+        "title": "NASA · Hubble electrical power",
+        "url": "https://science.nasa.gov/mission/hubble/observatory/design/electrical-power/"
+      },
+      "text": "Running more devices at once asks for more power. In our base, the pump and radio together exceed the supply limit."
+    },
+    {
+      "id": "power-science-3",
+      "voice": "James",
+      "use": "current-science",
+      "scene": "power",
+      "source": {
+        "title": "NASA · Hubble electrical power",
+        "url": "https://science.nasa.gov/mission/hubble/observatory/design/electrical-power/"
+      },
+      "text": "Pausing one job made room for the next. The battery reserve showed how much stored energy remained."
+    },
+    {
+      "id": "power-question",
+      "voice": "Valf",
+      "use": "current-science",
+      "scene": "power",
+      "text": "If two jobs exceed the supply limit, what could you try?"
+    },
+    {
+      "id": "arrival-clue",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "arrival",
+      "text": "Listen. There is a little blue light under that bench. Shall we look?"
+    },
+    {
+      "id": "power-plan",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "power",
+      "text": "The pump and the radio share our power. Which job shall we try first?"
+    },
+    {
+      "id": "power-test",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "power",
+      "text": "Let’s test your plan. Watch the connections and the devices."
+    },
+    {
+      "id": "power-overload",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "power",
+      "text": "That branch needs more power than we have left. What could we pause?"
+    },
+    {
+      "id": "power-water-first",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "power",
+      "text": "You chose water first. The tank is ready, and our message can have the next turn."
+    },
+    {
+      "id": "power-radio-first",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "power",
+      "text": "You reached the crew first. Now let’s get our water ready for the wait."
+    },
+    {
+      "id": "power-recover",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "power",
+      "text": "Good change. Your new plan gives that device enough power."
+    },
+    {
+      "id": "garden-invite",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "I found seed packets. Let’s plan a fresh addition to the crew’s meals."
+    },
+    {
+      "id": "garden-compare",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "Look at the harvest window and the kitchen tool. Which crop fits your plan?"
+    },
+    {
+      "id": "garden-conditions",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "Seeds need a suitable environment. Check the light and water connections."
+    },
+    {
+      "id": "garden-calendar",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "This is our training calendar. We can watch weeks pass in the simulation."
+    },
+    {
+      "id": "garden-wait",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "The planned meal date is here, but this crop needs more time. Stored meals can cover the wait."
+    },
+    {
+      "id": "garden-harvest",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "Your tray is ready. Let’s harvest it and check how to prepare it."
+    },
+    {
+      "id": "garden-cook",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "These soybeans need boiling before we serve them."
+    },
+    {
+      "id": "garden-new-request",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "A new request from the crew. We have more time, and they want a crop that contains protein."
+    },
+    {
+      "id": "garden-memory",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "garden",
+      "text": "You changed your plan when the meal request changed. That is what a good planner does."
+    },
+    {
+      "id": "survey-invite",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "survey",
+      "text": "The crew needs our field notes. The robot has a relay to repair and evidence to gather. Which comes first?"
+    },
+    {
+      "id": "survey-archive",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "survey",
+      "text": "This is Curiosity’s archive from January twenty fifteen. Read the device, the date, and the unit."
+    },
+    {
+      "id": "survey-missing",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "survey",
+      "text": "A dash means this measurement is not available. It does not mean zero."
+    },
+    {
+      "id": "survey-study",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "survey",
+      "text": "The cliff study is from a different time and place. Let’s keep its evidence separate."
+    },
+    {
+      "id": "survey-followup",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "survey",
+      "text": "That new site still needs a measurement. We can say what we know and what we need to check."
+    },
+    {
+      "id": "survey-relay",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "survey",
+      "text": "The report is sent. Our relay is still waiting for its turn."
+    },
+    {
+      "id": "help-notice",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "help",
+      "text": "Take another look at the part that is glowing. What changed when you tried your plan?"
+    },
+    {
+      "id": "help-step",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "help",
+      "text": "I can show you one step. Then you can try the next one."
+    },
+    {
+      "id": "end-memory",
+      "voice": "Valf",
+      "use": "redesign-target",
+      "scene": "end",
+      "text": "Your choices brought this base to life. I have saved our plans in the journey log."
+    }
+  ]
+}
