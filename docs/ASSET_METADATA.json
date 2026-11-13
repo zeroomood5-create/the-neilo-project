@@ -1,0 +1,362 @@
+{
+  "assembled_on": "2026-11-13",
+  "timezone": "Africa/Cairo",
+  "code": "AI-assisted implementation reviewed through automated checks",
+  "scientific_data": "Original NASA/CSA sources, with AI-assisted interpretation and visualization. See source query and report.",
+  "assets": [
+    {
+      "file": "dist/assets/arrival-bay.webp",
+      "sha256": "fa02608feca36de9f4a1a2684be1057973bc6ad831834138b079d4e429df94e6",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/audio/arrival.mp3",
+      "sha256": "f80fc0d94448d9b45e46238a0e725e88c5742581b0eac93bffba49f883a4bef8",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/capsule.mp3",
+      "sha256": "7fe9e599411c6c7c9a515900125ee6e8aef042ebdb1f44ed0fb31a0d5f453981",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/crew-signal.mp3",
+      "sha256": "6e2c004224cbfbcfe277ba255bc5b20914e720287eed69491b3d7a10ef3a981b",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/first-signal.mp3",
+      "sha256": "90d52c6919bfbf0a16ccf2c6c1ca6a7d3093ec59c08e41227d4d60a93a2420f0",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/guide-arrival.mp3",
+      "sha256": "4a0b39fbc6d05af524ebf4690d56a10d4c647370bb10c8a5a87b6cc74a6ee1e7",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/guide-companion.mp3",
+      "sha256": "ee2c16597b7e30f0ac481043d1a2c5a0530d84bcaff9e60182e4d2e4ffadebed",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/mentor-agriculture.mp3",
+      "sha256": "0ee31a21c487e57328388e056105ee92949e822c25a625ec2a0d1e750c6c815a",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/mentor-energy.mp3",
+      "sha256": "d770b96c322765936bacec3c7c8aa5247274be2acf102d2038551bf9282faeef",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/mentor-health.mp3",
+      "sha256": "9a66f27590386c123b16dd8a2ce6b443c713534b934fef2587077a9721fb151a",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/mentor-systems.mp3",
+      "sha256": "cb30e34e2549244166669d471daff36baff8592e3e028e2789fdd5351edeec51",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/crew-signal.mp3",
+      "sha256": "64d672e5ad67d20101ac757de818ee13c1dfe802f95c80a846165f3be5571f26",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/descent.mp3",
+      "sha256": "533577cee4e9480577f3363e513f270ec5bb3a516428b92cd6a7d4bf7ed9c57e",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/enter.mp3",
+      "sha256": "5a3d25cc93d703df271a6e5244ae0c376e1c5936dc277240e553e2d11f6b9873",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/first-signal.mp3",
+      "sha256": "52a6887b5ee5a964c476c60b14b4f57aaf4cc4197596d630dff62d23116f39b8",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/guide-arrival.mp3",
+      "sha256": "f7f84af5440140856b2e7242636844b84185cb0467df2a587af0d3d572fa90cb",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/guide-companion.mp3",
+      "sha256": "54240d68da85ccc56603aee5d7204ec2bbad4b1ed85f47015a75a4cb4863ac48",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/harness.mp3",
+      "sha256": "28e8e35e936fa67bbb415c29aac1823b37e8ed8baef61d4c3cfac9f6c6066c55",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/mentor-agriculture.mp3",
+      "sha256": "5bcbf570563910c69edcb724278835cacbb7c18df7a2993881ef9853794c3880",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/mentor-energy.mp3",
+      "sha256": "c79c6469b02c352431e95b0339ca451f110b737bf031973a5c70c8af6c430164",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/mentor-health.mp3",
+      "sha256": "74205b19e852cf0940f3cbddee40790cff798a37f25503e2bc6df520f70c01c4",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/mentor-systems.mp3",
+      "sha256": "9b63e546915c266f03e1b745adeec865ed6780a50857414c52d070cfff47365f",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/voyage.mp3",
+      "sha256": "ea22a1ce1f08f177b0d4d2f9bc9954bcfd776c7875c6394029cc277e07a6b599",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/supplied-v1/wake.mp3",
+      "sha256": "2c7491bb033e878114e34edaea1010791419033b35ec4f2dd35d0b98eaa46388",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/voyage.mp3",
+      "sha256": "1ff4ef988627179a7376eed61ebda8310387358a279b43145707683a7781ea43",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/audio/wake.mp3",
+      "sha256": "05834b4ce5450172dc2040a13740637d928a8d4ae912f0413e70c2dfe415de4e",
+      "kind": "audio",
+      "provenance": "Team-supplied ElevenLabs recording or baseline audio"
+    },
+    {
+      "file": "dist/assets/capsule.webp",
+      "sha256": "2e62d90975f6811bca4520a9be0cdfdf4794d2826dbea6a95da3d4b85e82b3ec",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/explorer-idle.webp",
+      "sha256": "0edd7c98012f9fe42cfffff12e75ee4e4e255b98fe68dde1f4ca09e1725a8e43",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/explorer-walk-a.webp",
+      "sha256": "2104318ad61d4040aa0168d08d0a7363c6ee2a8516a9df9a829063875f12520b",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/explorer-walk-b.webp",
+      "sha256": "5c44352c1fe2ff7e45be56e77816f53a98fb7844d59eeec83590e9ea43f26423",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/mission-control.webp",
+      "sha256": "e851b88102791e995b93f792e0110c6e85fa394bf810a3e6a3269eac9c220383",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/mission-cover.webp",
+      "sha256": "e95767843ca1564065c522f6d0c0125290436ca2870a693e9df4f8c40494d33e",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-0.webp",
+      "sha256": "e214794229b5f2cf2aaabfa903667def07adcda676cf74fabd563e2ec1cca89d",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-1.webp",
+      "sha256": "4b9e0f8a5e5395637f11ba81a738f97488b7b3e3edf00a60fbf0c6a7fc44e827",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-2.webp",
+      "sha256": "1fb725e70910d387871a6c935ee50e2844a15b4dbe221f1bb4c8432c1dbc5814",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-3.webp",
+      "sha256": "ecf539ec15006d7175e7b66773d7500a0754881a9d6bdffdad42d6fd0eb4ad8b",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-4.webp",
+      "sha256": "69f69d3cf7411b8352a9831d2b5216dd1833f9ca7ab3a8df4906daabb13960df",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-5.webp",
+      "sha256": "c68c99ba3608af5b5d249835273fd4c2be31f407ccd0fddf205af33c320f8b6a",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-6.webp",
+      "sha256": "36c6edd5aa83908a2d4c6d5b5e776e84f1f796ae3628c052bf541343c2bcf0d3",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/explorer-7.webp",
+      "sha256": "8804ea05b0986c9ab7d4d0b0fe39a946b138ef86c37eca86599b3b849b1f7fa4",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-0.webp",
+      "sha256": "de503411c44f17b1e115148a0361e817354d15fc37f0ae17bfed1a53cbff60d7",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-1.webp",
+      "sha256": "a29fe8482351406cbaabec155131753edf81ff698cb85227dcf6e0102677a6f6",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-2.webp",
+      "sha256": "333c37109c079e619116c5b0e4019e791160c187aad4b25dd96ae64919ca2979",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-3.webp",
+      "sha256": "fcd9b44eac6625f4f8ddaca524483474f0c39ee22bbe73e68e7f773a1e2d7728",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-4.webp",
+      "sha256": "8c5500d7a786900428fec3f4d7bc3d128473b4d2db44a17c33cd8568652ae53f",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-5.webp",
+      "sha256": "882b98ac4184ff2723bf5c2a6bd77cf8ddcbef9b427d35fc185972ce707eafd4",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-6.webp",
+      "sha256": "062e6eed942311f2fb153d9640c362b49c5c618862ded82a9f6508c15b8994cf",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/motion/neilo-7.webp",
+      "sha256": "1035fd638e6ff9bac689eada8bb94de3a864f2b40840221d2f3e0250386e9102",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/music/interstellar-soft.mp3",
+      "sha256": "638ba549d70e9c66d61fc4e92375f8edf80bee0265ea9d22970331a6bd74bfa4",
+      "kind": "audio",
+      "provenance": "User-supplied Interstellar recording; dynamics compressed and level reduced"
+    },
+    {
+      "file": "dist/assets/neilo-companion-v2.webp",
+      "sha256": "f1a1edfda2c6ed8da82d5322db9f486a5c7824e007c8105753ac03ea1f113158",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/pilot-atlas.png",
+      "sha256": "2a7da7efc19851a788038466d56c0488d48b2f1c23f1ddb6ae76c328a3b592da",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/video/descent.mp4",
+      "sha256": "cf38a7fb400e3724b7860479413158ad5962979c9e5087d05be01a22b07e77a0",
+      "kind": "video",
+      "provenance": "Team-supplied generated cinematic clip"
+    },
+    {
+      "file": "dist/assets/video/discover.mp4",
+      "sha256": "12b02bff5718b8008e3e38f3bbad26125e90b2fb180871344ab06f46a1a77f7d",
+      "kind": "video",
+      "provenance": "Team-supplied generated cinematic clip"
+    },
+    {
+      "file": "dist/assets/video/enter.mp4",
+      "sha256": "a3d9db15960c99098c7b4221a22cd8b88473d8288b9c46ce1d9df5b65a5b63f3",
+      "kind": "video",
+      "provenance": "Team-supplied generated cinematic clip"
+    },
+    {
+      "file": "dist/assets/video/harness.mp4",
+      "sha256": "158768bfcdb71bb979f7b66f643626e11bcd78e9946d61659ad0ef9152896d93",
+      "kind": "video",
+      "provenance": "Team-supplied generated cinematic clip"
+    },
+    {
+      "file": "dist/assets/video/voyage.mp4",
+      "sha256": "d5fd69580c3d8ef3092b242eb3e81754a607ba130ab35287e65885edf769a627",
+      "kind": "video",
+      "provenance": "Team-supplied generated cinematic clip"
+    },
+    {
+      "file": "dist/assets/video/wake.mp4",
+      "sha256": "06a6b20f063f0648c4ef8f89075251304a1ee4c44680ddcd279c17702dadd2b1",
+      "kind": "video",
+      "provenance": "Team-supplied generated cinematic clip"
+    },
+    {
+      "file": "dist/assets/voyage.webp",
+      "sha256": "22fc6bcdb517ff927f3c96dfa75e4170eea97af27b592aeadf5fea2670a4c1ba",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/water-habitat.webp",
+      "sha256": "51abbd62c242ccb3833fbd8245acb4d5ef861996dae949937c0bef597983e0a1",
+      "kind": "image",
+      "provenance": "AI-generated illustrative art"
+    }
+  ]
+}

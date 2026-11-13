@@ -1,0 +1,106 @@
+[
+  {
+    "id": "voyage",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "Welcome, explorers. Our journey has brought us to Mars. Look below. That research base once helped people learn how to live here.",
+    "audio": "assets/audio/supplied-v1/voyage.mp3",
+    "duration": 10.707,
+    "sha256": "ea22a1ce1f08f177b0d4d2f9bc9954bcfd776c7875c6394029cc277e07a6b599"
+  },
+  {
+    "id": "wake",
+    "voice": "Valf - Young & Energetic",
+    "text": "Oh! You are new. I am NEILO. You are the first visitor in a very long time. Shall we explore together?",
+    "audio": "assets/audio/supplied-v1/wake.mp3",
+    "duration": 7.66,
+    "sha256": "2c7491bb033e878114e34edaea1010791419033b35ec4f2dd35d0b98eaa46388"
+  },
+  {
+    "id": "crew-signal",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "We are safe in orbit. It is wonderful to hear from the base. Prepare your supplies, then send us your ready signal. We will plan the next step together.",
+    "audio": "assets/audio/supplied-v1/crew-signal.mp3",
+    "duration": 12.217,
+    "sha256": "64d672e5ad67d20101ac757de818ee13c1dfe802f95c80a846165f3be5571f26"
+  },
+  {
+    "id": "first-signal",
+    "voice": "Valf - Young & Energetic",
+    "text": "There it goes. Your first signal! You gave every system its turn. And now your crew knows we are here. Together.",
+    "audio": "assets/audio/supplied-v1/first-signal.mp3",
+    "duration": 8.397,
+    "sha256": "52a6887b5ee5a964c476c60b14b4f57aaf4cc4197596d630dff62d23116f39b8"
+  },
+  {
+    "id": "mentor-energy",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "Every active device shares the same power supply. You can switch optional devices off and run important jobs one at a time.",
+    "audio": "assets/audio/supplied-v1/mentor-energy.mp3",
+    "duration": 10.002,
+    "sha256": "c79c6469b02c352431e95b0339ca451f110b737bf031973a5c70c8af6c430164"
+  },
+  {
+    "id": "mentor-agriculture",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "Before you run a device, check its supplies and the power it needs. Look at the whole base, then choose what to run first.",
+    "audio": "assets/audio/supplied-v1/mentor-agriculture.mp3",
+    "duration": 9.61,
+    "sha256": "5bcbf570563910c69edcb724278835cacbb7c18df7a2993881ef9853794c3880"
+  },
+  {
+    "id": "mentor-systems",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "Start with a check, then prepare the antenna. When the base is ready, test your message before you send it.",
+    "audio": "assets/audio/supplied-v1/mentor-systems.mp3",
+    "duration": 8.487,
+    "sha256": "9b63e546915c266f03e1b745adeec865ed6780a50857414c52d070cfff47365f"
+  },
+  {
+    "id": "mentor-health",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "Keep essential life-support systems running while you work. Take time to prepare the base before starting a new task.",
+    "audio": "assets/audio/supplied-v1/mentor-health.mp3",
+    "duration": 8.905,
+    "sha256": "74205b19e852cf0940f3cbddee40790cff798a37f25503e2bc6df520f70c01c4"
+  },
+  {
+    "id": "guide-arrival",
+    "voice": "Valf - Young & Energetic",
+    "text": "Tap the floor to walk. See that little blue light? Tap it to take a closer look.",
+    "audio": "assets/audio/supplied-v1/guide-arrival.mp3",
+    "duration": 5.707,
+    "sha256": "f7f84af5440140856b2e7242636844b84185cb0467df2a587af0d3d572fa90cb"
+  },
+  {
+    "id": "guide-companion",
+    "voice": "Valf - Young & Energetic",
+    "text": "I’ll walk with you. Tap the floor to explore, or choose a glowing object. Tap me whenever you need a hand.",
+    "audio": "assets/audio/supplied-v1/guide-companion.mp3",
+    "duration": 5.947,
+    "sha256": "54240d68da85ccc56603aee5d7204ec2bbad4b1ed85f47015a75a4cb4863ac48"
+  },
+  {
+    "id": "harness",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "A guidance fault. Fasten your harness. Your safety capsule will take you down to the research base. We are safe in orbit.",
+    "audio": "assets/audio/supplied-v1/harness.mp3",
+    "duration": 9.347,
+    "sha256": "28e8e35e936fa67bbb415c29aac1823b37e8ed8baef61d4c3cfac9f6c6066c55"
+  },
+  {
+    "id": "descent",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "Your capsule is approaching the base. Once inside, follow the lights.",
+    "audio": "assets/audio/supplied-v1/descent.mp3",
+    "duration": 6.035,
+    "sha256": "533577cee4e9480577f3363e513f270ec5bb3a516428b92cd6a7d4bf7ed9c57e"
+  },
+  {
+    "id": "enter",
+    "voice": "James - Calm, Comforting and Gentle",
+    "text": "The base is quiet. Beneath the workbench, a small robot waits. Take a closer look.",
+    "audio": "assets/audio/supplied-v1/enter.mp3",
+    "duration": 6.574,
+    "sha256": "5a3d25cc93d703df271a6e5244ae0c376e1c5936dc277240e553e2d11f6b9873"
+  }
+]

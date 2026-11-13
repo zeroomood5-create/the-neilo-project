@@ -1,0 +1,5 @@
+{
+  "url": "https://visualization.osdr.nasa.gov/radlab/api/?trajectory=Mars%20surface&instrument_id=MSL-RAD-Surface&timestamp%3E2015-01-01&timestamp%3C2015-01-02&absorbed_dose_rate&dose_equivalent_rate&format=json",
+  "sha256": "96535699E052B21E13D8FCBCAA5B8F5A81E871F2ED13B434498295B8E39876A2",
+  "retrieved_at": "2026-11-13T15:41:34.0188778+02:00"
+}

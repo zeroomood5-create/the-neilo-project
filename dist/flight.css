@@ -1,0 +1,44 @@
+.suit-open,.suit-dialog button{font:inherit;cursor:pointer;background:#17364b;color:#f4f6ec;border:1px solid #6d969d;border-radius:9px;padding:7px 12px}.suit-open{display:block;margin:5px 0}.suit-dialog{max-width:min(420px,90vw);max-height:90dvh;background:#102737;color:#f5f1e6;border:1px solid #598a91;border-radius:18px;padding:18px}.suit-dialog::backdrop{background:#081423cc}.suit-dialog h2{margin:0}.suit-dialog canvas{display:block;margin:6px auto;background:radial-gradient(ellipse,#355465,#142a38);border-radius:15px}.suit-choices,.suit-dialog .actions{display:flex;flex-wrap:wrap;gap:6px}.suit-dialog label{display:block;margin:8px 0}.power-slots{display:grid;grid-template-columns:repeat(6,1fr);gap:3px;margin:8px 0}.power-slots span{border-radius:5px;min-height:30px;display:grid;place-items:center;text-align:center;font:600 clamp(9px,2vw,13px)/1.1 system-ui;padding:3px;color:#102536}.slot-life{background:#9cb7bc}.slot-lights{background:#ffce7c}.slot-pump{background:#65dfd0}.slot-radio{background:#bdacff}.slot-free{color:#eee!important;border:1px dashed #7b939e}.shortfall,.hint-note{color:#ffda93}.tank{height:10px;border-radius:12px;overflow:hidden;background:#283f51;margin:8px 0}.tank i{display:block;background:#6ce9d4;height:100%}.hint-target{outline:4px solid #ffd36d!important;outline-offset:3px;z-index:2}.cinema-subtitles [data-cinema=buckle]{pointer-events:auto}
+
+.cinema-progress span{animation:none!important;width:100%!important;transform:scaleX(0);transform-origin:left}
+.mainmenu .menu-backdrop{background:linear-gradient(90deg,#071a2fe8,transparent 85%),linear-gradient(0deg,#071525,transparent 65%),url('./assets/arrival-bay.webp') center/cover;animation:none}
+.mainmenu .menu-title{margin:auto 8%;padding:0;z-index:1}
+.mainmenu .menu-title h1{font-size:clamp(70px,12vw,155px);font-weight:900;font-style:italic;letter-spacing:-.07em;margin:0;line-height:1}
+.title-star{color:#ffbc80;font-size:.55em;vertical-align:top}
+.menu-neilo{position:absolute;height:64svh;max-width:45%;object-fit:contain;right:10%;bottom:12%;filter:drop-shadow(0 18px 18px #0007);animation:robot-hover 5s ease-in-out infinite}
+.mainmenu .menu-story{font-size:clamp(16px,2vw,22px);line-height:1.45;color:#d7e6e8}
+.mainmenu .menu-title form{background:#0b2133b8;padding:15px;border:1px solid #82c6d83d;border-radius:16px;margin-top:18px;backdrop-filter:blur(12px)}
+.mainmenu .suit-open{width:100%;text-align:center}
+@keyframes robot-hover{50%{transform:translateY(-8px) rotate(2deg)}}
+.science-screen{height:100svh;display:flex;flex-direction:column;background:radial-gradient(ellipse at 50% 40%,#164956,#09172c 75%);color:#e8f4f0;overflow:auto}
+.science-screen header{display:flex;justify-content:space-between;padding:15px 5%}
+.science-body{margin:auto;text-align:center;width:min(820px,90%);padding:10px 0}
+.science-body h1{font-size:clamp(24px,4vw,45px);margin:10px 0}
+.science-body small{color:#ffce93;letter-spacing:.08em}
+.science-caption{font-size:clamp(17px,2.5vw,24px);max-width:700px;margin:15px auto;line-height:1.5}
+.science-screen footer{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:15px 5%;background:#071725b0}
+.science-screen footer small{max-width:440px;color:#b4c4cb;line-height:1.5;font-size:11px}
+.science-screen a{color:#8be5db}
+.science-choices{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.science-feedback{min-height:20px;color:#ffdb9d}
+.energy-animation{display:flex;align-items:center;justify-content:center;height:180px;gap:12px;margin:10px 0}
+.energy-sun{font-size:80px;color:#ffd06c;animation:sun-pulse 3s infinite}
+.energy-battery{font-size:70px;color:#91f7d0;position:relative}
+.energy-battery span{display:block;font:10px monospace;letter-spacing:.15em}
+.energy-device{font-size:72px;color:#84dbe9;min-width:82px}
+.energy-path{height:5px;width:100px;background:repeating-linear-gradient(90deg,#ffdc87 0 8px,transparent 8px 17px);background-size:34px;animation:flow 1s linear infinite}
+.radio-wave{display:none}
+.route .energy-sun,.swap .energy-sun{font-size:45px}
+.route .radio-wave,.swap .radio-wave{display:block;font-size:44px}
+.swap .pump-wheel{animation:spin 3s linear infinite}
+.swap .radio-wave{animation:sun-pulse 3s infinite}
+.pump .pump-wheel{display:block;animation:spin 4s linear infinite}
+.battery .energy-sun{opacity:.15}
+.battery .energy-path:first-of-type{opacity:.2}
+.science-screen.paused *{animation-play-state:paused!important}
+@keyframes flow{to{background-position:34px}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sun-pulse{50%{filter:drop-shadow(0 0 15px #ffcb70);opacity:.7}}
+@media(max-width:600px){.menu-neilo{height:40svh;right:-8%;bottom:23%;opacity:.7}.mainmenu .menu-title{margin:auto 5%}.mainmenu .menu-title h1{font-size:90px}.mainmenu .menu-title form{max-width:260px}.mainmenu footer{padding:10px 5%}.energy-animation{height:130px;gap:5px}.energy-sun{font-size:50px}.energy-battery{font-size:48px}.energy-device{font-size:48px;min-width:50px}.energy-path{width:35px}.music-toggle{font-size:12px;padding:4px!important}}
+@media(max-height:500px){.mainmenu .menu-title{display:grid;grid-template-columns:1fr 1fr;column-gap:22px;width:75%;margin:auto 5%}.mainmenu .menu-title h1{font-size:75px}.mainmenu .menu-title .eyebrow{display:none}.mainmenu .menu-title form{grid-column:2;grid-row:1/4;margin:0;padding:10px}.mainmenu .menu-title .menu-links{grid-column:1;margin:0}.mainmenu .menu-title p{margin:0;font-size:14px}.mainmenu header,.mainmenu footer{padding:8px 5%}.energy-animation{height:80px}.energy-sun,.energy-battery,.energy-device{font-size:40px}.science-caption{font-size:16px;margin:5px}.science-body h1{font-size:22px;margin:4px}}
+@media(prefers-reduced-motion:reduce){.menu-neilo,.energy-animation *{animation:none!important}}

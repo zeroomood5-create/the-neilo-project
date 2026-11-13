@@ -1,0 +1,52 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {readFile,mkdir} from 'node:fs/promises';
+const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_PACKAGE||'playwright');
+const origin=process.env.NEILO_TEST_URL||'http://localhost:4176';
+const browser=await chromium.launch({channel:'chrome'});
+try {
+ const page=await browser.newPage({viewport:{width:1152,height:720}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(origin);
+ const btn=name=>page.getByRole('button',{name,exact:true});
+ await page.locator('#explorer-name').fill('Salma');
+ await btn('Choose explorer').click();await btn('Teal pilot').click();await btn('Use this explorer').click();
+ await page.locator('.play-button').click();
+ assert.equal(await page.locator('.flight-suit').count(),0);
+ assert.match(await page.locator('video').getAttribute('src'),/voyage/);
+ await page.waitForFunction(()=>document.querySelector('video').currentTime>.1);
+ await page.screenshot({path:'qa/cinematic-pilot-fixed.png'});
+ await page.locator('[data-cinema=next]').click();
+ assert.match(await page.locator('video').getAttribute('src'),/harness/);
+ await btn('Fasten my harness').click();await page.locator('[data-cinema=skip]').click();
+ await page.locator('[data-action=guide-done]').click();
+ await page.locator('canvas[data-explorer=pilot]').waitFor();
+ await page.locator('[data-action=hint]').click();
+ assert.equal(await page.locator('[data-hotspot=wake]').evaluate(el=>el.classList.contains('hint-target')),true);
+ await page.locator('[data-hotspot=wake]').click();
+ assert.equal(await page.locator('.flight-suit').count(),0);
+ assert.match(await page.locator('video').getAttribute('src'),/discover/);
+ await page.locator('[data-cinema=skip]').click();
+ await btn('Can we reach my crew?').click();await page.locator('[data-action=guide-done]').click();
+ await page.locator('[data-hotspot=control]').click();await page.locator('[data-hotspot=power]').waitFor();
+ await page.locator('canvas[data-explorer=pilot]').waitFor();await mkdir('qa',{recursive:true});
+ await page.screenshot({path:'qa/teal-pilot.png'});
+ await page.locator('[data-hotspot=power]').click();await page.locator('[data-toggle=water]').click();await page.locator('[data-toggle=uplink]').click();await btn('Show me').click();
+ assert.match(await page.locator('.hint-note').innerText(),/Pause/);
+ assert.equal(await page.locator('.power-slots span').count(),6);
+ await page.screenshot({path:'qa/power-routing.png'});
+ const result=await page.evaluate(async()=>{
+ const {freshState,restoreState}=await import('/engine.js');const {memory}=await import('/flight.js');
+ const s=freshState('Salma');s.journal=[{id:1,text:'You calibrated the antenna and heard from your crew.'}];
+ return memory(restoreState(JSON.stringify(s)));});
+ assert.match(result,/Salma.*crew first/);
+ // Exercise photo flow against a fixture without sending an image off device.
+ const pilot=await readFile('dist/assets/pilot-atlas.png');
+ await page.route('**/api/avatar',route=>route.fulfill({json:route.request().method()==='GET'?{available:true}:{image:'data:image/png;base64,'+pilot.toString('base64')}}));
+ await page.reload();await btn('Choose explorer').click();
+ await page.locator('input[type=file]').setInputFiles('dist/assets/pilot-atlas.png');
+ await page.locator('input[type=checkbox]').check();await btn('Draw my explorer').click();
+ await page.getByText('Preview your explorer before saving.').waitFor();await btn('Use this explorer').click();
+ await page.locator('.play-button').click();await page.locator('canvas[data-explorer=personal]').waitFor();assert.deepEqual(errors,[]);
+ console.log('PASS · suit preview, harness, full-body scene, contextual help, rejected power routing, saved memory and fixture photo workflow.');
+} finally {await browser.close();}

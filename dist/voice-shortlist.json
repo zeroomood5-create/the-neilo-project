@@ -1,0 +1,23 @@
+[
+  {
+    "role": "Narrator",
+    "name": "George - Warm, Captivating Storyteller",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "description": "Warm resonance that instantly captivates listeners.",
+    "preview_url": "https://api.us.elevenlabs.io/v1/voices/JBFqnCBsd6RMkjVDRZzb/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJwcmVtYWRlIiwiZmlsZW5hbWUiOiJlNjIwNmQxYS0wNzIxLTQ3ODctYWFmYi0wNmE2ZTcwNWNhYzUubXAzIiwidGltZXN0YW1wIjoxNzk0NTI0NDAwMDAwMDAwfQ%3D%3D"
+  },
+  {
+    "role": "NEILO",
+    "name": "Luke- Strong but Friendly",
+    "voice_id": "THy3prVIjAFnT9vQVvCB",
+    "description": "A young, friendly American male voice with a soft tone. A relaxed and approachable vibe, yet strong and wise. Clear and easy to listen to.",
+    "preview_url": "https://api.us.elevenlabs.io/v1/voices/THy3prVIjAFnT9vQVvCB/previews/audio?payload=eyJ2b2ljZV9zb3VyY2UiOiJjdXN0b20iLCJ1c2VyX2lkIjoiR2kzc2ZqQkdGZ05MT21mU3RnNk9Pc1V3eVNDMiIsImZpbGVuYW1lIjoiMjhmMGQwYTAtYzg2NC00Y2IyLWJkMGYtZDQ3ODRkYzYzNTQzLm1wMyIsInRpbWVzdGFtcCI6MTc5NDUyNDQwMDAwMDAwMH0%3D"
+  },
+  {
+    "role": "NEILO",
+    "name": "Andrew - Clear & Intelligent",
+    "voice_id": "5Tt3smTZZdAF8jVbfVlP",
+    "description": "30 year old intelligent, friendly male American male voice.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/a83e3e140fa2469e891525af4d7c00e7/voices/5Tt3smTZZdAF8jVbfVlP/5db7c0c6-353c-4ba4-8671-21e00dbda923.mp3"
+  }
+]

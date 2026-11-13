@@ -1,0 +1,20 @@
+[
+  {
+    "role": "Narrator",
+    "name": "James - Calm, Comforting and Gentle",
+    "description": "Installed opening narration from your supplied recording.",
+    "preview_url": "./assets/audio/supplied-v1/voyage.mp3"
+  },
+  {
+    "role": "NEILO",
+    "name": "Valf - Young & Energetic",
+    "description": "Installed NEILO greeting from your supplied recording.",
+    "preview_url": "./assets/audio/supplied-v1/wake.mp3"
+  },
+  {
+    "role": "NEILO guidance",
+    "name": "Valf - Young & Energetic",
+    "description": "Installed companion movement guidance.",
+    "preview_url": "./assets/audio/supplied-v1/guide-companion.mp3"
+  }
+]
