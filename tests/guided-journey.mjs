@@ -18,17 +18,15 @@ try{
  await action('wake-crew').click();await action('hint').click();
  await spot('control').click();await spot('power').waitFor();
  await spot('habitat').click();assert.match(await p.locator('#neilo-message').innerText(),/power console/);
- await spot('power').click();await p.locator('[data-source]').click();await p.locator('[data-device=uplink]').click();
- await p.locator('[data-test]').click();assert.match(await p.locator('.power-game footer p').innerText(),/too much power/);
- await p.locator('[data-device=lights]').click();await p.locator('[data-test]').click();
- await p.screenshot({path:'qa/power-connections.png'});
- await p.locator('[data-follow]').click();
+ const workshop=()=>p.frameLocator('iframe[title="NEILO power wiring workshop"]');
+ const wire=async(kind,x,y)=>{const f=workshop();const board=await f.locator('#board').boundingBox(),plug=await f.locator('.plug').nth(kind==='out'?0:1).boundingBox();await p.mouse.move(plug.x+plug.width/2,plug.y+plug.height/2);await p.mouse.down();await p.mouse.move(board.x+x/960*board.width,board.y+y/580*board.height,{steps:20});await p.mouse.up();await p.waitForTimeout(220);};
+ await spot('power').click();await workshop().locator('#switch').click();assert.match(await workshop().locator('#result').innerText(),/loop is open/);
+ await wire('out',645,205);await wire('return',645,266);await workshop().locator('#switch').click();await workshop().locator('#pump.running').waitFor();
+ await p.screenshot({path:'qa/power-connections.png'});await workshop().locator('#continue').click();
  await spot('habitat').click();await spot('plants').click();assert.match(await p.locator('#neilo-message').innerText(),/First restore power/);
- await spot('water').click();await action('open-power').click();
- await p.locator('[data-source]').click();await p.locator('[data-device=water]').click();await p.locator('[data-device=uplink]').click();await p.locator('[data-test]').click();await p.locator('[data-follow]').click();
- await spot('water').click();await action('run-water').click();await p.locator('[data-sci=skip]').click();
- await p.locator('[data-toggle=water]').click();await action('close').click();
- await spot('control').click();await spot('power').click();await p.locator('[data-source]').click();await p.locator('[data-device=uplink]').click();await p.locator('[data-test]').click();await p.locator('[data-follow]').click();
+ await spot('water').click();await action('run-water').click();await p.locator('[data-sci=skip]').click();await action('close').click();
+ await spot('control').click();await spot('power').click();await wire('out',645,429);await wire('return',645,490);await workshop().locator('#switch').click();await workshop().locator('#radio.transmitting').waitFor();
+ await wire('out',470,320);assert.equal(await workshop().locator('#radio.transmitting').count(),0);await wire('out',645,429);await workshop().locator('#switch').click();await workshop().locator('#radio.transmitting').waitFor();await workshop().locator('#continue').click();
  await spot('comms').click();await action('calibrate').click();await p.locator('[data-cinema=skip]').click();
  await action('send').click();await p.locator('[data-cinema=skip]').click();await p.locator('[data-sci=skip]').click();
  await action('mission-garden').click();await p.getByRole('heading',{name:'A fresh addition'}).waitFor();
@@ -39,6 +37,6 @@ try{
  await p.setViewportSize({width,height});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1&&document.documentElement.scrollHeight<=innerHeight+1));}
  await p.reload();await p.locator('.play-button').click();assert.equal(await p.locator('.tutorial-target').count(),0);
  assert.deepEqual(errors,[]);
- console.log('PASS normal entry, story recap, action-based tutorial, early-route guards, power-plan failure/recovery, water, crew, signal, garden unlock, saved progress, five viewports and Interstellar playback.');
+ console.log('PASS normal entry, story recap, action-based tutorial, early-route guards, open circuit, real wire dragging, post-radio disconnect/reconnect, water, crew, signal, garden unlock, saved progress, five viewports and Interstellar playback.');
 }finally{await browser.close();}
 

@@ -59,3 +59,14 @@ test('a low-battery journey can recover without losing prepared resources', () =
   assert.equal(result.state.battery, 3);
   assert.equal(result.state.water, 5);
 });
+
+
+test('opening the wiring breaker persists power off without spending reserve or erasing progress',()=>{
+ let s=applyAction(freshState(),{type:'wake'}).state;
+ s=applyAction(s,{type:'power-plan',devices:{lights:false,water:false,uplink:true}}).state;
+ const battery=s.battery;
+ const r=applyAction(s,{type:'power-off'});
+ assert.equal(r.ok,true);assert.equal(powerUsed(r.state),2);assert.equal(r.state.powerChecked,true);
+ assert.equal(r.state.battery,battery);assert.deepEqual(r.state.devices,{lights:false,water:false,uplink:false});
+ assert.deepEqual(restoreState(JSON.stringify(r.state)).devices,r.state.devices);
+});

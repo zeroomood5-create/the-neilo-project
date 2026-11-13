@@ -34,3 +34,9 @@ Latest direction: guide the child through chapters in order, with experimentatio
 JavaScript/CSS implementation assisted by Codex; Node state tests and Playwright/Chrome browser checks; image_gen for the new educational illustration; existing FFmpeg-normalized user music; Sites publishing helper and Git/GitHub for release distribution. This release does not claim new ElevenLabs recordings or new Flow video generation.
 
 Recovery: local tag backup-before-guided-flow-20261114 and verified backups/before-guided-flow-20261114.bundle. Backups remain local. Publication status is recorded in RELEASE_CURRENT.md and workspace NEILO_HANDOFF.md after deployment.
+
+## Approved wiring workshop integration
+
+Ahmed approved the standalone preview after two requested corrections: bounded cable sag and continued unplugging after radio activation. The approved interaction now replaces the source/toggle/test cards. A same-origin workshop frame isolates the approved visual styling; a checked message bridge commits circuits through engine actions. An open breaker stops pump/radio power while preserving progress and emergency life support. The pump connection leads back to the actual water task; the radio chapter opens after water is prepared. The preview shortcut is excluded from production. Help connects one plug, leaving the other for the player.
+
+A new normal-entry browser check uses real dragging through the integrated workshop, tests open-circuit feedback, radio disconnect/reconnect and the water-to-signal-to-garden path. Existing Interstellar mixing remains unchanged. Original preview remains available locally on port 4182.
