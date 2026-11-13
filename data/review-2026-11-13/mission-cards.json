@@ -1,0 +1,191 @@
+[
+  {
+    "id": "FOOD-01",
+    "axis": "food",
+    "source": {
+      "title": "CSA Interplanetary Farming",
+      "url": "https://www.asc-csa.gc.ca/eng/youth-educators/activities/fitness-and-nutrition/interplanetary-farming.asp",
+      "organization": "CSA",
+      "locator": "Selecting crops for space, crop table",
+      "accessed_on": "2026-11-13",
+      "challenge_resource": true,
+      "dataset_or_mission": "CSA Interplanetary Farming"
+    },
+    "fact": {
+      "statement": "Approximate growth examples list leaf lettuce at 21\u201328 days and soybean at 45\u201365 days.",
+      "quantitative": true,
+      "value": {
+        "lettuce": [
+          21,
+          28
+        ],
+        "soybean": [
+          45,
+          65
+        ]
+      },
+      "units": "days",
+      "environment": "Teaching examples for space-crop selection",
+      "conditions": "Conditions of a specific Mars growth trial are not supplied.",
+      "limitations": "The table provides neither Mars guarantees nor crop-specific resource consumption."
+    },
+    "educational_model": {
+      "child_explanation_en": "Compare crop time and preparation with our meal request.",
+      "simplification": "A short planning task with source context and replayable explanation.",
+      "limits": "The table provides neither Mars guarantees nor crop-specific resource consumption."
+    },
+    "game_balance": {
+      "fictional": true,
+      "values": {},
+      "rationale": "Calendar steps, meal dates and robot turns are authored game values."
+    },
+    "mission": {
+      "observation": "Compare crop time and preparation with our meal request.",
+      "decision": "Choose a plan and label what the evidence supports.",
+      "choices": [
+        "Leaf lettuce",
+        "Soybean"
+      ],
+      "immediate_effect": "The crop and simulation calendar change.",
+      "later_effect": "Reserve-food use, cooking and the second crop request depend on the plan.",
+      "neilo_response_en": "Let\u2019s check what we know before the next step.",
+      "recovery": "Replan or revisit the evidence. Progress remains available.",
+      "transfer_question_en": "What changes if the next place or meal request is different?"
+    },
+    "implementation": {
+      "status": "unmapped",
+      "engine_actions": [
+        "garden-plant",
+        "garden-advance",
+        "garden-harvest",
+        "garden-finish"
+      ],
+      "work_needed": "Custom runtime actions are implemented in campaign-state.js. This card is documentation and is not automatically imported by the legacy card mapper."
+    },
+    "review": {
+      "status": "needs-review",
+      "reviewer": "",
+      "reviewed_on": "",
+      "reason": "Sources checked, team reviewer and sign-off pending."
+    }
+  },
+  {
+    "id": "RAD-01",
+    "axis": "radiation",
+    "source": {
+      "title": "RadLab MSL-RAD-Surface",
+      "url": "https://visualization.osdr.nasa.gov/radlab/gui/data-api/",
+      "organization": "NASA / study authors",
+      "locator": "absorbed_dose_rate field; saved 2015-01-01 query",
+      "accessed_on": "2026-11-13",
+      "challenge_resource": true,
+      "dataset_or_mission": "RadLab MSL-RAD-Surface"
+    },
+    "fact": {
+      "statement": "The archived sample contains 84 Mars-surface records; equivalent dose rate is null in each.",
+      "quantitative": true,
+      "value": 84,
+      "units": "records",
+      "environment": "Curiosity instrument on Mars surface",
+      "conditions": "1 January 2015, saved query documented alongside raw JSON.",
+      "limitations": "A missing equivalent dose rate is unavailable. No human-health threshold follows from this sample."
+    },
+    "educational_model": {
+      "child_explanation_en": "Read the date, device, unit and missing value.",
+      "simplification": "A short planning task with source context and replayable explanation.",
+      "limits": "A missing equivalent dose rate is unavailable. No human-health threshold follows from this sample."
+    },
+    "game_balance": {
+      "fictional": true,
+      "values": {},
+      "rationale": "Calendar steps, meal dates and robot turns are authored game values."
+    },
+    "mission": {
+      "observation": "Read the date, device, unit and missing value.",
+      "decision": "Choose a plan and label what the evidence supports.",
+      "choices": [
+        "Send preliminary notes",
+        "Read the separate M12 study"
+      ],
+      "immediate_effect": "The graph and available evidence change.",
+      "later_effect": "Report scope and the relay queue reflect priority.",
+      "neilo_response_en": "Let\u2019s check what we know before the next step.",
+      "recovery": "Replan or revisit the evidence. Progress remains available.",
+      "transfer_question_en": "What changes if the next place or meal request is different?"
+    },
+    "implementation": {
+      "status": "unmapped",
+      "engine_actions": [
+        "scout-archive",
+        "scout-missing",
+        "scout-report"
+      ],
+      "work_needed": "Custom runtime actions are implemented in campaign-state.js. This card is documentation and is not automatically imported by the legacy card mapper."
+    },
+    "review": {
+      "status": "needs-review",
+      "reviewer": "",
+      "reviewed_on": "",
+      "reason": "Sources checked, team reviewer and sign-off pending."
+    }
+  },
+  {
+    "id": "RAD-02",
+    "axis": "radiation",
+    "source": {
+      "title": "Natural Radiation Shielding on Mars (2021)",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021JE006851",
+      "organization": "NASA / study authors",
+      "locator": "Abstract, M12, MSL sols 1456\u20131467",
+      "accessed_on": "2026-11-13",
+      "challenge_resource": true,
+      "dataset_or_mission": "Natural Radiation Shielding on Mars (2021)"
+    },
+    "fact": {
+      "statement": "A 4% decrease in expected dose rate was found during the M12 observation.",
+      "quantitative": true,
+      "value": 4,
+      "units": "percent",
+      "environment": "Butte M12, Murray Buttes, Gale crater, Mars",
+      "conditions": "September 2016 observation with approximately 19% sky obstruction.",
+      "limitations": "The 2015 sample is separate. The result does not establish safety at a new site."
+    },
+    "educational_model": {
+      "child_explanation_en": "A place changed a rover measurement. A new place still needs checking.",
+      "simplification": "A short planning task with source context and replayable explanation.",
+      "limits": "The 2015 sample is separate. The result does not establish safety at a new site."
+    },
+    "game_balance": {
+      "fictional": true,
+      "values": {},
+      "rationale": "Calendar steps, meal dates and robot turns are authored game values."
+    },
+    "mission": {
+      "observation": "A place changed a rover measurement. A new place still needs checking.",
+      "decision": "Choose a plan and label what the evidence supports.",
+      "choices": [
+        "Send limited notes now",
+        "Spend a robot turn on additional study evidence"
+      ],
+      "immediate_effect": "A separate historical study opens.",
+      "later_effect": "A report can include M12 while asking for a new site measurement.",
+      "neilo_response_en": "Let\u2019s check what we know before the next step.",
+      "recovery": "Replan or revisit the evidence. Progress remains available.",
+      "transfer_question_en": "What changes if the next place or meal request is different?"
+    },
+    "implementation": {
+      "status": "unmapped",
+      "engine_actions": [
+        "scout-study",
+        "scout-report"
+      ],
+      "work_needed": "Custom runtime actions are implemented in campaign-state.js. This card is documentation and is not automatically imported by the legacy card mapper."
+    },
+    "review": {
+      "status": "needs-review",
+      "reviewer": "",
+      "reviewed_on": "",
+      "reason": "Sources checked, team reviewer and sign-off pending."
+    }
+  }
+]

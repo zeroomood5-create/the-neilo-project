@@ -21,3 +21,5 @@ Limits
 - Health activities from the new report are screened proposals. They are separate from the implemented garden/RAD campaign.
 - Earth communication delay remains a planned extension.
 - The public v5 website is a separate deployment. The current expanded release runs locally on port 4176 and is published as source files to the linked repository.
+
+Additional baseline validation passed after integration: full First Signal journey and save/reload across five viewport sizes. The three scientific mission cards pass the structural validator and remain needs-review for named scientific sign-off.
