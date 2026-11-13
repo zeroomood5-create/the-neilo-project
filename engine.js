@@ -69,6 +69,9 @@ export function applyAction(previous, action) {
     state.tutorial='discover';
   } else if (action.type === 'tutorial-help' || action.type === 'tutorial-skip') {
     state.tutorial=action.type==='tutorial-skip'?'done':state.awake?'done':state.tutorial;
+  } else if (action.type === 'power-off') {
+    if (!state.awake) return reject('Find NEILO first.');
+    state.devices={lights:false,water:false,uplink:false};
   } else if (action.type === 'power-plan') {
     if (!state.awake) return reject('Find NEILO first.');
     if (!action.devices || ['lights','water','uplink'].some(id=>typeof action.devices[id]!=='boolean')) return reject('Choose a device to connect.');
