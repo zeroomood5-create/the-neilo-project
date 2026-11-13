@@ -6,7 +6,7 @@ export const capacity = 6;
 export const essentialDraw = 2;
 
 export function freshState(name = 'Explorer') {
-  return { version: 1, garden: freshGarden(), scout: freshScout(), avatar: 'classic', firstJob: null, name: String(name).trim().slice(0, 24) || 'Explorer', started: false, awake: false, room: 'arrival', battery: 8, water: 3, rawWater: 4, turn: 0, devices: { lights: true, water: false, uplink: false }, calibrated: false, received: false, sent: false, seen: [], journal: [], nextEvent: 1 };
+  return { version: 1, tutorial: 'walk', powerChecked: false, garden: freshGarden(), scout: freshScout(), avatar: 'classic', firstJob: null, name: String(name).trim().slice(0, 24) || 'Explorer', started: false, awake: false, room: 'arrival', battery: 8, water: 3, rawWater: 4, turn: 0, devices: { lights: true, water: false, uplink: false }, calibrated: false, received: false, sent: false, seen: [], journal: [], nextEvent: 1 };
 }
 
 export function powerUsed(state) {
@@ -16,6 +16,7 @@ export function powerUsed(state) {
 export function objectives(state) {
   return [
     { label: 'Meet NEILO', done: state.awake },
+    { label: 'Connect a device at the power console', done: state.powerChecked },
     { label: 'Prepare water for the wait', done: state.water >= 5 },
     { label: 'Calibrate the antenna', done: state.calibrated },
     { label: 'Send your first signal', done: state.sent },
@@ -31,6 +32,8 @@ export function restoreState(raw) {
     const state = freshState(saved.name);
     Object.assign(state, restoreCampaign(saved));
     for (const key of ['started', 'awake', 'calibrated', 'received', 'sent']) state[key] = saved[key] === true;
+    state.tutorial = ['walk','discover','help','done'].includes(saved.tutorial) ? saved.tutorial : state.awake ? 'done' : 'walk';
+    state.powerChecked = saved.powerChecked===true || state.sent || state.calibrated || saved.firstJob==='water' || saved.firstJob==='radio' || saved.water>=5 || saved.devices?.water===true || saved.devices?.uplink===true;
     for (const key of ['battery', 'water', 'rawWater', 'turn', 'nextEvent']) {
       if (Number.isInteger(saved[key]) && saved[key] >= 0 && saved[key] <= 10000) state[key] = saved[key];
     }
@@ -61,7 +64,21 @@ export function applyAction(previous, action) {
   const reject = (message) => ({ state: previous, ok: false, message });
   let message = '';
   let note = '';
-  if (action.type.startsWith('garden-') || action.type.startsWith('scout-')) {
+  if (action.type === 'tutorial-arrived') {
+    if (state.tutorial !== 'walk') return reject('You already know this step.');
+    state.tutorial='discover';
+  } else if (action.type === 'tutorial-help' || action.type === 'tutorial-skip') {
+    state.tutorial=action.type==='tutorial-skip'?'done':state.awake?'done':state.tutorial;
+  } else if (action.type === 'power-plan') {
+    if (!state.awake) return reject('Find NEILO first.');
+    if (!action.devices || ['lights','water','uplink'].some(id=>typeof action.devices[id]!=='boolean')) return reject('Choose a device to connect.');
+    state.devices={...action.devices};
+    if (powerUsed(state)>capacity) return reject('That plan asks for too much power. Disconnect a device, then test again.');
+    if (!state.devices.water && !state.devices.uplink) return reject('Connect the pump or radio to test a useful plan.');
+    state.powerChecked=true;
+    message='Your connections work. '+(state.devices.water?'The pump is ready.':'The radio has power.')+' Now follow the next station light.';
+    note='You tested a power plan and connected '+(state.devices.water?'the pump.':'the radio.');
+  } else if (action.type.startsWith('garden-') || action.type.startsWith('scout-')) {
     const result = campaignAction(state,action);
     if (!result.ok) return reject(result.message);
     message=result.message;note=result.note;
@@ -72,21 +89,25 @@ export function applyAction(previous, action) {
   } else if (action.type === 'wake') {
     if (state.awake) return reject('I’m right here!');
     state.awake = true;
+    if (state.tutorial!=='done') state.tutorial='help';
     message = `Hello, ${state.name}. I’m NEILO. Let’s find a way to reach your crew, together.`;
     note = 'You woke NEILO. Your exploration has a new companion.';
   } else if (action.type === 'move') {
     if (!state.awake) return reject('That little blue light might be worth checking first.');
     if (!Object.hasOwn(content.rooms, action.room)) return reject('That room is unavailable.');
+    if (action.room==='habitat' && !state.powerChecked) return reject('First test a connection at the power console.');
     state.room = action.room;
   } else if (action.type === 'toggle') {
     if (!state.awake) return reject('Meet NEILO before changing the base systems.');
     if (!content.devices.some(device => device.id === action.device)) return reject('Unknown device.');
     state.devices[action.device] = !state.devices[action.device];
     if (powerUsed(state) > capacity) return reject('There isn’t enough power for that combination. Try pausing another device first. Your current setup is still running.');
+    if (state.devices.water || state.devices.uplink) state.powerChecked=true;
     const device = content.devices.find(item => item.id === action.device);
     message = `${device.name} ${state.devices[action.device] ? 'on' : 'off'}. ${capacity - powerUsed(state)} power available.`;
     note = `You switched ${device.name.toLowerCase()} ${state.devices[action.device] ? 'on' : 'off'}.`;
   } else if (action.type === 'water') {
+    if (!state.powerChecked) return reject('Test the power connections first.');
     if (!state.devices.water) return reject('The water unit needs power. You can set its power here or at the control-room console.');
     if (state.water >= 5) return reject('You’ve already prepared water for the wait. Let’s save the remaining supplies.');
     if (state.rawWater < 2) return reject('This cycle needs more stored water.');

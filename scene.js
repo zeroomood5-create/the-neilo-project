@@ -121,6 +121,12 @@ export function createScene(canvas, state, options = {}) {
     canvas.dataset.motion = moving ? 'walking' : 'idle';
     canvas.dataset.position = position.toFixed(2);
     ctx.drawImage(artwork.room, 0, 0, width, height);
+    if (!state.sent) {
+      ctx.save();ctx.fillStyle=state.powerChecked?'#071a3338':'#04182c99';ctx.fillRect(0,0,width,height);ctx.restore();
+      ctx.save();ctx.fillStyle='#eab66b';ctx.shadowColor='#eab66b';ctx.shadowBlur=9;
+      for(let x=80;x<960;x+=100)ctx.fillRect(x,585,40,3);
+      ctx.restore();
+    }
     deviceStates();
     const bounce = moving && !reducedMotion ? Math.sin(walkTime * 12) * 1.4 : 0;
     const frame = Math.floor(walkTime * 12) % 8;

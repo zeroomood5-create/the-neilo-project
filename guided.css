@@ -1,0 +1,39 @@
+.hotspot[data-state=locked]{opacity:.45}.next-station .station-icon{outline:3px solid #ffd291;outline-offset:6px;box-shadow:0 0 30px #ffc37299}
+.tutorial-target{position:absolute;left:60%;top:88%;width:75px;height:38px;border-radius:50%;transform:translate(-50%,-50%);border:3px solid #ffdc8b;background:#ffce772c;z-index:6;box-shadow:0 0 25px #ffce77aa;cursor:pointer;animation:target-glow 1.4s infinite}
+.tutorial-target span{position:absolute;bottom:24px;left:22px;font-size:28px;color:#ffdc8b}
+.play-shell .guide-card{top:95px;left:auto;right:16px;transform:none;width:min(75%,360px);padding:12px 15px;box-shadow:0 4px 20px #0006;pointer-events:none}
+.play-shell .guide-card p{font-size:15px;line-height:1.4;margin:0}.play-shell .guide-card button{pointer-events:auto;font-size:11px}
+@keyframes target-glow{50%{box-shadow:0 0 45px #ffce77cc}}
+.power-game,.story-map{height:100svh;display:grid;grid-template-rows:62px minmax(0,1fr) 105px;background:radial-gradient(ellipse at center,#254450,#0b1e32 80%);color:#eaf5f0;overflow:hidden}
+.power-game header,.story-map header{padding:12px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #91c5c733}
+.power-game header>span:nth-child(2){font:11px monospace;color:#8edbd4}
+.power-game main,.story-map main{min-height:0;overflow:auto;width:min(100%,1050px);margin:auto;padding:18px 4%}
+.power-game h1{text-align:center;font-size:clamp(23px,4vw,38px);margin:0 0 20px}
+.circuit{display:flex;align-items:center;gap:0;min-height:300px;justify-content:center}
+.source-node{border:2px solid #8fe9d5;background:linear-gradient(#286557,#16313b);border-radius:16px;width:160px;min-height:190px;color:#eefaf1;padding:12px;display:grid;gap:10px;align-content:center;box-shadow:0 0 25px #82dec52a;cursor:pointer}
+.source-node b{font-size:55px;color:#ffe1a1}.source-node.selected{outline:4px solid #ffcf86;outline-offset:5px}
+.power-branches{width:55%;display:grid;gap:20px}.power-branch{display:flex;align-items:center}.power-branch>i{width:80px;max-width:25%;height:8px;background:#496475;box-shadow:inset 0 0 3px #0a2639}
+.power-branch button{flex:1;min-height:80px;border:2px solid #5c7b8c;border-radius:12px;background:#152b3e;color:#d5e5e3;display:grid;grid-template-columns:45px 1fr;text-align:left;padding:9px;gap:4px;cursor:pointer}
+.power-branch button>b{grid-row:1/3;align-self:center;font-size:35px}.power-branch button span{font-size:18px}.power-branch button small{color:#92aeb7;font-size:11px}
+.power-branch.connected>i{background:#8ce0cd;box-shadow:0 0 12px #78dbc1}.power-branch.connected button{border-color:#8ce0cd;background:#264d4d}.over-budget .power-branch.connected>i{background:#ffb77b}
+.protected-power{text-align:center;font-size:12px;color:#b2c8c9;margin:18px 0}
+.power-capacity{display:flex;justify-content:center;gap:8px}.power-capacity i{width:38px;height:12px;border:1px dashed #9bb7be;border-radius:5px}.power-capacity i.used{background:#91e8c8;border:0}
+.power-game footer,.story-map footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 4%;background:#0b1c2d}
+.power-game footer img{width:42px;height:70px;object-fit:contain}.power-game footer p{flex:1;font-size:14px;line-height:1.4}
+.story-map main{text-align:center}.story-map main h1{font-size:clamp(23px,4vw,38px)}.story-map main p{font-size:clamp(17px,2.6vw,24px);max-width:720px;margin:14px auto;line-height:1.5}
+.orbit-diagram{height:270px;width:min(700px,95%);position:relative;margin:auto}
+.mars-world{position:absolute;width:215px;height:215px;border-radius:50%;left:35%;top:48px;background:radial-gradient(circle at 35% 25%,#f8b27b,#b75a36 60%,#5d2830);box-shadow:0 0 70px #e09d552b}
+.orbit-ship{position:absolute;left:15%;top:15px;padding:17px;border:2px solid #8ce9d9;border-radius:12px 45px;background:#264651;font:700 16px monospace}.orbit-ship small,.base-dot small{font-size:10px}
+.base-dot{position:absolute;left:59%;top:195px;background:#1a3945;border:2px solid #ffd28f;padding:12px;border-radius:9px;font:700 16px monospace}
+.capsule-dot{position:absolute;left:33%;top:105px;width:20px;height:28px;background:#f8d2a1;border-radius:50% 50% 15% 15%;box-shadow:0 0 20px #ffda99}
+.separation .capsule-dot{animation:descent-map 4s ease-in-out infinite}.landed .capsule-dot,.goal .capsule-dot{left:56%;top:190px}
+.radio-broken{position:absolute;right:12%;bottom:8px;color:#ffc18a;font-size:48px}.separation .radio-broken{visibility:hidden}
+@keyframes descent-map{to{transform:translate(145px,86px)}}
+@media(max-width:600px){.power-game,.story-map{grid-template-rows:52px minmax(0,1fr) 145px}.power-game header>span:nth-child(2){font-size:8px}.power-game main{padding:12px}.circuit{min-height:260px}.source-node{width:105px;min-height:150px;font-size:12px}.source-node b{font-size:40px}.power-branches{width:66%}.power-branch button{min-height:75px;grid-template-columns:25px 1fr;padding:7px}.power-branch button>b{font-size:24px}.power-branch button span{font-size:13px}.power-branch button small{font-size:9px}.power-game footer{flex-wrap:wrap;gap:5px}.power-game footer img{width:26px;height:42px}.power-game footer p{min-width:70%;font-size:12px}.power-game footer button{font-size:12px}.orbit-diagram{height:245px}.mars-world{width:175px;height:175px;left:30%}.orbit-ship{left:2%;font-size:12px;padding:10px}.base-dot{font-size:12px;left:61%;top:170px}.landed .capsule-dot,.goal .capsule-dot{left:55%;top:170px}.story-map footer{align-self:end}.play-shell .guide-card{top:70px;right:10px;width:65%}}
+@media(max-height:500px){.power-game,.story-map{grid-template-rows:44px minmax(0,1fr) 75px}.power-game main{padding:8px}.circuit{min-height:185px}.power-game h1{font-size:20px;margin:0}.power-branches{gap:6px}.power-branch button{min-height:48px}.source-node{min-height:120px}.protected-power{margin:5px}.orbit-diagram{height:150px;transform:scale(.65);transform-origin:top center;margin-bottom:-45px}.story-map main h1{font-size:22px;margin:4px}.story-map main p{font-size:15px}.power-game footer p{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.tutorial-target,.capsule-dot{animation:none}}
+
+
+.power-cutaway{margin:0 auto;position:relative;overflow:hidden;border-radius:20px;max-width:820px}.power-cutaway img{width:100%;height:100%;object-fit:cover;display:block}.power-cutaway figcaption{position:absolute;bottom:0;left:0;right:0;background:#101f2bdd;color:#fff;padding:8px;font-size:14px;letter-spacing:2px}.power-cutaway small{display:block;letter-spacing:0;font-size:10px}
+
+.power-cutaway{width:min(700px,100%);height:clamp(145px,27vh,310px);background:#102332}.power-cutaway img{object-fit:contain}.power-cutaway figcaption{font-size:11px;padding:5px}@media(max-height:500px){.power-cutaway{height:110px}.power-cutaway figcaption{font-size:8px;padding:2px}.power-cutaway figcaption small{font-size:7px}}
