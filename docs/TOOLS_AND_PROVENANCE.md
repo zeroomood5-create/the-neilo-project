@@ -33,3 +33,5 @@ NEILO was developed with AI assistance. Codex assisted with JavaScript implement
 
 Automated completion verifies software behavior. It does not demonstrate learning gains or likeness quality. The exact test outcomes and deployment state are recorded in RELEASE_CURRENT.md.
 
+
+14 November update: image_gen created the battery/motor/pump illustration for the guided journey. JavaScript/CSS implements the chapter guards, action-based tutorial, story-map recap and power connection mini-game. Sites helper prepares the existing public Site release. See GUIDED_JOURNEY_RELEASE.md for remaining production and test limits.

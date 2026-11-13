@@ -50,7 +50,7 @@ async function unlock() {
         oscillator.start();
       }
     }
-    if (enabled) await context.resume();
+    if (enabled) { await context.resume(); music.start(context,master); }
   } catch { /* Captions and visual cues remain available. */ }
 }
 

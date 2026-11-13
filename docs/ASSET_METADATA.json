@@ -1,5 +1,5 @@
 {
-  "assembled_on": "2026-11-13",
+  "assembled_on": "2026-11-14",
   "timezone": "Africa/Cairo",
   "code": "AI-assisted implementation reviewed through automated checks",
   "scientific_data": "Original NASA/CSA sources, with AI-assisted interpretation and visualization. See source query and report.",
@@ -357,6 +357,12 @@
       "sha256": "51abbd62c242ccb3833fbd8245acb4d5ef861996dae949937c0bef597983e0a1",
       "kind": "image",
       "provenance": "AI-generated illustrative art"
+    },
+    {
+      "file": "dist/assets/power-science.png",
+      "sha256": "8c8be05cd3ea7babfc38653304dc6c3feccc82cfd45d8297acf7956b6b4f638a",
+      "kind": "image",
+      "provenance": "AI-generated educational illustration using image_gen, 2026-11-14. Battery connected to electric motor and pump; simplified mechanism, not NASA hardware or measurement."
     }
   ]
 }

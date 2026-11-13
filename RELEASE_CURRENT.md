@@ -1,3 +1,9 @@
+# Guided journey update — 14 November 2026
+
+See GUIDED_JOURNEY_RELEASE.md for current implementation and remaining production tasks. State tests and a new normal-entry guided browser journey passed. Public deployment status is appended after publishing.
+
+The following is the retained previous-release record:
+
 # Current NEILO release
 
 Assembly and verification record: 2026-11-13 23:22:19 +02:00, Africa/Cairo.

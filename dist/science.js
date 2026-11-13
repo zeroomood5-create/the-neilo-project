@@ -2,6 +2,7 @@ import { gardenScene } from './mission-view.js';
 import {audio} from './audio.js?v=voices-supplied-v1';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function illustration(visual) {
+ if(['battery','pump','route','swap'].includes(visual)) return '<figure class="lesson-illustration power-cutaway"><img src="assets/power-science.png" alt="Illustrated battery connected to an electric motor that turns a water pump"><figcaption>BATTERY → MOTOR → PUMP <small>AI-generated illustration · simplified mechanism</small></figcaption></figure>';
  if(visual==='garden') return '<div class="lesson-illustration">'+gardenScene({crop:'lettuce',day:28})+'</div>';
  if(visual==='calendar') return '<div class="lesson-illustration crop-compare"><div><b>Leaf lettuce</b><strong>21–28</strong><span>days · approximate</span></div><div><b>Soybean</b><strong>45–65</strong><span>days · approximate</span></div></div>';
  if(visual==='kitchen') return '<div class="lesson-illustration kitchen-art"><div class="cooking-pot"><i></i><i></i><i></i></div><strong>HARVEST → PREPARE → SERVE</strong></div>';

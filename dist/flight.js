@@ -1,9 +1,11 @@
+import { nextStep } from './progression.js';
 import { powerUsed, capacity } from './engine.js';
 
 export function guidance(s, panel, blockedDevice) {
   const spot = (id, text) => ({ selector: '[data-hotspot="'+id+'"]', text });
   const action = (id, text) => ({ selector: '[data-action="'+id+'"]', text });
   const toggle = (id, text) => ({ selector: '[data-toggle="'+id+'"]', text });
+  if (!panel) {const step=nextStep(s);return {selector:step.id==='tutorial-walk'?'[data-action=tutorial-walk]':step.id==='hint'||step.id==='journal'?'[data-action='+step.id+']':'[data-hotspot='+(step.room===s.room?step.id:s.room==='arrival'?'control':step.room==='habitat'?'habitat':'control')+']',text:step.text};}
   if (panel === 'recharge') return action('run-recharge', 'Give the battery a turn on the charger.');
   if (panel === 'power' || panel === 'water' || panel === 'comms') {
     const device = blockedDevice || (panel === 'comms' || (panel === 'power' && s.water >= 5) ? 'uplink' : 'water');

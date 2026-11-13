@@ -9,6 +9,9 @@ import { guidance, powerDisplay, memory } from './flight.js';
 import { suitPicker } from './suits.js';
 import { lessons } from './lessons.js';
 import { playLesson } from './science.js';
+import { nextStep, lockedReason, targetForRoom } from './progression.js';
+import { playBriefing } from './briefing.js';
+import { mountPower } from './power-game.js';
 import { mountMission } from './mission-view.js';
 let blockedDevice = null;
 const app = document.querySelector('#app');
@@ -60,7 +63,7 @@ function renderCover() {
     audio.cue('discover');
     if (state.started) {
       state.name=String(new FormData(event.target).get('name')||state.name).trim().slice(0,24)||state.name;
-      persist();neiloMessage='Welcome back, '+state.name+'. '+defaultHint();renderGame();showGuide();return;
+      persist();neiloMessage='Welcome back, '+state.name+'. '+defaultHint();renderGame();return;
     }
     act({ type: 'start', name: new FormData(event.target).get('name') });
     renderStory();
@@ -73,7 +76,7 @@ function runMovie(clips, done) {
 }
 function renderStory() {
   const itinerary = cinematics.opening.slice(0,3);
-  runMovie(itinerary, () => { renderGame(); showGuide(); });
+  runMovie(itinerary, () => {cinematicPlayer=playBriefing(app,()=>{cinematicPlayer=null;renderGame();});});
 }
 function runScience(lesson,done) {
   destroyScene();cinematicPlayer?.stop();
@@ -94,21 +97,24 @@ function openMission(kind) {
     return result;
   },leave,explain,()=>openMission('survey'));
 }
+function openPower() {
+  closePanel();destroyScene();cinematicPlayer?.stop();
+  cinematicPlayer=mountPower(app,state,act,()=>{cinematicPlayer?.stop();cinematicPlayer=null;neiloMessage=defaultHint();renderGame();});
+}
 function showGuide() {
-  const id = state.awake ? 'guide-companion' : 'guide-arrival';
-  if (state.seen.includes(id)) return;
-  const card = document.querySelector('#guide-card');
-  if (!card) return;
-  const text = state.awake ? 'I’ll walk with you. Tap the floor to explore, or choose a glowing object. Tap me whenever you need a hand.' : 'Tap the floor to walk. See that little blue light? Tap it to take a closer look.';
-  card.innerHTML = `<span>✦</span><p>${text}</p><button class="btn primary" data-action="guide-done">Let’s explore →</button>`;
-  card.hidden = false;
-  audio.say(text);
-  act({ type: 'seen', id });
+  const card=document.querySelector('#guide-card');
+  if(!card)return;
+  const text=nextStep(state).text;
+  card.innerHTML='<p>'+escape(text)+'</p><button class="text-btn" data-action="repeat">Hear again ♫</button>';
+  card.hidden=state.tutorial==='done';
+  if(state.tutorial!=='done')audio.say(text);
+
 }
 function renderGame() {
   destroyScene();
   app.innerHTML = gameMarkup(state, neiloMessage || defaultHint());
   scene = createScene(document.querySelector('#room-canvas'), state, { onStep: () => audio.cue('step') });
+  showGuide();
   const canvas = document.querySelector('#room-canvas');
   canvas.addEventListener('click', event => {
     if (currentPanel || walking) return;
@@ -134,7 +140,11 @@ function walkOnFloor(x, y) {
   marker.classList.remove('active');
   void marker.offsetWidth;
   marker.classList.add('active');
-  scene.walk(x, () => { document.querySelector('#movement-status').textContent = 'Tap the floor to walk · Select a glowing object to explore'; }, y);
+  scene.walk(x, () => {
+    if(state.tutorial==='walk' && Math.abs(x-60)<8) {
+      act({type:'tutorial-arrived'});neiloMessage=nextStep(state).text;renderGame();
+    } else document.querySelector('#movement-status').textContent='Tap the floor to walk · Select a glowing object to explore';
+  }, y);
 }
 
 function showPanel(id, keepFocus = false) {
@@ -186,7 +196,7 @@ function showPanel(id, keepFocus = false) {
     body = '<p>NEILO · First Signal</p><p>A concept by Ahmed Barakat and the multidisciplinary NEILO team. Created for the Junior Astronaut Mission Trainer concept.</p><p>Story, game design, illustration and sound are in development. This version uses generated artwork, supplied Flow clips, imported English narration (James and Valf) and synthesized sound effects.</p>' + button('Back', 'close', true);
   } else if (id === 'menu') {
     title = 'Your adventure.';
-    body = `<p>Your journey is saved in this browser when storage is available.</p><div class="actions">${button('Continue exploring', 'close', true)}${button('Replay the opening', 'replay')}${button('Pause & recharge battery', 'recharge')}${button('Start again', 'restart')}${button('Main menu', 'home')}${button('Credits', 'credits')}${button('About this prototype', 'about')}</div>`;
+    body = `<p>Your journey is saved in this browser when storage is available.</p>${button('Where am I?','story-map')}${button('Skip movement tutorial','tutorial-skip')}<div class="actions">${button('Continue exploring', 'close', true)}${button('Replay the opening', 'replay')}${button('Pause & recharge battery', 'recharge')}${button('Start again', 'restart')}${button('Main menu', 'home')}${button('Credits', 'credits')}${button('About this prototype', 'about')}</div>`;
   } else if (id === 'restart') {
     title = 'A new adventure?';
     body = `<p>This replaces the journey saved in this browser. You’ll return to the beginning and can try a different plan.</p><div class="actions">${button('Keep this journey', 'close', true)}${button('Start a new journey', 'confirm-restart')}</div>`;
@@ -249,6 +259,15 @@ function updateAfterAction(action) {
 
 function visit(id) {
   if (walking || currentPanel) return;
+  let reason=lockedReason(state,id);
+  if(state.tutorial==='walk')reason='Tap the glowing circle first. I’ll wait for you there.';
+  if(state.tutorial==='discover' && id!=='wake')reason='Follow the little blue light under the bench.';
+  if(state.tutorial==='help' && !['wake'].includes(id))reason='Tap my picture below so you know where to find help.';
+  if(reason){
+    neiloMessage=reason;document.querySelector('#neilo-message').textContent=reason;audio.say(reason);
+    const target=targetForRoom(state);app.querySelector('[data-hotspot="'+target+'"]')?.classList.add('hint-target');
+    return;
+  }
   const spot = content.rooms[state.room].hotspots.find(item => item.id === id) || { walkX: 85 };
   walking = true;
   document.querySelector('#scene').classList.add('walking');
@@ -269,6 +288,7 @@ function visit(id) {
     document.querySelector('#scene').classList.remove('walking');
     document.querySelector('#movement-status').textContent = 'Tap the floor to walk · Select a glowing object to explore';
     feedback = null;
+    if (id === 'power') {openPower();return;}
     if (id === 'plants' && state.sent) {openMission('garden');return;}
     if (id === 'survey' && state.garden.complete) {openMission('survey');return;}
     if (id === 'archive') mentorTab = 'systems';
@@ -311,6 +331,9 @@ document.addEventListener('click', event => {
     promise?.catch(() => { neiloMessage = 'Your browser is already using the available play space.'; });
     return;
   }
+  if (action === 'story-map') {closePanel();destroyScene();cinematicPlayer=playBriefing(app,()=>{cinematicPlayer=null;renderGame();});return;}
+  if (action === 'tutorial-walk') return walkOnFloor(60,550);
+  if (action === 'tutorial-skip') {act({type:'tutorial-skip'});renderGame();return;}
   if (action === 'guide-done') { document.querySelector('#guide-card').hidden = true; audio.stopVoice(); return; }
   if (action === 'repeat') return audio.say(neiloMessage || defaultHint());
   if (action === 'read-panel') return audio.say(modalRoot.querySelector('.dialog').innerText.replace('Listen to this screen ♫', ''));
@@ -328,6 +351,7 @@ document.addEventListener('click', event => {
     state.avatar=id; persist(); document.querySelector('.suit-open').textContent='Explorer · '+({classic:'Original',pilot:'Teal pilot',personal:'My suit'}[id]);
   });
   if (action === 'hint' || action === 'show-me') {
+    if(state.tutorial==='help'){act({type:'tutorial-help'});renderGame();}
     const hint = guidance(state,currentPanel,blockedDevice);
     neiloMessage = hint.text;
     const target=(currentPanel ? modalRoot : app).querySelector(hint.selector);
@@ -349,7 +373,7 @@ document.addEventListener('click', event => {
   if (action === 'send') return updateAfterAction({ type: 'send' });
   if (action === 'run-recharge') return updateAfterAction({ type: 'recharge' });
   if (action.startsWith('mentor-')) { mentorTab = action.slice(7); feedback = null; showPanel('archive'); audio.say(content.mentors[mentorTab].text, 'commander'); return; }
-  if (action === 'open-power') { feedback = null; return showPanel('power'); }
+  if (action === 'open-power') return openPower();
   feedback = null;
   showPanel(action);
 });

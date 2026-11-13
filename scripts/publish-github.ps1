@@ -11,7 +11,7 @@ if ($LASTEXITCODE) { throw 'Pull failed. Review remote changes before publishing
 foreach ($directory in @('dist','scripts','tests','docs','data','production')) {
     Copy-Item -LiteralPath (Join-Path $project $directory) -Destination $target -Recurse -Force
 }
-foreach ($file in @('README.md','package.json','server.mjs','.gitignore','LEVEL_INTEGRATION_PLAN.md','MISSION_CONTENT_WORKFLOW.md','RELEASE_CURRENT.md','GAMEPLAY_REDESIGN_PLAN.md')) {
+foreach ($file in @('README.md','package.json','server.mjs','.gitignore','LEVEL_INTEGRATION_PLAN.md','MISSION_CONTENT_WORKFLOW.md','RELEASE_CURRENT.md','GAMEPLAY_REDESIGN_PLAN.md','ONBOARDING_AND_PLAYTEST_REVISION.md','GUIDED_JOURNEY_RELEASE.md')) {
     Copy-Item -LiteralPath (Join-Path $project $file) -Destination $target -Force
 }
 git -C $target add -A
