@@ -33,3 +33,9 @@ Additional baseline validation passed after integration: full First Signal journ
 ## Motion and production update
 
 The companion now follows smoothly across direction changes. Walk-cycle phase persists when a destination is changed, with eased starts and stops. The motion/video regression check passed. Production scripts and storyboard are in production/. These are prepared materials for the redesign; newly written lines and requested Flow clips are not yet recorded or integrated.
+
+## Publication — 14 November 2026
+
+Guided release v6 is publicly deployed at https://neilo-first-signal.richhake16.chatgpt.site/?v=6 . Sites deployment succeeded, source commit f04b2d0dc6dae36088db9d2565714e8b6846e842. GitHub source update 2769743 succeeded. Eleven state tests and the new guided browser journey passed locally. The old v5 reference above is historical.
+
+The same normal-entry automated browser journey also passed against the deployed public v6 URL, including actual music playback and five viewport sizes.

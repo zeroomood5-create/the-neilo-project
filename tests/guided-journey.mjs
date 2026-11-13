@@ -5,7 +5,7 @@ const browser=await chromium.launch({channel:'chrome'});
 try{
  const p=await browser.newPage({viewport:{width:1280,height:800}});
  const errors=[];p.on('pageerror',e=>errors.push(e.message));
- await p.goto('http://localhost:4176');await p.locator('#explorer-name').fill('Mariam');await p.locator('.play-button').click();
+ await p.goto(process.env.NEILO_TEST_URL||'http://localhost:4176');await p.locator('#explorer-name').fill('Mariam');await p.locator('.play-button').click();
  await p.locator('[data-cinema=skip]').click();
  for(let i=0;i<3;i++)await p.locator('[data-story-next]').click();
  await p.locator('canvas[data-assets=ready]').waitFor();
