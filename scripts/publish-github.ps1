@@ -28,3 +28,10 @@ if ($LASTEXITCODE -eq 1) {
 git -C $target push origin main
 if ($LASTEXITCODE) { throw 'Push failed.' }
 git -C $target log -1 --format="%h %ci"
+
+# The game is hosted from the static dist tree, independently of Sites.
+$pagesCommit = (git -C $target subtree split --prefix dist).Trim()
+if ($LASTEXITCODE) { throw 'Could not prepare GitHub Pages tree.' }
+git -C $target push origin "${pagesCommit}:refs/heads/gh-pages"
+if ($LASTEXITCODE) { throw 'GitHub Pages push failed; review the existing branch before retrying.' }
+Write-Output 'GitHub Pages: https://zeroomood5-create.github.io/the-neilo-project/'

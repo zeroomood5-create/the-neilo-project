@@ -1,6 +1,6 @@
 # NEILO
 
-[Play the completed demo chapter](https://neilo-first-signal.richhake16.chatgpt.site/?v=9) · [Submission documentation](docs/SUBMISSION_DOSSIER.md) · [Narration audit](docs/NARRATION_AUDIT.md) · [Flow story prompts](production/FLOW_ARRIVAL_RECAP.md)
+[Play the completed demo chapter](https://zeroomood5-create.github.io/the-neilo-project/) · [Submission documentation](docs/SUBMISSION_DOSSIER.md) · [Narration audit](docs/NARRATION_AUDIT.md) · [Flow story prompts](production/FLOW_ARRIVAL_RECAP.md)
 
 Chapter one ends after the garden, rover report, repaired relay and discovery question. The finale introduces surface exploration as a future chapter. Public play needs no login or API key.
 

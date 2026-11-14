@@ -10,8 +10,8 @@ try {
  await page.waitForFunction(()=>players.some(a=>a.currentSrc.includes('recap-separated')&&!a.paused));
  for(let i=0;i<2;i++){await page.locator('[data-story-next]').click();await page.waitForFunction(i=>players.some(a=>a.currentSrc.includes(['recap-landed','recap-goal'][i])&&!a.paused),i);}
  const report=await page.evaluate(async()=>{
-  const catalog=await (await fetch('/michael-phase.json')).json();
-  const {audio}=await import('/audio.js?v=voices-supplied-v1');
+  const catalog=await (await fetch(new URL('./michael-phase.json',location.href))).json();
+  const {audio}=await import(new URL('./audio.js?v=voices-supplied-v1',location.href).href);
   const results=[];
   for(const clip of catalog.clips){
    audio.sayCue(clip.id);

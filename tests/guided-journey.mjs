@@ -39,7 +39,7 @@ try{
  await p.locator('[data-value=unknown]').click();await p.locator('[data-mission=scout-help]').click();await p.locator('[data-mission=scout-study]').click();await p.locator('[data-report=followup]').click();
  await p.reload();await p.locator('.play-button').click();await quiz();await p.locator('.expedition-end').waitFor();
  await action('credits').click();assert.ok(await p.locator('a[href="./credits.html"]').isVisible());await action('close').first().click();await action('back-base').click();
- const music=await p.evaluate(async()=>{const {audio}=await import('/audio.js?v=voices-supplied-v1');return audio.music.status;});
+ const music=await p.evaluate(async()=>{const {audio}=await import(new URL('./audio.js?v=voices-supplied-v1',location.href).href);return audio.music.status;});
  assert.equal(music.playing,true);
  for(const [width,height] of [[390,844],[360,640],[844,390],[768,1024],[1366,768]]){
  await p.setViewportSize({width,height});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1&&document.documentElement.scrollHeight<=innerHeight+1));}

@@ -1,3 +1,7 @@
+# GitHub Pages distribution
+
+Primary public game URL: https://zeroomood5-create.github.io/the-neilo-project/ . Published from the repository `gh-pages` branch, which contains the `dist` tree. The publisher script updates this branch whenever the game changes. Previous Sites publication remains in release history below.
+
 # First Signal — completed demo chapter
 
 Prepared 14 November 2026, Africa/Cairo. Public version 9 deployed successfully: https://neilo-first-signal.richhake16.chatgpt.site/?v=9 .
