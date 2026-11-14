@@ -53,3 +53,9 @@ Public v7 verification: the actual-drag journey also passed on the deployed URL,
 42 Kokoro Michael recordings installed: 38 guidance/robot clips and four garden science clips. Robot cutscenes use the new voice; crew recordings remain James. Unrecorded dynamic robot lines remain captions rather than a synthetic or old-voice fallback. Fifteen state tests, both integrated crop routes with reload, the guided journey and actual Michael playback checks pass locally.
 
 The gameplay editor pack contains seven actual-game MP4 takes plus an exactly 30.000-second silent 1080p cut, with source timings and original suggested narration. Delivery and publication status follow below when finalized.
+
+## Public release v8 — 14 November 2026
+
+Deployment succeeded at https://neilo-first-signal.richhake16.chatgpt.site/?v=8 . Sites source 85e91e8410d611e7e7891aeebf5b70da981081fc, deployment appgdep_6af7abd0f4ac81919c1833730b376b5e. GitHub implementation update 8d01d35. Editor delivery: production/capture-20261114/NEILO_GAMEPLAY_FOR_EDITOR.zip (27,680,602 bytes), seven MP4 takes plus exactly 30 seconds of silent gameplay. Public crop/voice browser checks are recorded below after completion.
+
+Public v8 checks passed: both crop routes with contextual help, partial-harvest save/reload, preparation, science and Field notes unlock; Michael actual playback and robot cinematic source checks passed too.
