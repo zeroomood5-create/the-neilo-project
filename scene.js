@@ -33,7 +33,7 @@ export function createScene(canvas, state, options = {}) {
   let targetGround = ground;
   let nextStep = 0;
   let speed = 0;
-  let companionX = position * 10 - direction * 95;
+  let companionX = previous?.companionX ?? position * 10 - direction * 95;
   let stopped = false;
   let ready = false;
   let lastTime = 0;
@@ -99,6 +99,9 @@ export function createScene(canvas, state, options = {}) {
     ctx.restore();
   }
 
+  // Room, equipment indicators and emergency lighting stay fixed during one walk.
+  // Paint them once; moving characters are the only per-frame drawing work.
+  let roomPlate;
   function draw(time = performance.now()) {
     if (stopped || !ready) return;
     const delta = lastTime ? Math.min((time - lastTime) / 1000, .05) : 0;
@@ -108,8 +111,8 @@ export function createScene(canvas, state, options = {}) {
     const remaining = Math.hypot(distance * 10, distanceY);
     let moving = remaining > .5;
     if (moving) {
-      const desiredSpeed = Math.min(280, remaining * 10);
-      speed += (desiredSpeed-speed) * (1-Math.exp(-14*delta));
+      const desiredSpeed = Math.min(280, Math.sqrt(2*550*remaining));
+      speed += (desiredSpeed-speed) * (1-Math.exp(-8*delta));
       const fraction = Math.min(1, speed * delta / remaining);
       position += distance * fraction;
       ground += distanceY * fraction;
@@ -120,6 +123,7 @@ export function createScene(canvas, state, options = {}) {
     moving = Math.hypot((target - position) * 10, targetGround - ground) > .5;
     canvas.dataset.motion = moving ? 'walking' : 'idle';
     canvas.dataset.position = position.toFixed(2);
+    if(!roomPlate){
     ctx.drawImage(artwork.room, 0, 0, width, height);
     if (!state.sent) {
       ctx.save();ctx.fillStyle=state.powerChecked?'#071a3338':'#04182c99';ctx.fillRect(0,0,width,height);ctx.restore();
@@ -128,8 +132,10 @@ export function createScene(canvas, state, options = {}) {
       ctx.restore();
     }
     deviceStates();
-    const bounce = moving && !reducedMotion ? Math.sin(walkTime * 12) * 1.4 : 0;
-    const frame = Math.floor(walkTime * 12) % 8;
+    roomPlate=document.createElement("canvas");roomPlate.width=width;roomPlate.height=height;roomPlate.getContext("2d").drawImage(canvas,0,0);
+    }else ctx.drawImage(roomPlate,0,0);
+    const bounce = moving && !reducedMotion ? Math.sin(walkTime * Math.PI * 4) * 1.05 : 0;
+    const frame = Math.floor(walkTime * 11) % 8;
     canvas.dataset.walkFrame = String(frame);
     const pose = moving && !reducedMotion ? artwork.childWalk[frame] : artwork.child;
     const scale = .82 + (ground - 460) / 122 * .18;
@@ -149,10 +155,11 @@ export function createScene(canvas, state, options = {}) {
       const desiredCompanionX = Math.max(65, Math.min(935, position * 10 - direction * 95));
       companionX = reducedMotion ? desiredCompanionX : companionX + (desiredCompanionX-companionX)*(1-Math.exp(-12*Math.max(delta,.001)));
       const robotX = companionX;
-      const robotPose = moving && !reducedMotion ? artwork.robotWalk[frame] : artwork.robot;
+      const following=Math.abs(desiredCompanionX-companionX)>2;
+      const robotPose = (moving||following) && !reducedMotion ? artwork.robotWalk[moving?frame:Math.floor(time/95)%8] : artwork.robot;
       sprite(robotPose, robotX, ground + bounce * .55, 155 * scale, direction, 0, moving && !reducedMotion ? 428/448 : 1);
     }
-    roomPositions.set(state.room, { position, direction, ground });
+    roomPositions.set(state.room, { position, direction, ground, companionX });
     if (Math.hypot((target - position) * 10, targetGround - ground) <= .5 && onArrival) {
       const callback = onArrival;
       onArrival = null;
@@ -179,6 +186,7 @@ export function createScene(canvas, state, options = {}) {
     sheet ? decodeSheet(sheet).catch(() => null) : null
   ]).then(([room, child, robot, childWalk, robotWalk, poses]) => {
     if (stopped) return;
+    ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality="high";
     artwork = { room, child: poses?.[0] || child, robot, childWalk: poses?.slice(1) || childWalk, robotWalk, custom: !!poses };
     canvas.dataset.explorer = poses ? state.avatar : 'classic';
     ready = true;

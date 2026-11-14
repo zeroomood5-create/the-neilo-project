@@ -1,4 +1,4 @@
-export const build = 'First Signal · A growing world';
+export const build = 'First Signal · Mars expedition';
 export function nextStep(s) {
  if(!s.awake) return s.tutorial==='walk'?{id:'tutorial-walk',room:'arrival',label:'Walk to the light on the floor',text:'Tap the glowing circle. Watch your explorer walk there.'}:{id:'wake',room:'arrival',label:'Find the little blue light',text:'You made it. Tap the little blue light beneath the bench.'};
  if(s.tutorial==='help')return {id:'hint',room:s.room,label:'Meet your helper',text:'Tap my picture below. I’ll show you what to try next.'};

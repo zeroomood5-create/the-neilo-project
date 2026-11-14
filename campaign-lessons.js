@@ -1,7 +1,7 @@
 export const campaignLessons = [
  {
   id:'garden',action:'garden-finish',title:'Your garden has a plan',
-  personal:name=>name+', you compared two crops and changed your plan when the meal request changed.',
+  personal:name=>name+', you grew and picked a crop for the crew.',
   source:{title:'CSA · Selecting crops for space',url:'https://www.asc-csa.gc.ca/eng/youth-educators/activities/fitness-and-nutrition/interplanetary-farming.asp'},
   scope:'Approximate crop examples. Calendar steps and meal dates are simulation rules. This is not a tested Mars growing schedule.',
   frames:[

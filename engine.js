@@ -6,7 +6,7 @@ export const capacity = 6;
 export const essentialDraw = 2;
 
 export function freshState(name = 'Explorer') {
-  return { version: 1, tutorial: 'walk', powerChecked: false, garden: freshGarden(), scout: freshScout(), avatar: 'classic', firstJob: null, name: String(name).trim().slice(0, 24) || 'Explorer', started: false, awake: false, room: 'arrival', battery: 8, water: 3, rawWater: 4, turn: 0, devices: { lights: true, water: false, uplink: false }, calibrated: false, received: false, sent: false, seen: [], journal: [], nextEvent: 1 };
+  return { version: 1, pendingScience:null, tutorial: 'walk', powerChecked: false, garden: freshGarden(), scout: freshScout(), avatar: 'classic', firstJob: null, name: String(name).trim().slice(0, 24) || 'Explorer', started: false, awake: false, room: 'arrival', battery: 8, water: 3, rawWater: 4, turn: 0, devices: { lights: true, water: false, uplink: false }, calibrated: false, received: false, sent: false, seen: [], journal: [], nextEvent: 1 };
 }
 
 export function powerUsed(state) {
@@ -31,6 +31,7 @@ export function restoreState(raw) {
     if (!saved || saved.version !== 1 || typeof saved.name !== 'string') return freshState();
     const state = freshState(saved.name);
     Object.assign(state, restoreCampaign(saved));
+    state.pendingScience=["water","power","garden","field"].includes(saved.pendingScience)?saved.pendingScience:null;
     for (const key of ['started', 'awake', 'calibrated', 'received', 'sent']) state[key] = saved[key] === true;
     state.tutorial = ['walk','discover','help','done'].includes(saved.tutorial) ? saved.tutorial : state.awake ? 'done' : 'walk';
     state.powerChecked = saved.powerChecked===true || state.sent || state.calibrated || saved.firstJob==='water' || saved.firstJob==='radio' || saved.water>=5 || saved.devices?.water===true || saved.devices?.uplink===true;
@@ -62,6 +63,7 @@ export function restoreState(raw) {
 export function applyAction(previous, action) {
   const state = structuredClone(previous);
   const reject = (message) => ({ state: previous, ok: false, message });
+  if(state.pendingScience && ['calibrate','send','water','scout-priority','scout-report'].includes(action.type))return reject('Finish the discovery question first.');
   let message = '';
   let note = '';
   if (action.type === 'tutorial-arrived') {
@@ -151,10 +153,13 @@ export function applyAction(previous, action) {
     message = 'A short time passes. The base charger adds 3 battery units, up to its capacity. Ready when you are.';
     note = 'You paused to recharge before continuing.';
   } else if (action.type === 'seen') {
+    if(action.id==="science-"+state.pendingScience)state.pendingScience=null;
     if (!state.seen.includes(action.id)) state.seen.push(action.id);
   } else {
     return reject('That action is unavailable.');
   }
+  const discovery={water:'water',send:'power','garden-workshop-finish':'garden','scout-report':'field'}[action.type];
+  if(action.discovery && discovery && !state.seen.includes('science-'+discovery))state.pendingScience=discovery;
   if (note) state.journal.push({ id: state.nextEvent++, text: note });
   state.journal = state.journal.slice(-40);
   return { state, ok: true, message };

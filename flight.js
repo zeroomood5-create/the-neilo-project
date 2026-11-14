@@ -7,6 +7,11 @@ export function guidance(s, panel, blockedDevice) {
   const toggle = (id, text) => ({ selector: '[data-toggle="'+id+'"]', text });
   if (!panel) {const step=nextStep(s);return {selector:step.id==='tutorial-walk'?'[data-action=tutorial-walk]':step.id==='hint'||step.id==='journal'?'[data-action='+step.id+']':'[data-hotspot='+(step.room===s.room?step.id:s.room==='arrival'?'control':step.room==='habitat'?'habitat':'control')+']',text:step.text};}
   if (panel === 'recharge') return action('run-recharge', 'Give the battery a turn on the charger.');
+  if(panel==='comms'){
+    if(!s.devices.uplink)return action('open-power','First, connect both radio plugs at the power console.');
+    if(!s.calibrated)return {selector:'#channel',text:'Tune the antenna until the two signals line up.'};
+    return action(s.sent?'mission-garden':'send',s.sent?'The growing corner is ready for our garden planner.':'The crew can hear us. Send the ready signal.');
+  }
   if (panel === 'power' || panel === 'water' || panel === 'comms') {
     const device = blockedDevice || (panel === 'comms' || (panel === 'power' && s.water >= 5) ? 'uplink' : 'water');
     if (panel !== 'power' && device !== (panel === 'water' ? 'water' : 'uplink')) return action('open-power', 'Open power routing to see both devices.');

@@ -15,6 +15,20 @@ import { mountPower } from './power-game.js';
 import { mountMission } from './mission-view.js';
 import { mountGarden } from './garden-game.js';
 let blockedDevice = null;
+const endingLine='The crew heard you. The garden is growing. Next time, we step outside.';
+function canEnd(){return state.sent && state.garden.complete && state.scout.sent && state.scout.helped && state.seen.includes('science-field') && !state.pendingScience;}
+function ending(){
+ if(!canEnd())return openMission('survey');
+ closePanel();destroyScene();cinematicPlayer?.stop();cinematicPlayer=null;
+ act({type:'seen',id:'end-phase-one'});
+ app.innerHTML='<section class="expedition-end"><div class="end-card"><small>EXPEDITION LOG / 01 &nbsp; • &nbsp; TRANSMITTED</small><h1>First signal<br><em>received.</em></h1><p>'+escape(state.name)+', the crew has your field notes. The airlock window glows. Beyond it lies the next expedition.</p><strong>Chapter one complete</strong><p>This is a playable demo of NEILO’s journey on Mars. Surface exploration is the next chapter.</p><div class="actions">'+button('Roll credits','credits',true)+button('Return to base','back-base')+'</div></div></section>';
+ audio.say(endingLine);
+}
+function checkPending(done){
+ const lesson=lessons.find(l=>l.id===state.pendingScience);
+ if(!lesson)return done();
+ runScience(lesson,()=>{act({type:'seen',id:'science-'+lesson.id});done();});
+}
 const app = document.querySelector('#app');
 const modalRoot = document.querySelector('#modal-root');
 let state = freshState();
@@ -39,7 +53,7 @@ function persist() {
   try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); } catch { storageAvailable = false; }
 }
 function act(action) {
-  const result = applyAction(state, action);
+  const result = applyAction(state, {...action,discovery:true});
   state = result.state;
   if (result.message && result.ok && ['water','calibrate','send'].includes(action.type)) result.message = state.name+', '+result.message[0].toLowerCase()+result.message.slice(1);
   feedback = result.message ? { text: result.message, ok: result.ok } : null;
@@ -64,7 +78,7 @@ function renderCover() {
     audio.cue('discover');
     if (state.started) {
       state.name=String(new FormData(event.target).get('name')||state.name).trim().slice(0,24)||state.name;
-      persist();neiloMessage='Welcome back, '+state.name+'. '+defaultHint();renderGame();return;
+      persist();neiloMessage='Welcome back, '+state.name+'. '+defaultHint();checkPending(()=>canEnd()?ending():renderGame());return;
     }
     act({ type: 'start', name: new FormData(event.target).get('name') });
     renderStory();
@@ -84,20 +98,22 @@ function runScience(lesson,done) {
   cinematicPlayer=playLesson(app,lesson,state.name,()=>{cinematicPlayer=null;done();});
 }
 function openMission(kind) {
+  if(kind==='garden' && state.pendingScience && state.pendingScience!=='garden')return checkPending(()=>openMission(kind));
   if (kind==='garden' && !state.sent) {feedback={text:'Send your first signal to open the garden planner.',ok:false};showPanel('plants');return;}
-  if (kind==='survey' && !state.garden.complete) {feedback={text:'Complete the two garden plans, then the crew will open field notes.',ok:false};showPanel('survey');return;}
+  if(kind==='survey' && state.pendingScience)return checkPending(()=>openMission('survey'));
+  if (kind==='survey' && !state.garden.complete) {feedback={text:'Complete your garden plan, then the crew will open field notes.',ok:false};showPanel('survey');return;}
   closePanel();destroyScene();cinematicPlayer?.stop();
   const leave=()=>{cinematicPlayer?.stop();cinematicPlayer=null;renderGame();};
-  if(kind==='garden'){cinematicPlayer=mountGarden(app,()=>state,act,leave,()=>openMission('survey'));return;}
+  if(kind==='garden'){cinematicPlayer=mountGarden(app,()=>state,act,leave,()=>checkPending(()=>openMission('survey')));return;}
   const explain=()=>{
     const lesson=lessons.find(l=>l.id===(kind==='garden'?'garden':'field'));
-    runScience(lesson,()=>{act({type:'seen',id:'science-'+lesson.id});openMission(kind);});
+    runScience(lesson,()=>{act({type:'seen',id:'science-'+lesson.id});if(canEnd())ending();else openMission(kind);});
   };
   cinematicPlayer=mountMission(app,kind,()=>state,action=>{
     const result=act(action);
     if (result.ok && ['garden-finish','scout-report'].includes(action.type)) explain();
     return result;
-  },leave,explain,()=>openMission('survey'));
+  },leave,explain,()=>canEnd()?ending():explain());
 }
 function openPower() {
   closePanel();destroyScene();cinematicPlayer?.stop();
@@ -155,14 +171,16 @@ function showPanel(id, keepFocus = false) {
   let title = '';
   let eyebrow = 'MARS RESEARCH BASE';
   let body = '';
+  if(id==='power'){currentPanel=null;return openPower();}
   const toggles = ids => content.devices.filter(device => ids.includes(device.id)).map(device => `<div class="device"><div><b>${device.name} <span class="mono" style="color:var(--cyan);font-size:12px">${device.draw} power</span></b><small>${device.description}</small></div><button class="switch ${state.devices[device.id] ? 'on' : ''}" data-toggle="${device.id}" aria-pressed="${state.devices[device.id]}">${state.devices[device.id] ? 'ON' : 'OFF'}</button></div>`).join('');
   if (id === 'wake') {
     title = `Hello, ${escape(state.name)}.`;
     eyebrow = 'A NEW COMPANION';
     body = '<p class="personal-greeting">'+escape(state.name)+', I’m glad you found me.</p><div class="robot-face" style="margin:25px auto" aria-hidden="true"></div><p>“I’m NEILO. You’re the first visitor in a very long time.”</p><p>His face lights up. He knows the base, but he’ll need your help finding out what still works.</p><div class="actions">' + button('Can we reach my crew?', 'wake-crew', true) + button('What is this place?', 'wake-place') + '</div>';
   } else if (id === 'window') {
-    title = 'A whole world outside.';
-    body = '<p>Beyond the window, red hills stretch into the distance. A few quiet buildings and an antenna belong to the old research base.</p><p>Somewhere above, your crew is trying to reach you.</p><div class="actions">' + button('Back to exploring', 'close', true) + '</div>';
+    title = 'Through Curiosity’s eyes';
+    eyebrow = 'WINDOW · ROVER PHOTO ARCHIVE';
+    body = '<figure style="margin:0"><img src="./assets/science/PIA21044.jpg" alt="Thin layers cross a sandstone outcrop in the Murray Buttes on Mars." width="1344" height="1200" style="display:block;width:100%;max-height:43vh;object-fit:contain;background:#130f0a;border-radius:12px"><figcaption style="font-size:.82em;margin:.55em 0">Curiosity · Murray Buttes · 8 September 2016<br>NASA/JPL-Caltech/MSSS · <a href="https://www.jpl.nasa.gov/images/pia21044-farewell-to-murray-buttes-image-4/" target="_blank" rel="noopener noreferrer">Original rover photo ↗</a></figcaption></figure><p>Can you spot the stripes? Long ago, wind piled up sand in layers here.</p><div class="actions">' + button('Back to exploring', 'close', true) + '</div>';
   } else if (id === 'power') {
     title = 'A little power. A good plan.';
     eyebrow = 'POWER CONSOLE';
@@ -172,9 +190,16 @@ function showPanel(id, keepFocus = false) {
     eyebrow = 'WATER UNIT';
     body = `<p>Prepare stored water before you tell the crew the base is ready. One cycle uses <b>2 battery units</b> and prepares <b>2 water packs</b>.</p><div class="power-summary"><span>Prepared water</span><strong>${state.water} / 5 goal</strong></div>${toggles(['water'])}<p>Stored water available for preparation: ${state.rawWater} packs.</p><div class="actions">${button(state.water >= 5 ? 'Water is prepared ✓' : 'Run a water cycle', 'run-water', true)}${button('Hear the water specialist', 'mentor-agriculture')}${button('Open power routing', 'open-power')}</div>`;
   } else if (id === 'comms') {
-    title = state.sent ? 'Your first signal is sent.' : 'A voice beyond the base.';
-    eyebrow = 'COMMUNICATION DESK';
-    body = `<p>${state.received ? 'The crew’s message plays back. “We’re safe in orbit. We’re listening for you. Tell us when your base is ready.”' : 'The antenna needs a check before you can hear from your crew. Power the desk, calibrate it, then prepare your reply.'}</p>${toggles(['uplink'])}<div class="objective ${state.calibrated ? 'done' : ''}"><span class="check">${state.calibrated ? '✓' : ''}</span>Antenna calibrated</div><div class="objective ${state.water >= 5 ? 'done' : ''}"><span class="check">${state.water >= 5 ? '✓' : ''}</span>Water prepared for the wait</div><div class="actions">${button('Calibrate · 1 battery', 'calibrate')}${button(state.sent ? 'View your journey →' : 'Send signal · 3 battery', state.sent ? 'complete' : 'send', true)}${button('Hear the systems specialist', 'mentor-systems')}${button('Open power routing', 'open-power')}</div>`;
+    const powered=state.devices.uplink, tuned=state.calibrated;
+    const line=state.sent?'Your crew received the message.':!powered?'First, connect both radio plugs at the power console.':!tuned?'Tune the antenna until the two signals line up.':'The crew can hear us. Send the ready signal.';
+    eyebrow='ORBIT LINK / '+(state.sent?'DELIVERED':!powered?'01 · POWER':!tuned?'02 · TUNE':'03 · TRANSMIT');
+    title=state.sent?'Message delivered':!powered?'Wake the radio':!tuned?'Find the crew’s signal':'Call your crew';
+    body='<div class="radio-face"><span class="orbit-track"></span><b>'+(!powered?'OFFLINE':tuned?'LINK ACTIVE':'SEARCHING')+'</b></div><p>'+line+'</p>';
+    if(state.sent)body+=button('Go to the garden','mission-garden',true);
+    else if(!powered)body+=button('Connect the radio','open-power',true);
+    else if(!tuned)body+='<label class="tuner">Match channel <b>6</b><input id="channel" type="range" min="1" max="9" value="2" aria-label="Antenna channel"><output id="channel-read">Channel 2</output></label>'+button('Lock signal','calibrate',true);
+    else body+=button('Send ready signal','send',true);
+    if(state.battery<(tuned?3:1))body+=button('Recharge battery','recharge');
   } else if (id === 'archive') {
     const mentor = content.mentors[mentorTab];
     title = mentor.name;
@@ -188,17 +213,17 @@ function showPanel(id, keepFocus = false) {
     body = '<p>The crew is ready to plan fresh crops with us. Send the first signal to open this planner.</p><div class="actions">'+button('Open garden planner','mission-garden',true)+button('Hear the food & water specialist','mentor-agriculture')+button('Back to exploring','close')+'</div>';
   } else if (id === 'journal' || id === 'complete') {
     title = id === 'complete' ? 'A small signal. A big step.' : 'Your journey, so far.';
-    eyebrow = id === 'complete' ? 'FIRST SIGNAL · CHAPTER COMPLETE' : 'JOURNEY LOG';
+    eyebrow = id === 'complete' ? 'CREW CONTACT · MESSAGE DELIVERED' : 'JOURNEY LOG';
     body = `${id === 'complete' ? '<div class="completion-icon">⌁ ↗</div><p>' + escape(memory(state)) + '</p>' : ''}${state.journal.length ? state.journal.map(item => `<div class="journal-item"><small>YOUR CHOICE · ${String(item.id).padStart(2, '0')}</small>${escape(item.text)}</div>`).join('') : '<p>Your first discovery is waiting in the arrival bay.</p>'}<div class="actions">${button('Keep exploring', 'close', true)}${id === 'complete' ? button('Try a different path', 'restart') : ''}</div>`;
   } else if (id === 'objectives') {
     title = 'Our way home';
     body = objectives(state).map(item => `<div class="objective ${item.done ? 'done' : ''}"><span class="check">${item.done ? '✓' : ''}</span>${item.label}</div>`).join('') + `<div class="actions">${button('Back to exploring', 'close', true)}</div>`;
   } else if (id === 'credits') {
-    title = 'A Little Hero';
-    body = '<p>NEILO · First Signal</p><p>A concept by Ahmed Barakat and the multidisciplinary NEILO team. Created for the Junior Astronaut Mission Trainer concept.</p><p>Story, game design, illustration and sound are in development. This version uses generated artwork, supplied Flow clips, imported English narration (James and Valf) and synthesized sound effects.</p>' + button('Back', 'close', true);
+    title = 'The people behind NEILO';
+    body='<p>Concept and direction · Ahmed Barakat and the NEILO team.</p><p>Science: NASA, CSA, ESA and the RAD research team. Art and cinematics: AI-assisted. NEILO narration: Kokoro / Michael.</p><a class="btn" href="./credits.html" target="_blank" rel="noopener">Full credits & sources ↗</a><div class="actions">'+button('Back','close',true)+'</div>';
   } else if (id === 'menu') {
     title = 'Your adventure.';
-    body = `<p>Your journey is saved in this browser when storage is available.</p>${button('Where am I?','story-map')}${button('Skip movement tutorial','tutorial-skip')}<div class="actions">${button('Continue exploring', 'close', true)}${button('Replay the opening', 'replay')}${button('Pause & recharge battery', 'recharge')}${button('Start again', 'restart')}${button('Main menu', 'home')}${button('Credits', 'credits')}${button('About this prototype', 'about')}</div>`;
+    body = `<p>Your journey is saved in this browser when storage is available.</p>${button('Where am I?','story-map')}<div class="actions">${button('Continue exploring', 'close', true)}${button('Replay the opening', 'replay')}${button('Pause & recharge battery', 'recharge')}${button('Start again', 'restart')}${button('Main menu', 'home')}${button('Credits', 'credits')}${button('About this prototype', 'about')}</div>`;
   } else if (id === 'restart') {
     title = 'A new adventure?';
     body = `<p>This replaces the journey saved in this browser. You’ll return to the beginning and can try a different plan.</p><div class="actions">${button('Keep this journey', 'close', true)}${button('Start a new journey', 'confirm-restart')}</div>`;
@@ -208,18 +233,21 @@ function showPanel(id, keepFocus = false) {
   } else if (id === 'about') {
     title = 'A first look at NEILO.';
     eyebrow = 'CONCEPT PROTOTYPE';
-    body = `<p>This playable chapter explores movement, decisions, connected resources and a companion who helps you learn.</p><p><b>Data status</b><br>${content.provenance}</p><p>The Mars base, its equipment and the expedition are a fictional future setting. Device costs, water packs, recharge timing and power capacity are game-design placeholders.</p><p>Room backgrounds and character cutouts are AI-generated concept art matched to the reference poster. Both characters use eight-frame walk cycles. Crew messages are draft educational copy.</p><p>Progress stays in this browser. Explorer names are used locally. No account, camera or image upload is needed. Scripted narration uses imported ElevenLabs recordings supplied by the team. Dynamic guidance uses this device’s English speech voice where available. Sound can be muted. The opening and NEILO discovery use supplied video clips; other story scenes use illustrations. Imported recordings cover the scripted scenes, guides and expert recordings.</p><div class="actions">${button('Back to the adventure', 'close', true)}</div>`;
+    body='<p>You and NEILO bring a fictional Mars base back online. Try the equipment, grow food, and report what a real rover measured.</p><p>The archive contains NASA Curiosity / RAD measurements. Water packs, battery slots, radio channels and growing animations are teaching models.</p><p>Your name and progress stay in this browser. Art and story clips are AI-assisted; NEILO uses recorded Kokoro speech.</p><a class="btn" href="./credits.html" target="_blank" rel="noopener">See sources and production credits</a>';
   }
-  if (['power','water','comms'].includes(id)) {
+  if (['power','water'].includes(id)) {
     body = powerDisplay(state, blockedDevice) + body;
+    if(id==='water')body=body.replace(toggles(['water']),'');
     if (id === 'water') body += '<div class="tank" aria-label="Prepared water"><i style="width:'+Math.min(100,state.water*20)+'%"></i></div>';
     body += '<div class="actions">'+button('Show me','show-me')+(state.battery<3?button('Charge battery','recharge'):'')+'</div>';
   }
   if (id === 'complete') body += '<div class="actions">'+button('Our first garden →','mission-garden',true)+'</div>';
+  if(id==='journal' && canEnd())body+=button('View chapter ending','chapter-end',true);
   if (id === 'journal') body += '<div class="actions">'+(state.sent?button('Garden planner','mission-garden'): '')+(state.garden.complete?button('Field notes','mission-survey'):'')+'</div>';
   if (id === 'journal' || id === 'complete') body += '<div class="actions">'+lessons.filter(l=>state.seen.includes('science-'+l.id)||(l.id==='garden'&&state.garden.complete)||(l.id==='field'&&state.scout.sent)).map(l=>button('Explore the science · '+l.title,'science-'+l.id)).join('')+'</div>';
   const focusedAction = keepFocus ? document.activeElement?.getAttribute('data-toggle') : null;
-  modalRoot.innerHTML = `<div class="overlay"><section class="dialog ${id === 'archive' ? 'wide' : ''}" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="dialog-head"><div><div class="eyebrow">${eyebrow}</div><h2 id="dialog-title">${title}</h2></div><button class="close" data-action="close" aria-label="Close dialog">×</button></div>${body}<button class="text-btn panel-voice" data-action="read-panel">Listen to this screen ♫</button>${feedback ? `<div class="feedback ${feedback.ok ? '' : 'attention'}" role="status">${escape(feedback.text)}</div>` : ''}</section></div>`;
+  modalRoot.innerHTML = `<div class="overlay"><section class="dialog ${id === 'archive' ? 'wide' : ''}" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><div class="dialog-head"><div><div class="eyebrow">${eyebrow}</div><h2 id="dialog-title">${title}</h2></div><button class="close" data-action="close" aria-label="Close dialog">×</button></div>${body}<button class="text-btn panel-voice" data-action="read-panel">Hear a short guide ♫</button>${feedback ? `<div class="feedback ${feedback.ok ? '' : 'attention'}" role="status">${escape(feedback.text)}</div>` : ''}</section></div>`;
+  const tuner=modalRoot.querySelector('#channel');if(tuner)tuner.oninput=()=>{modalRoot.querySelector('#channel-read').textContent=Number(tuner.value)===6?'Channel 6 · signals match':'Channel '+tuner.value;};
   const focusTarget = focusedAction ? modalRoot.querySelector(`[data-toggle="${focusedAction}"]`) : null;
   (focusTarget || modalRoot.querySelector('.close')).focus();
 }
@@ -297,7 +325,10 @@ function visit(id) {
     if (id === 'health') { mentorTab = 'health'; showPanel('archive'); audio.say(content.mentors.health.text, 'commander'); return; }
     showPanel(id);
     const spoken = { power: 'This console shares power between the devices. Shall we choose what to run first?', water: 'This water unit needs power and stored energy. Let’s prepare enough water for the wait.', comms: 'Your crew is above us. Let’s give the communication desk enough power to find their signal.', archive: content.mentors.systems.text, plants: 'A little growing corner. Food, light and water are connected. There is a specialist recording here.' };
-    if (spoken[id]) audio.say(spoken[id]);
+    if(id==='window')audio.sayCue('window-view');
+    else if(id==='archive')audio.say(spoken[id],'commander');
+    else if(id==='comms')audio.sayCue(!state.devices.uplink?'radio-connect':!state.calibrated?'radio-tune':'radio-transmit');
+    else if(spoken[id])audio.say(spoken[id]);
   });
 }
 document.addEventListener('click', event => {
@@ -310,6 +341,8 @@ document.addEventListener('click', event => {
   if (mentor) { mentorTab = mentor.dataset.mentor; feedback = null; return showPanel('archive', true); }
   const action = event.target.closest('[data-action]')?.dataset.action;
   if (!action) return;
+  if(action==='back-base'){closePanel();renderGame();return;}
+  if(action==='chapter-end'&&canEnd())return ending();
   if (action === 'mission-garden') return openMission('garden');
   if (action === 'mission-survey') return openMission('survey');
   if (action === 'music') {
@@ -335,10 +368,14 @@ document.addEventListener('click', event => {
   }
   if (action === 'story-map') {closePanel();destroyScene();cinematicPlayer=playBriefing(app,()=>{cinematicPlayer=null;renderGame();});return;}
   if (action === 'tutorial-walk') return walkOnFloor(60,550);
-  if (action === 'tutorial-skip') {act({type:'tutorial-skip'});renderGame();return;}
   if (action === 'guide-done') { document.querySelector('#guide-card').hidden = true; audio.stopVoice(); return; }
-  if (action === 'repeat') return audio.say(neiloMessage || defaultHint());
-  if (action === 'read-panel') return audio.say(modalRoot.querySelector('.dialog').innerText.replace('Listen to this screen ♫', ''));
+  if (action === 'repeat') return audio.say(state.tutorial!=='done'?nextStep(state).text:(neiloMessage || defaultHint()));
+  if (action === 'read-panel') {
+    if(currentPanel==='archive')return audio.say(content.mentors[mentorTab].text,'commander');
+    if(currentPanel==='comms')return audio.sayCue(!state.devices.uplink?'radio-connect':!state.calibrated?'radio-tune':'radio-transmit');
+    const cue={wake:'greeting',window:'window-view',power:'plug',water:'water-help',survey:'field-open',plants:'garden',journal:'log-summary',complete:'first-signal',credits:'credits-summary',menu:'menu-summary',restart:'restart-summary',about:'about-summary',recharge:'recharge'}[currentPanel];
+    return cue?audio.sayCue(cue):audio.say(nextStep(state).text);
+  }
   if (action === 'play-mentor') return audio.say(content.mentors[mentorTab].text, 'commander');
   if (action === 'mentor-back') { feedback = null; return showPanel({ energy:'power', agriculture: state.room === 'habitat' ? 'water' : 'plants', systems:'comms', health:'window' }[mentorTab]); }
   if (action === 'home') { closePanel(); renderCover(); return; }
@@ -368,9 +405,10 @@ document.addEventListener('click', event => {
   }
   if (action === 'wake-crew' || action === 'wake-place') {
     neiloMessage = action === 'wake-crew' ? 'We can try the communication desk. First, let’s find out what the base needs. I’ll come with you.' : 'This was a research base. My old team left recordings to help future explorers. Let’s find them together.';
-    closePanel(); renderGame(); audio.say(neiloMessage); showGuide(); return;
+    closePanel(); renderGame(); audio.sayCue(action==='wake-crew'?'wake-crew':'wake-place'); return;
   }
   if (action === 'run-water') return updateAfterAction({ type: 'water' });
+  if(action==='calibrate' && Number(modalRoot.querySelector('#channel')?.value)!==6){const read=modalRoot.querySelector('#channel-read');if(read)read.textContent='Not aligned yet. Slide to channel 6.';audio.cue('warning');return;}
   if (action === 'calibrate') return updateAfterAction({ type: 'calibrate' });
   if (action === 'send') return updateAfterAction({ type: 'send' });
   if (action === 'run-recharge') return updateAfterAction({ type: 'recharge' });
