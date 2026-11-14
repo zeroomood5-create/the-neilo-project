@@ -13,10 +13,10 @@ export const cinematics = {
   ],
   wake: [
     { id:'discover', image:'assets/arrival-bay.webp', video:'assets/video/discover.mp4', narration:'none', duration:7500, speaker:'A NEW COMPANION', caption:'A little help can make a big difference.' },
-    { id:'wake', audio:'assets/audio/supplied-v1/wake.mp3', image:'assets/arrival-bay.webp', video:'assets/video/wake.mp4', duration:7500, speaker:'NEILO', caption:'Oh! You are new. I am NEILO. You are the first visitor in a very long time. Shall we explore together?' }
+    { id:'wake', audio:'assets/audio/michael/wake.mp3', image:'assets/arrival-bay.webp', video:'assets/video/wake.mp4', duration:7500, speaker:'NEILO', caption:'Oh! You are new. I am NEILO. Shall we explore together?' }
   ],
   signal: [
-    { id: 'first-signal', audio:'assets/audio/supplied-v1/first-signal.mp3', image: 'assets/mission-control.webp', video: null, duration: 9000, speaker: 'NEILO', caption: 'There it goes. Your first signal! You gave every system its turn. And now your crew knows we are here. Together.' }
+    { id: 'first-signal', audio:'assets/audio/michael/first-signal.mp3', image: 'assets/mission-control.webp', video: null, duration: 9000, speaker: 'NEILO', caption: 'Your signal is on its way! We gave each system its turn.' }
   ]
 };
 

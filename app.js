@@ -13,6 +13,7 @@ import { nextStep, lockedReason, targetForRoom } from './progression.js';
 import { playBriefing } from './briefing.js';
 import { mountPower } from './power-game.js';
 import { mountMission } from './mission-view.js';
+import { mountGarden } from './garden-game.js';
 let blockedDevice = null;
 const app = document.querySelector('#app');
 const modalRoot = document.querySelector('#modal-root');
@@ -87,6 +88,7 @@ function openMission(kind) {
   if (kind==='survey' && !state.garden.complete) {feedback={text:'Complete the two garden plans, then the crew will open field notes.',ok:false};showPanel('survey');return;}
   closePanel();destroyScene();cinematicPlayer?.stop();
   const leave=()=>{cinematicPlayer?.stop();cinematicPlayer=null;renderGame();};
+  if(kind==='garden'){cinematicPlayer=mountGarden(app,()=>state,act,leave,()=>openMission('survey'));return;}
   const explain=()=>{
     const lesson=lessons.find(l=>l.id===(kind==='garden'?'garden':'field'));
     runScience(lesson,()=>{act({type:'seen',id:'science-'+lesson.id});openMission(kind);});
@@ -389,3 +391,14 @@ document.addEventListener('keydown', event => {
   }
 });
 renderCover();
+
+// A quiet visual nudge when an explorer pauses, without advancing their task.
+let lastInputAt=performance.now(),lastNudged='';
+for(const event of ['pointerdown','keydown'])document.addEventListener(event,()=>{lastInputAt=performance.now();});
+setInterval(()=>{
+ if(document.hidden||cinematicPlayer||walking||performance.now()-lastInputAt<12000||!document.querySelector('.play-shell'))return;
+ const h=guidance(state,currentPanel,blockedDevice),key=(currentPanel||state.room)+'|'+h.selector+'|'+h.text;
+ if(lastNudged===key)return;lastNudged=key;
+ const target=(currentPanel?modalRoot:app).querySelector(h.selector);target?.classList.add('hint-target');
+ const line=document.querySelector('#neilo-message');if(line)line.textContent=h.text;
+},1500);

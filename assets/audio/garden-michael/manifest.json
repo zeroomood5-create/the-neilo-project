@@ -1,0 +1,41 @@
+{
+  "voice": "am_michael",
+  "speed": 0.96,
+  "generator": "Kokoro v1.0 INT8 / ONNX CPU",
+  "provenance": "AI-generated local speech. User selected Michael on 2026-11-14.",
+  "model_license": "Apache-2.0",
+  "clips": [
+    {
+      "id": "science-light",
+      "text": "Leaves use light, water and carbon dioxide to make sugars for growth.",
+      "file": "science-light.wav",
+      "duration": 5.153333333333333,
+      "sha256": "f151ef535a617023fa75ee6aea8dea1e2cf150c7b67d6cb5e34e2e76c91413ae",
+      "seconds_to_generate": 18.98
+    },
+    {
+      "id": "science-time",
+      "text": "Different crops need different growing times. These example ranges are approximate.",
+      "file": "science-time.wav",
+      "duration": 5.717333333333333,
+      "sha256": "18d56bfba4542d59739e61d7026762335c17df5622e12cb1546a17f18067b7e8",
+      "seconds_to_generate": 19.19
+    },
+    {
+      "id": "science-prepare",
+      "text": "Our soybean example needs boiling in its shell before serving.",
+      "file": "science-prepare.wav",
+      "duration": 4.714666666666667,
+      "sha256": "6c4ba20fe7f660b2a6d608c09278e7d7b6761740551447bd1cd6797958f031bf",
+      "seconds_to_generate": 13.83
+    },
+    {
+      "id": "science-variety",
+      "text": "Different foods provide different nutrients. Your harvest adds variety to stored meals.",
+      "file": "science-variety.wav",
+      "duration": 6.142625,
+      "sha256": "656220848a8b5987a034b735d929d108c64ccd295206397e4bc06885269a5025",
+      "seconds_to_generate": 18.41
+    }
+  ]
+}

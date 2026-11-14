@@ -1,9 +1,12 @@
+import {findMichael,michaelReady} from './michael-voice.js';
 import { music } from './music.js';
 let context;
 let master;
 let ambience;
 let speechTimer;
 let recording;
+let voiceGeneration=0;
+const missingMichael=new Set();
 let extraLines = [];
 fetch(new URL('./station-recordings.json', import.meta.url), {cache:'no-cache'}).then(r=>r.json()).then(lines=>{extraLines=lines;}).catch(()=>{});
 let voiceLines = [];
@@ -55,6 +58,7 @@ async function unlock() {
 }
 
 function stopVoice() {
+  voiceGeneration++;
   clearTimeout(speechTimer);
   recording?.pause();
   recording = null;
@@ -62,9 +66,15 @@ function stopVoice() {
   window.speechSynthesis?.cancel();
 }
 
-function say(text, speaker = 'neilo') {
+async function say(text, speaker = 'neilo') {
   stopVoice();
   if (!enabled || document.hidden) return;
+  if(speaker==='neilo'){
+    const token=voiceGeneration;await michaelReady;if(token!==voiceGeneration||!enabled||document.hidden)return;
+    const line=findMichael(text);
+    if(!line){missingMichael.add(text);return;}
+    recording=new Audio(new URL(line.audio,import.meta.url).href);const clip=recording;music.duck(true);clip.onended=clip.onerror=()=>{if(recording===clip)music.duck(false);};clip.play().catch(()=>{if(recording===clip)music.duck(false);});return;
+  }
   const recordedLine = voiceLines.find(line => line.text === text) || extraLines.find(line => line.text === text);
   if (recordedLine) {
     recording = new Audio(new URL(recordedLine.audio || `./assets/audio/${recordedLine.id}.mp3`, import.meta.url).href);
@@ -101,4 +111,4 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) { stopVoice(); context?.suspend(); }
   else if (enabled && context) context.resume().catch(() => {});
 });
-export const audio = { unlock, cue, say, stopVoice, toggle, music, get enabled() { return enabled; }, get status() { return { enabled, context:context?.state || 'not-started', recordedLines:voiceLines.length }; } };
+export const audio = { unlock, cue, say, stopVoice, toggle, music, get enabled() { return enabled; }, get status() { return { enabled, context:context?.state || 'not-started', recordedLines:voiceLines.length, robotVoice:'am_michael', unrecordedRobotLines:[...missingMichael] }; } };

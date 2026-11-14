@@ -1,7 +1,8 @@
+import {validWorkshop,workshopComplete,workshopAction} from './garden-state.js';
 import { crops, gardenPlans } from './mission-data.js';
 
 export function freshGarden() {
-  return { round:0, crop:null, day:0, light:false, water:false, harvested:false, cooked:false, reserve:false, complete:false, firstCrop:null };
+  return { round:0, crop:null, day:0, light:false, water:false, harvested:false, cooked:false, reserve:false, complete:false, firstCrop:null, workshop:null };
 }
 export function freshScout() {
   return { priority:null, helped:false, archive:false, study:false, missing:false, report:null, sent:false, turns:0 };
@@ -17,6 +18,8 @@ export function restoreCampaign(saved) {
   if (!garden.crop) Object.assign(garden,{day:0,harvested:false,cooked:false,complete:false});
   if (!garden.harvested) garden.cooked=false;
   if (garden.complete && (garden.round!==1 || garden.crop!=='soy' || !garden.cooked)) garden.complete=false;
+  const workshop=validWorkshop(g.workshop);
+  if(workshop){garden.workshop=workshop;Object.assign(garden,{crop:workshop.crop,day:Math.floor(workshop.day),light:workshop.light,water:workshop.water>=2&&workshop.water<=4,harvested:workshop.picked.every(Boolean),cooked:workshop.cooked});garden.complete=g.complete===true&&workshopComplete(workshop);}
   if (['base','evidence'].includes(s.priority)) scout.priority=s.priority;
   for (const key of ['helped','archive','study','missing','sent']) scout[key]=s[key]===true;
   if (['followup','preliminary'].includes(s.report)) scout.report=s.report;
@@ -29,6 +32,7 @@ export function restoreCampaign(saved) {
 
 // Called on the engine's cloned state. Failure is discarded by applyAction.
 export function campaignAction(state,action) {
+  if(action.type.startsWith('garden-workshop-'))return workshopAction(state,action);
   const g=state.garden, s=state.scout;
   const reject=message=>({ok:false,message});
   let message='', note='';
