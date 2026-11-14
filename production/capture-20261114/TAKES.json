@@ -1,0 +1,189 @@
+[
+  {
+    "id": "01-name-and-explorer",
+    "file": "D:\\NASA\\Chat GPT\\The NEILO Project\\production\\capture-20261114\\raw\\01-name-and-explorer.webm",
+    "ready_seconds": 1.254,
+    "events": [
+      {
+        "name": "name",
+        "seconds": 2.767
+      },
+      {
+        "name": "full-character",
+        "seconds": 10.722
+      }
+    ],
+    "approx_duration": 30.034,
+    "checkpoint": "new menu",
+    "recording": "Actual browser gameplay, staged from saved checkpoints. Silent capture."
+  },
+  {
+    "id": "02-explore-and-neilo",
+    "file": "D:\\NASA\\Chat GPT\\The NEILO Project\\production\\capture-20261114\\raw\\02-explore-and-neilo.webm",
+    "ready_seconds": 5.095,
+    "events": [
+      {
+        "name": "walk",
+        "seconds": 5.096
+      },
+      {
+        "name": "discover",
+        "seconds": 7.622
+      }
+    ],
+    "approx_duration": 29.923,
+    "checkpoint": {
+      "awake": false,
+      "tutorial": "discover",
+      "powerChecked": false,
+      "room": "arrival"
+    },
+    "recording": "Actual browser gameplay, staged from saved checkpoints. Silent capture."
+  },
+  {
+    "id": "03-connect-the-power",
+    "file": "D:\\NASA\\Chat GPT\\The NEILO Project\\production\\capture-20261114\\raw\\03-connect-the-power.webm",
+    "ready_seconds": 4.786,
+    "events": [
+      {
+        "name": "wire",
+        "seconds": 7.984
+      },
+      {
+        "name": "motor",
+        "seconds": 19.29
+      }
+    ],
+    "approx_duration": 37.262,
+    "checkpoint": {
+      "powerChecked": false
+    },
+    "recording": "Actual browser gameplay, staged from saved checkpoints. Silent capture."
+  },
+  {
+    "id": "04-plant-light-water",
+    "file": "D:\\NASA\\Chat GPT\\The NEILO Project\\production\\capture-20261114\\raw\\04-plant-light-water.webm",
+    "ready_seconds": 3.778,
+    "events": [
+      {
+        "name": "seed",
+        "seconds": 6.712
+      },
+      {
+        "name": "water",
+        "seconds": 10.984
+      }
+    ],
+    "approx_duration": 28.527,
+    "checkpoint": {
+      "sent": true,
+      "water": 5,
+      "room": "habitat"
+    },
+    "recording": "Actual browser gameplay, staged from saved checkpoints. Silent capture."
+  },
+  {
+    "id": "05-grow-and-harvest",
+    "file": "D:\\NASA\\Chat GPT\\The NEILO Project\\production\\capture-20261114\\raw\\05-grow-and-harvest.webm",
+    "ready_seconds": 7.257,
+    "events": [
+      {
+        "name": "growth",
+        "seconds": 9.498
+      },
+      {
+        "name": "harvest",
+        "seconds": 20.387
+      }
+    ],
+    "approx_duration": 60.338,
+    "checkpoint": {
+      "sent": true,
+      "water": 5,
+      "room": "habitat",
+      "garden": {
+        "crop": "lettuce",
+        "workshop": {
+          "version": 1,
+          "crop": "lettuce",
+          "light": true,
+          "water": 3,
+          "day": 7,
+          "picked": [
+            false,
+            false,
+            false
+          ],
+          "cooked": false
+        }
+      }
+    },
+    "recording": "Actual browser gameplay, staged from saved checkpoints. Silent capture."
+  },
+  {
+    "id": "06-science-after-play",
+    "file": "D:\\NASA\\Chat GPT\\The NEILO Project\\production\\capture-20261114\\raw\\06-science-after-play.webm",
+    "ready_seconds": 4.07,
+    "events": [
+      {
+        "name": "science",
+        "seconds": 7.202
+      }
+    ],
+    "approx_duration": 30.332,
+    "checkpoint": {
+      "sent": true,
+      "water": 5,
+      "room": "habitat",
+      "garden": {
+        "crop": "soy",
+        "complete": true,
+        "round": 1,
+        "harvested": true,
+        "cooked": true,
+        "workshop": {
+          "version": 1,
+          "crop": "soy",
+          "light": true,
+          "water": 3,
+          "day": 65,
+          "picked": [
+            true,
+            true,
+            true
+          ],
+          "cooked": true
+        }
+      }
+    },
+    "recording": "Actual browser gameplay, staged from saved checkpoints. Silent capture."
+  },
+  {
+    "id": "07-real-rover-data",
+    "file": "D:\\NASA\\Chat GPT\\The NEILO Project\\production\\capture-20261114\\raw\\07-real-rover-data.webm",
+    "ready_seconds": 4.788,
+    "events": [
+      {
+        "name": "archive",
+        "seconds": 6.389
+      },
+      {
+        "name": "study",
+        "seconds": 10.025
+      }
+    ],
+    "approx_duration": 21.851,
+    "checkpoint": {
+      "sent": true,
+      "water": 5,
+      "garden": {
+        "crop": "soy",
+        "complete": true,
+        "round": 1,
+        "harvested": true,
+        "cooked": true
+      }
+    },
+    "recording": "Actual browser gameplay, staged from saved checkpoints. Silent capture."
+  }
+]

@@ -45,3 +45,11 @@ The same normal-entry automated browser journey also passed against the deployed
 14 November 2026. Approved preview integrated; bounded wire sag and post-radio unplugging retained. Twelve state tests and the locally tested actual-drag journey pass. GitHub source 912f957. Public deployment succeeded: https://neilo-first-signal.richhake16.chatgpt.site/?v=7 . Sites source baf49f98aebe35c421255dffab81991fe2ffb481. The pump leads to the real water task, then radio, signal and garden. No replacement of other missions or soundtrack.
 
 Public v7 verification: the actual-drag journey also passed on the deployed URL, including post-radio disconnection/reconnection and garden unlock.
+
+## Garden + Michael integration — local verification complete
+
+14 November 2026. Approved garden workshop now replaces the old planner UI. Either crop can complete its appropriate time plan; three harvests persist separately, soybean preparation is required, and legacy two-round saves remain supported. Help highlights the next tool or harvest, with a visual idle nudge after 12 seconds.
+
+42 Kokoro Michael recordings installed: 38 guidance/robot clips and four garden science clips. Robot cutscenes use the new voice; crew recordings remain James. Unrecorded dynamic robot lines remain captions rather than a synthetic or old-voice fallback. Fifteen state tests, both integrated crop routes with reload, the guided journey and actual Michael playback checks pass locally.
+
+The gameplay editor pack contains seven actual-game MP4 takes plus an exactly 30.000-second silent 1080p cut, with source timings and original suggested narration. Delivery and publication status follow below when finalized.

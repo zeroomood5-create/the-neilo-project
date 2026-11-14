@@ -1,0 +1,50 @@
+[
+  {
+    "file": "clips\\01-name-and-explorer.mp4",
+    "bytes": 2981150,
+    "duration": 16.3,
+    "sha256": "9dda7562cacdb1c7a634bfc41aa54a0c8dcd0f4aa0c0a36733cf55b9c3273012"
+  },
+  {
+    "file": "clips\\02-explore-and-neilo.mp4",
+    "bytes": 6553378,
+    "duration": 14.266667,
+    "sha256": "039420e0b577578f4656f12161f1ee5872ab2f173d528bc0eaad2cb882a1ea99"
+  },
+  {
+    "file": "clips\\03-connect-the-power.mp4",
+    "bytes": 2820623,
+    "duration": 22.566667,
+    "sha256": "e27b9a87248d8bd7f48ae3a1727f5a5c102490b8bd3cd4b77888746cd2f68844"
+  },
+  {
+    "file": "clips\\04-plant-light-water.mp4",
+    "bytes": 1654934,
+    "duration": 13.866667,
+    "sha256": "310af7839ea4f5b137d001b3a0ce6d6dc473639fe6e243d74e40200ba1a60a6c"
+  },
+  {
+    "file": "clips\\05-grow-and-harvest.mp4",
+    "bytes": 4090412,
+    "duration": 33.7,
+    "sha256": "56873948388c85c757441670cbd8edb14cad940ea2632c4ecb42d6d3e3e30ed4"
+  },
+  {
+    "file": "clips\\06-science-after-play.mp4",
+    "bytes": 2624327,
+    "duration": 16.9,
+    "sha256": "12cb0db4ec22bde04e8c27113991999c0c65b6c231f008fb3a5ef80a8dab9fed"
+  },
+  {
+    "file": "clips\\07-real-rover-data.mp4",
+    "bytes": 1538920,
+    "duration": 12.733333,
+    "sha256": "d05411ce4274b7580ea140b9936b880ccfc32318be362dae4fc4db34667aff75"
+  },
+  {
+    "file": "NEILO_30s_SILENT.mp4",
+    "bytes": 5303135,
+    "duration": 30.0,
+    "sha256": "5c9ef882b8679f116b865df53f7e4c403e537c0ed826841c5ff378d184021f48"
+  }
+]

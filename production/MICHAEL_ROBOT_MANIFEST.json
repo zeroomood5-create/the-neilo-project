@@ -1,0 +1,158 @@
+{
+  "voice": "am_michael",
+  "speed": 0.96,
+  "lines": [
+    {
+      "id": "wake",
+      "text": "Oh! You are new. I am Neilo. Shall we explore together?"
+    },
+    {
+      "id": "first-signal",
+      "text": "Your signal is on its way! We gave each system its turn."
+    },
+    {
+      "id": "walk",
+      "text": "Tap the glowing circle to walk there."
+    },
+    {
+      "id": "find",
+      "text": "Tap the little blue light beneath the bench."
+    },
+    {
+      "id": "helper",
+      "text": "Tap my picture whenever you need a hand."
+    },
+    {
+      "id": "power",
+      "text": "First, connect a device at the power console."
+    },
+    {
+      "id": "water",
+      "text": "Power is ready. Prepare water at the habitat station."
+    },
+    {
+      "id": "radio",
+      "text": "Give the radio its turn. Let\u2019s reach your crew."
+    },
+    {
+      "id": "garden",
+      "text": "The crew can hear us. Let\u2019s visit the growing corner."
+    },
+    {
+      "id": "field",
+      "text": "Our garden is ready. Open the field-notes console."
+    },
+    {
+      "id": "finish",
+      "text": "We did it together. Your log remembers our plans."
+    },
+    {
+      "id": "choose-seed",
+      "text": "Drag either seed packet into the growing tray."
+    },
+    {
+      "id": "care",
+      "text": "Turn on the grow light, then hold the water button."
+    },
+    {
+      "id": "too-wet",
+      "text": "The tray is too wet. Drain a little and try again."
+    },
+    {
+      "id": "grow",
+      "text": "Conditions are ready. Start the training calendar."
+    },
+    {
+      "id": "weeks",
+      "text": "We\u2019re fast-forwarding a simulation. Real plants take weeks to grow."
+    },
+    {
+      "id": "harvest",
+      "text": "Drag one plant\u2019s harvest to the plate. Then collect the next."
+    },
+    {
+      "id": "cook",
+      "text": "Harvest collected. Simulate boiling the soybean pods before serving."
+    },
+    {
+      "id": "cooking",
+      "text": "This short animation represents cooking. It is not a real cooking time."
+    },
+    {
+      "id": "garden-done",
+      "text": "Three harvests collected! Let\u2019s discover the science behind your plan."
+    },
+    {
+      "id": "long-plan",
+      "text": "Soybeans need a longer plan. Stored meals cover the wait."
+    },
+    {
+      "id": "plug",
+      "text": "Drag both plugs into matching sockets on the same machine."
+    },
+    {
+      "id": "breaker",
+      "text": "Both plugs are connected. Turn the breaker on."
+    },
+    {
+      "id": "pump-ready",
+      "text": "The pump has power. Follow the light to the water station."
+    },
+    {
+      "id": "radio-ready",
+      "text": "The radio is ready. Follow the light to the communication desk."
+    },
+    {
+      "id": "water-ready",
+      "text": "Water is ready. Pause the pump and give the radio its turn."
+    },
+    {
+      "id": "antenna",
+      "text": "The radio has power. Align the antenna to hear your crew."
+    },
+    {
+      "id": "send",
+      "text": "Water is ready and the antenna is aligned. Send your signal."
+    },
+    {
+      "id": "recharge",
+      "text": "The battery needs a charge before the next job."
+    },
+    {
+      "id": "archive",
+      "text": "Read the device, date and unit above the graph."
+    },
+    {
+      "id": "missing",
+      "text": "A missing reading is not zero. Choose not available."
+    },
+    {
+      "id": "report",
+      "text": "Mark what we know, and what still needs a measurement."
+    },
+    {
+      "id": "later",
+      "text": "Follow the highlighted station. We\u2019ll take one step at a time."
+    },
+    {
+      "id": "greeting",
+      "text": "Hello! I am Neilo. Let\u2019s find a way to reach your crew."
+    },
+    {
+      "id": "power-help",
+      "text": "Start at the power console. Connect the pump before preparing water."
+    },
+    {
+      "id": "water-help",
+      "text": "The pump is ready. Run one water cycle and watch the tank fill."
+    },
+    {
+      "id": "crew",
+      "text": "Your crew is safe in orbit. Let\u2019s prepare our reply."
+    },
+    {
+      "id": "pause-device",
+      "text": "Pause the other station to free its power."
+    }
+  ]
+}

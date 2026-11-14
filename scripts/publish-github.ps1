@@ -14,6 +14,11 @@ foreach ($directory in @('dist','scripts','tests','docs','data','production')) {
 foreach ($file in @('README.md','package.json','server.mjs','.gitignore','LEVEL_INTEGRATION_PLAN.md','MISSION_CONTENT_WORKFLOW.md','RELEASE_CURRENT.md','GAMEPLAY_REDESIGN_PLAN.md','ONBOARDING_AND_PLAYTEST_REVISION.md','GUIDED_JOURNEY_RELEASE.md')) {
     Copy-Item -LiteralPath (Join-Path $project $file) -Destination $target -Force
 }
+$kokoroSource = Join-Path $project 'tools/kokoro'
+$kokoroTarget = Join-Path $target 'tools/kokoro'
+New-Item -ItemType Directory -Path $kokoroTarget -Force | Out-Null
+Get-ChildItem -LiteralPath $kokoroSource -File | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $kokoroTarget -Force }
+
 git -C $target add -A
 git -C $target diff --cached --quiet
 if ($LASTEXITCODE -eq 1) {

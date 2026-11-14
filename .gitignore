@@ -7,3 +7,12 @@ qa/
 *.tar.gz
 
 .publish/
+tools/kokoro/.venv/
+tools/kokoro/models/
+output/voiceover/kokoro/
+production/capture-20261114/raw/
+production/capture-20261114/reference/
+production/capture-20261114/segments/
+production/capture-20261114/delivery/*.mp4
+production/capture-20261114/delivery/clips/
+production/capture-20261114/*.zip

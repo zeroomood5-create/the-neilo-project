@@ -29,8 +29,8 @@ try{
  await wire('out',470,320);assert.equal(await workshop().locator('#radio.transmitting').count(),0);await wire('out',645,429);await workshop().locator('#switch').click();await workshop().locator('#radio.transmitting').waitFor();await workshop().locator('#continue').click();
  await spot('comms').click();await action('calibrate').click();await p.locator('[data-cinema=skip]').click();
  await action('send').click();await p.locator('[data-cinema=skip]').click();await p.locator('[data-sci=skip]').click();
- await action('mission-garden').click();await p.getByRole('heading',{name:'A fresh addition'}).waitFor();
- await p.locator('[data-exit]').click();
+ await action('mission-garden').click();await p.frameLocator('iframe[title="NEILO growing workshop"]').locator('#pack-lettuce').waitFor();
+ await p.frameLocator('iframe[title="NEILO growing workshop"]').locator('#exit').click();
  const music=await p.evaluate(async()=>{const {audio}=await import('/audio.js?v=voices-supplied-v1');return audio.music.status;});
  assert.equal(music.playing,true);
  for(const [width,height] of [[390,844],[360,640],[844,390],[768,1024],[1366,768]]){

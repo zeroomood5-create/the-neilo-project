@@ -363,6 +363,258 @@
       "sha256": "8c8be05cd3ea7babfc38653304dc6c3feccc82cfd45d8297acf7956b6b4f638a",
       "kind": "image",
       "provenance": "AI-generated educational illustration using image_gen, 2026-11-14. Battery connected to electric motor and pump; simplified mechanism, not NASA hardware or measurement."
+    },
+    {
+      "file": "dist/assets/audio/michael/wake.mp3",
+      "sha256": "f4c8249852a55ff5f67dd78ef6e3a7c58e25a52cfc5263804d988fa150536be5",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Oh! You are new. I am Neilo. Shall we explore together?"
+    },
+    {
+      "file": "dist/assets/audio/michael/first-signal.mp3",
+      "sha256": "c3986a04104a11e48d51bc0eaff2b20003264ff9eec195d00d99acef22330b54",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Your signal is on its way! We gave each system its turn."
+    },
+    {
+      "file": "dist/assets/audio/michael/walk.mp3",
+      "sha256": "249c2c9be04f289f1b160113897b475d879ccdeb74c99be69a3d4e5a74ebc1cc",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Tap the glowing circle to walk there."
+    },
+    {
+      "file": "dist/assets/audio/michael/find.mp3",
+      "sha256": "c91e53630037b21a820e50ee5dd6add0602e627c3b4d1f5347e44e459b42a591",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Tap the little blue light beneath the bench."
+    },
+    {
+      "file": "dist/assets/audio/michael/helper.mp3",
+      "sha256": "2b2addc5e29b13841e4c95c0a285f3d3e792000b97b9ecb4fbbde4b1eadae58f",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Tap my picture whenever you need a hand."
+    },
+    {
+      "file": "dist/assets/audio/michael/power.mp3",
+      "sha256": "83640367ccdc8ff6588aaba8398ace7516228d95df636f64450dcaf5d58c6d35",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: First, connect a device at the power console."
+    },
+    {
+      "file": "dist/assets/audio/michael/water.mp3",
+      "sha256": "3a42ed33f36ced68c0f61e87bb9da78de03972ac91be4ecc5900d57b1165db33",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Power is ready. Prepare water at the habitat station."
+    },
+    {
+      "file": "dist/assets/audio/michael/radio.mp3",
+      "sha256": "065453ecdbed954baaab339988d8f5ee402e746fb009952b86fcedc970006b1a",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Give the radio its turn. Let’s reach your crew."
+    },
+    {
+      "file": "dist/assets/audio/michael/garden.mp3",
+      "sha256": "d290d6b7a113580b65afd7d8186713d91b06955208f1e2af0348593f814bb02a",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: The crew can hear us. Let’s visit the growing corner."
+    },
+    {
+      "file": "dist/assets/audio/michael/field.mp3",
+      "sha256": "2181149fcebf8fa24002e4c07f42e94959590fdb5f3139e23fc34b128e63ccdf",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Our garden is ready. Open the field-notes console."
+    },
+    {
+      "file": "dist/assets/audio/michael/finish.mp3",
+      "sha256": "4d462913bb703df3b02c22f3703802c11623196e399eae1fcfd71ddf54649644",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: We did it together. Your log remembers our plans."
+    },
+    {
+      "file": "dist/assets/audio/michael/choose-seed.mp3",
+      "sha256": "f2d89615db9889b4cb3c4c37f54024af9a44263b84b2f60a3fd0d58f97c167a2",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Drag either seed packet into the growing tray."
+    },
+    {
+      "file": "dist/assets/audio/michael/care.mp3",
+      "sha256": "9e5b07c65cb89df2525eda842e7f444048f062fc98a7de66715a4259dbde8417",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Turn on the grow light, then hold the water button."
+    },
+    {
+      "file": "dist/assets/audio/michael/too-wet.mp3",
+      "sha256": "409e951e1829ff436a3bf8f41592b067dcb23a51ff987bb1dd11c065de2e430a",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: The tray is too wet. Drain a little and try again."
+    },
+    {
+      "file": "dist/assets/audio/michael/grow.mp3",
+      "sha256": "6a2098883db8f5312ec82850764ccfa7106e7fb2fa169efee247c4e8bbd6873d",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Conditions are ready. Start the training calendar."
+    },
+    {
+      "file": "dist/assets/audio/michael/weeks.mp3",
+      "sha256": "1cb7b2ef317c6e18186b7c0d60c1e3b93c9cd3a7e50e04ddb822a0521c83f312",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: We’re fast-forwarding a simulation. Real plants take weeks to grow."
+    },
+    {
+      "file": "dist/assets/audio/michael/harvest.mp3",
+      "sha256": "719b9fc32d86af17e397da473a434dff4cb2d6dfd748025fdfdc6fc498510d7f",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Drag one plant’s harvest to the plate. Then collect the next."
+    },
+    {
+      "file": "dist/assets/audio/michael/cook.mp3",
+      "sha256": "b0f2ba93b17a58e725eeaf32350dd953ca191f4e4961c2ea19e6a00774ca5af8",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Harvest collected. Simulate boiling the soybean pods before serving."
+    },
+    {
+      "file": "dist/assets/audio/michael/cooking.mp3",
+      "sha256": "262db0f551f2b4e0628b564b0c8e5efb3e6fba7848170a5d9449f4a6b7feff1f",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: This short animation represents cooking. It is not a real cooking time."
+    },
+    {
+      "file": "dist/assets/audio/michael/garden-done.mp3",
+      "sha256": "f0d24b5e00e712fa9d67db9850a8017ac636a646765c49b9f5e5f26505ac7bef",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Three harvests collected! Let’s discover the science behind your plan."
+    },
+    {
+      "file": "dist/assets/audio/michael/long-plan.mp3",
+      "sha256": "fba4a81d420cc8507638d0f4e9ca61da09c24ba81135693ff62db3449f06a75f",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Soybeans need a longer plan. Stored meals cover the wait."
+    },
+    {
+      "file": "dist/assets/audio/michael/plug.mp3",
+      "sha256": "9ab97c28fca21887ae999dcfe3d47640951b5c2aac1ee05fc7b55c4ffff69216",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Drag both plugs into matching sockets on the same machine."
+    },
+    {
+      "file": "dist/assets/audio/michael/breaker.mp3",
+      "sha256": "bcfec1c77388c18ba5562383130b7acd0285bcc4456cef81adc843d2ff482291",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Both plugs are connected. Turn the breaker on."
+    },
+    {
+      "file": "dist/assets/audio/michael/pump-ready.mp3",
+      "sha256": "4827e859f4ace5ad26e134a57cd4ea0108560a4fc5c37218370b073dbf31bc79",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: The pump has power. Follow the light to the water station."
+    },
+    {
+      "file": "dist/assets/audio/michael/radio-ready.mp3",
+      "sha256": "a11b881443cdfb33ef60d0e925abfa3797493f567bc3900b53fe52c6b4692a37",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: The radio is ready. Follow the light to the communication desk."
+    },
+    {
+      "file": "dist/assets/audio/michael/water-ready.mp3",
+      "sha256": "8db40c6cdee789728d5c6f0f9fd92cc785e7336b99e23bc38148a045c5ff7bbd",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Water is ready. Pause the pump and give the radio its turn."
+    },
+    {
+      "file": "dist/assets/audio/michael/antenna.mp3",
+      "sha256": "2677bbdca56867690ea3a3cc4684c5f90eb280f750c616630fbe8f36e25c2f4a",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: The radio has power. Align the antenna to hear your crew."
+    },
+    {
+      "file": "dist/assets/audio/michael/send.mp3",
+      "sha256": "1ac829d13c65f80e42d367d2ff6c1576572f005e2c991b73c12f9a213ea13d28",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Water is ready and the antenna is aligned. Send your signal."
+    },
+    {
+      "file": "dist/assets/audio/michael/recharge.mp3",
+      "sha256": "4da5c5dc436a4a6ed7d0be91df851a62a5f55adeeb8c1d878134ee53d79fbe35",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: The battery needs a charge before the next job."
+    },
+    {
+      "file": "dist/assets/audio/michael/archive.mp3",
+      "sha256": "399e7d874a20aa666718c3f0bd5f52c6e93b25c445e6d693387a412c66e32453",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Read the device, date and unit above the graph."
+    },
+    {
+      "file": "dist/assets/audio/michael/missing.mp3",
+      "sha256": "dfe4e7bbb251f4ae91108f28a89ccbe1577f6b1f3839eba9274acf567aad1bc9",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: A missing reading is not zero. Choose not available."
+    },
+    {
+      "file": "dist/assets/audio/michael/report.mp3",
+      "sha256": "e2d47cc68224fedf220fea99f3fccba22f8f49143e9a10bf240bef68b7af5cc7",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Mark what we know, and what still needs a measurement."
+    },
+    {
+      "file": "dist/assets/audio/michael/later.mp3",
+      "sha256": "362a923b0160f030045d5a8b0ff9526d92da052ef57ac58b9132a11e3b814bed",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Follow the highlighted station. We’ll take one step at a time."
+    },
+    {
+      "file": "dist/assets/audio/michael/greeting.mp3",
+      "sha256": "a5f4d0fb0e66f362fd82cc05bc4599c879f65b81ee578a2f778e92efd37ac1ac",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Hello! I am Neilo. Let’s find a way to reach your crew."
+    },
+    {
+      "file": "dist/assets/audio/michael/power-help.mp3",
+      "sha256": "377a42318c49cdcb33fce60a95996b38351f41cf6eb945f6f158a634fe91a5e9",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Start at the power console. Connect the pump before preparing water."
+    },
+    {
+      "file": "dist/assets/audio/michael/water-help.mp3",
+      "sha256": "5202ba3c02d8c65fff25e2c493c24c90c3650e40ce6a59dda2f00fe37912bc20",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: The pump is ready. Run one water cycle and watch the tank fill."
+    },
+    {
+      "file": "dist/assets/audio/michael/crew.mp3",
+      "sha256": "fbe10056a4d2d6af8da47af6375138c36e30797a5d9cd7978b60872106c724f3",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Your crew is safe in orbit. Let’s prepare our reply."
+    },
+    {
+      "file": "dist/assets/audio/michael/pause-device.mp3",
+      "sha256": "ac8df65fea3dfeb168225a902bdbe9766a4e9ff3d9c656c2d7fe2c752fddfb5e",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Pause the other station to free its power."
+    },
+    {
+      "file": "dist/assets/audio/garden-michael/science-light.wav",
+      "sha256": "f151ef535a617023fa75ee6aea8dea1e2cf150c7b67d6cb5e34e2e76c91413ae",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Leaves use light, water and carbon dioxide to make sugars for growth."
+    },
+    {
+      "file": "dist/assets/audio/garden-michael/science-time.wav",
+      "sha256": "18d56bfba4542d59739e61d7026762335c17df5622e12cb1546a17f18067b7e8",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Different crops need different growing times. These example ranges are approximate."
+    },
+    {
+      "file": "dist/assets/audio/garden-michael/science-prepare.wav",
+      "sha256": "6c4ba20fe7f660b2a6d608c09278e7d7b6761740551447bd1cd6797958f031bf",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Our soybean example needs boiling in its shell before serving."
+    },
+    {
+      "file": "dist/assets/audio/garden-michael/science-variety.wav",
+      "sha256": "656220848a8b5987a034b735d929d108c64ccd295206397e4bc06885269a5025",
+      "kind": "audio",
+      "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Different foods provide different nutrients. Your harvest adds variety to stored meals."
     }
   ]
 }

@@ -5,6 +5,7 @@ export function mountPower(root,state,commit,leave){
  frame.src='./power-workshop.html?stage='+(state.water>=5?'2':'1')+'&token='+encodeURIComponent(token);
  root.replaceChildren(frame);let alive=true;
  function receive(e){if(!alive||e.origin!==location.origin||e.source!==frame.contentWindow||e.data?.channel!=='neilo-wiring'||e.data.token!==token)return;
+ if(e.data.type==='say'){audio.say(String(e.data.text).slice(0,500));return;}
  if(e.data.type==='leave'){leave();return;}
  if(e.data.type==='off'){commit({type:'power-off'});return;}
  if(e.data.type==='connect'){

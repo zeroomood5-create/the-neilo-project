@@ -35,3 +35,5 @@ Automated completion verifies software behavior. It does not demonstrate learnin
 
 
 14 November update: image_gen created the battery/motor/pump illustration for the guided journey. JavaScript/CSS implements the chapter guards, action-based tutorial, story-map recap and power connection mini-game. Sites helper prepares the existing public Site release. See GUIDED_JOURNEY_RELEASE.md for remaining production and test limits.
+
+14 November integration: approved interactive garden with per-plant saved harvest and context help. Kokoro v1.0 INT8 with ONNX Runtime CPU generated 38 Michael guidance/robot clips plus four short garden science recordings; these are separate from the retained James crew voice. Some unscripted dynamic robot lines remain caption-only. Real gameplay footage was recorded in Chrome/Playwright, then converted and cut with FFmpeg. See production/capture-20261114/README.md for checkpoint staging, reference review and output boundaries.
