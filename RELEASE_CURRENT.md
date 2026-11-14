@@ -1,3 +1,20 @@
+# First Signal — completed demo chapter
+
+Prepared 14 November 2026, Africa/Cairo. Local implementation verified; publication identifiers follow below.
+
+Backup before edits: `backups/pre-phase-ending-v8.bundle`, verified complete Git history. The public v8 and its source remain in Sites version history.
+
+Changes: post-cinematic Michael recap; 46 additional narration cues; real NASA Curiosity photograph in Look outside; sequenced radio connection / tuning / transmit controls; simplified field-note steps; consistent SVG station icons; improved movement acceleration, follower continuity and background caching; revised title screen; a chapter ending and public credits/source page.
+
+Discovery questions now require an answer, with recoverable wrong answers. Interrupted required lessons resume on reload. First crew contact is a milestone; the demo ends after the garden, rover report, relay and final question. The next surface expedition is clearly presented as future content.
+
+Validation: 16 state tests; browser journey from a fresh start through actual wire dragging, water, radio tuning, soybean harvest, missing-data wrong/right choices, report, reload during final question, ending and credits; both crop routes with saved individual harvest; Michael playback tests; 46 supplemental files decoded and played. Responsive checks cover five viewports. Browser QA does not replace child usability or human science review.
+
+Submission documentation: docs/SUBMISSION_DOSSIER.md; docs/NARRATION_AUDIT.md; production/FLOW_ARRIVAL_RECAP.md. The new Flow recap film awaits team generation; the playable illustrated recap is already installed. Existing Interstellar music is retained and mixed quietly; redistribution rights are not established by these project files.
+
+---
+Previous release record follows.
+
 # Guided journey update — 14 November 2026
 
 See GUIDED_JOURNEY_RELEASE.md for current implementation and remaining production tasks. State tests and a new normal-entry guided browser journey passed. Public deployment status is appended after publishing.

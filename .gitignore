@@ -16,3 +16,6 @@ production/capture-20261114/segments/
 production/capture-20261114/delivery/*.mp4
 production/capture-20261114/delivery/clips/
 production/capture-20261114/*.zip
+
+production/capture-20261114/NEILO_30s_SILENT.mp4
+production/capture-20261114/clips/

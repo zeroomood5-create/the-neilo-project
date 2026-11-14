@@ -1,8 +1,13 @@
 // Michael replaces NEILO; crew recordings keep their original speakers.
 let pack={clips:[]};
-export const michaelReady=fetch(new URL('./michael-voice.json',import.meta.url),{cache:'no-cache'}).then(r=>r.json()).then(x=>{pack=x;}).catch(()=>{});
+export const michaelReady=Promise.all(['michael-voice.json','michael-phase.json'].map(f=>fetch(new URL(f,import.meta.url),{cache:'no-cache'}).then(r=>r.json()).catch(()=>({clips:[]})))).then(packs=>{pack={clips:packs.flatMap(p=>p.clips)};});
+export function michaelCue(id){return pack.clips.find(c=>c.id===id)||null;}
 const clean=s=>String(s).toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 const rules=[
+ ['garden-done',/three harvests collected.*science/],['radio-ready',/radio has power.*follow|radio is ready.*follow/],['power-help',/first test a connection/],
+ ['log-summary',/open your log/],['field-open',/gathering evidence|evidence task is waiting|read the archive first/],['field-dash',/label the missing|missing data stays/],
+ ['field-relay',/relay.*waits|waiting relay/],['report',/relay repaired|second piece of evidence|new site.*measurement/],
+ ['plug',/release.*socket/],['choose-seed',/release the packet/],['weeks',/fast forwarding a simulation/],['care',/lettuce is in|tray needs its light/],['later',/door to mission control|door to water|back to mission control|already full|your next job/],
  ['greeting',/hello.*neilo/],['wake',/oh.*you are new/],['first-signal',/there it goes|message is sent|signal is on its way/],
  ['walk',/glowing circle|tap the floor to walk/],['find',/blue light|beneath the bench/],['helper',/tap my picture|tap me whenever|walk with you/],
  ['too-wet',/too wet|drain a little|drain some|drain.*more/],['choose-seed',/seed packet|packet.*tray|choose.*crop/],

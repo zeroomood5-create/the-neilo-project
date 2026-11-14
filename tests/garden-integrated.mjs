@@ -18,6 +18,6 @@ try{for(const crop of ['lettuce','soy']){
  if(crop==='soy')await f.locator('#cook').click();
  await f.locator('#science').waitFor({state:'visible'});await f.locator('#next-mission').waitFor({state:'visible'});
  const saved=await p.evaluate(()=>JSON.parse(localStorage.getItem('neilo-first-signal-v1')));assert.ok(saved.garden.complete);assert.deepEqual(saved.garden.workshop.picked,[true,true,true]);
- await f.locator('#next-mission').click();await p.locator('.survey-screen').waitFor();
+ await f.locator('#next-mission').click();await p.locator('[data-sci=skip]').click();await p.locator('[data-choice="0"]').click();await p.locator('[data-sci=next]').click();await p.locator('.survey-screen').waitFor();
  assert.deepEqual(errors,[]);await p.close();console.log('PASS '+crop+' integrated help, crop conditions, per-plant reload, preparation, science and next mission.');
 }}finally{await b.close();}

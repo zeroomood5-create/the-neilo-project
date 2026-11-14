@@ -1,4 +1,4 @@
-import {findMichael,michaelReady} from './michael-voice.js';
+import {findMichael,michaelReady,michaelCue} from './michael-voice.js';
 import { music } from './music.js';
 let context;
 let master;
@@ -10,7 +10,7 @@ const missingMichael=new Set();
 let extraLines = [];
 fetch(new URL('./station-recordings.json', import.meta.url), {cache:'no-cache'}).then(r=>r.json()).then(lines=>{extraLines=lines;}).catch(()=>{});
 let voiceLines = [];
-fetch(new URL('./voice-lines.json?v=supplied-v1', import.meta.url)).then(response => response.json()).then(lines => { voiceLines = lines; }).catch(() => {});
+const crewReady=fetch(new URL('./voice-lines.json?v=supplied-v1', import.meta.url)).then(response => response.json()).then(lines => { voiceLines = lines; }).catch(() => {});
 let enabled = true;
 try { enabled = localStorage.getItem('neilo-audio') !== 'off'; } catch {}
 
@@ -69,34 +69,22 @@ function stopVoice() {
 async function say(text, speaker = 'neilo') {
   stopVoice();
   if (!enabled || document.hidden) return;
-  if(speaker==='neilo'){
+  if(speaker==='neilo'||speaker==='cue'){
     const token=voiceGeneration;await michaelReady;if(token!==voiceGeneration||!enabled||document.hidden)return;
-    const line=findMichael(text);
+    const line=speaker==='cue'?michaelCue(text):findMichael(text);
     if(!line){missingMichael.add(text);return;}
     recording=new Audio(new URL(line.audio,import.meta.url).href);const clip=recording;music.duck(true);clip.onended=clip.onerror=()=>{if(recording===clip)music.duck(false);};clip.play().catch(()=>{if(recording===clip)music.duck(false);});return;
   }
+  const token=voiceGeneration;await crewReady;if(token!==voiceGeneration||!enabled||document.hidden)return;
   const recordedLine = voiceLines.find(line => line.text === text) || extraLines.find(line => line.text === text);
   if (recordedLine) {
     recording = new Audio(new URL(recordedLine.audio || `./assets/audio/${recordedLine.id}.mp3`, import.meta.url).href);
     music.duck(true);
     recording.onended = () => music.duck(false);
-    recording.play().catch(() => speakSynthetic(text, speaker));
+    recording.onerror=()=>music.duck(false);recording.play().catch(()=>music.duck(false));
     return;
   }
-  speakSynthetic(text, speaker);
-}
-function speakSynthetic(text, speaker) {
-  if (!enabled || !window.speechSynthesis || !window.SpeechSynthesisUtterance || document.hidden) return;
-  const utterance = new SpeechSynthesisUtterance(text);
-  const voices = speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en'));
-  utterance.voice = voices.find(voice => /Google US English|Microsoft.*(David|Guy)|English.*United States/i.test(voice.name)) || voices[0] || null;
-  utterance.onstart = () => music.duck(true);
-  utterance.onend = utterance.onerror = () => music.duck(false);
-  utterance.lang = 'en-US';
-  utterance.rate = speaker === 'neilo' ? .94 : .9;
-  utterance.pitch = speaker === 'neilo' ? 1.12 : .9;
-  utterance.volume = .9;
-  speechTimer = setTimeout(() => { if (enabled && !document.hidden) speechSynthesis.speak(utterance); }, 70);
+  // Do not substitute an unselected device voice for a missing recording.
 }
 
 function toggle() {
@@ -111,4 +99,4 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) { stopVoice(); context?.suspend(); }
   else if (enabled && context) context.resume().catch(() => {});
 });
-export const audio = { unlock, cue, say, stopVoice, toggle, music, get enabled() { return enabled; }, get status() { return { enabled, context:context?.state || 'not-started', recordedLines:voiceLines.length, robotVoice:'am_michael', unrecordedRobotLines:[...missingMichael] }; } };
+export const audio = { unlock, cue, say, sayCue:id=>say(id,'cue'), stopVoice, toggle, music, get enabled() { return enabled; }, get status() { return { enabled, context:context?.state || 'not-started', recordedLines:voiceLines.length, robotVoice:'am_michael', unrecordedRobotLines:[...missingMichael] }; } };

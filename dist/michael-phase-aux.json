@@ -1,0 +1,111 @@
+{
+  "voice": "am_michael",
+  "provenance": "AI-generated locally using Kokoro v1.0 INT8, Michael",
+  "clips": [
+    {
+      "id": "radio-connect",
+      "text": "First, connect both radio plugs at the power console.",
+      "audio": "assets/audio/michael/radio-connect.mp3",
+      "duration": 3.819,
+      "sha256": "f398af833460efe3f42ef672f54683b0a77ea5f2be8bf40d8bc43963a3c18cd4"
+    },
+    {
+      "id": "radio-tune",
+      "text": "Tune the antenna until the two signals line up.",
+      "audio": "assets/audio/michael/radio-tune.mp3",
+      "duration": 3.563,
+      "sha256": "ff646dd8ad8614d6f2e75054f62dc121cf92c4c61db71dbaf1d5784f8b9ccf83"
+    },
+    {
+      "id": "radio-transmit",
+      "text": "The crew can hear us. Send the ready signal.",
+      "audio": "assets/audio/michael/radio-transmit.mp3",
+      "duration": 3.2,
+      "sha256": "42f701ff8cf4af4464abac7465d6134acfb15bac0682ba6ff8b052160f296d98"
+    },
+    {
+      "id": "field-open",
+      "text": "Open the rover archive. Look for a missing reading.",
+      "audio": "assets/audio/michael/field-open.mp3",
+      "duration": 3.669,
+      "sha256": "19681a20196ae1b0f1746d6bfca94ba7cac88b4ba24bf618280fa89b35726307"
+    },
+    {
+      "id": "field-dash",
+      "text": "A dash is not zero. What should we tell the crew?",
+      "audio": "assets/audio/michael/field-dash.mp3",
+      "duration": 3.563,
+      "sha256": "37c171c7eb8d7f82083078ab53f8a239df1834504a7fb668825b3ebb7cc30108"
+    },
+    {
+      "id": "field-relay",
+      "text": "Repair the relay so the crew can receive your notes.",
+      "audio": "assets/audio/michael/field-relay.mp3",
+      "duration": 3.627,
+      "sha256": "dd1d48f9536dc7b0a81506007cf5abb33c2ad2f459745b24506117653559cb4c"
+    },
+    {
+      "id": "end-airlock",
+      "text": "The crew heard you. The garden is growing. Next time, we step outside.",
+      "audio": "assets/audio/michael/end-airlock.mp3",
+      "duration": 5.084,
+      "sha256": "c30b256ce9558937beb6d2f30e94e72ba437fd966f24da26e3208b95452c7e26"
+    },
+    {
+      "id": "log-summary",
+      "text": "Your journey log remembers the things you did.",
+      "audio": "assets/audio/michael/log-summary.mp3",
+      "duration": 3.328,
+      "sha256": "f6734feb17aee102aa2c01d242080fdcafca25877d7c741b9ce9b99e57043dc8"
+    },
+    {
+      "id": "menu-summary",
+      "text": "Choose where to go next, or replay the story.",
+      "audio": "assets/audio/michael/menu-summary.mp3",
+      "duration": 3.271,
+      "sha256": "373b4e1a25108591c80536ea47ef2f7f6fc7d71fea3817edbf87fbc2943b1a8e"
+    },
+    {
+      "id": "credits-summary",
+      "text": "You reached the credits. Thank you for exploring Mars with us.",
+      "audio": "assets/audio/michael/credits-summary.mp3",
+      "duration": 4.139,
+      "sha256": "534126c7ba4423febf45f09dc755d280e22a83853c9a86ba4bd5ec0ea9e88498"
+    },
+    {
+      "id": "restart-summary",
+      "text": "Start a new journey, or keep the one you saved.",
+      "audio": "assets/audio/michael/restart-summary.mp3",
+      "duration": 3.029,
+      "sha256": "a484bf340fddcec2d46e199ce5b8562cd88fb394fd843a22367deadaf32c586b"
+    },
+    {
+      "id": "about-summary",
+      "text": "This is a playable demo. The base is imagined, but the rover readings come from Mars.",
+      "audio": "assets/audio/michael/about-summary.mp3",
+      "duration": 5.958,
+      "sha256": "f284b03a32a00992828d7d0508720fc40fe174fc8b5dea16ad7ab5d76fdc012b"
+    },
+    {
+      "id": "field-choose",
+      "text": "The crew needs a radio relay and a rover report. Which job will you start with?",
+      "audio": "assets/audio/michael/field-choose.mp3",
+      "duration": 5.803,
+      "sha256": "851e73647248d5d1e1336faa23ae2d18a572c7f6bf7b62b21f310b8dd05533ab"
+    },
+    {
+      "id": "field-send",
+      "text": "Tell the crew what you know. The next site still needs a measurement.",
+      "audio": "assets/audio/michael/field-send.mp3",
+      "duration": 4.288,
+      "sha256": "962435eb7813e0f2624bed3a69a952e3c013550974c26a6a35545bc733f3b565"
+    },
+    {
+      "id": "field-delivered",
+      "text": "Your notes are ready for the next expedition.",
+      "audio": "assets/audio/michael/field-delivered.mp3",
+      "duration": 2.965,
+      "sha256": "667a4bfaba55978395435811d46dd5365aa155d17556c92889781e521d02097d"
+    }
+  ]
+}

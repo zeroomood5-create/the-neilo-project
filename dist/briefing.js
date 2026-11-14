@@ -11,8 +11,8 @@ export function playBriefing(root,done) {
   if(!alive)return;
   const [title,text,stage]=beats[index];
   root.innerHTML='<section class="story-map '+stage+'" aria-label="Where you are"><header><span class="brand">NEILO ✦</span><button class="glass-btn" data-story-skip>Skip recap</button></header><main><div class="orbit-diagram"><div class="mars-world"></div><div class="orbit-ship">CREW<br><small>IN ORBIT</small></div><div class="capsule-dot"></div><div class="base-dot">YOU<br><small>AT THE BASE</small></div><div class="radio-broken">⌁</div></div><h1>'+title+'</h1><p>'+text+'</p></main><footer><button class="glass-btn" data-story-listen>Hear again</button><button class="btn primary" data-story-next>'+(index===2?'Step inside →':'Next →')+'</button></footer></section>';
-  audio.say(text,'commander');
-  root.querySelector('[data-story-listen]').onclick=()=>audio.say(text,'commander');
+  audio.sayCue(['recap-separated','recap-landed','recap-goal'][index]);
+  root.querySelector('[data-story-listen]').onclick=()=>audio.sayCue(['recap-separated','recap-landed','recap-goal'][index]);
   root.querySelector('[data-story-skip]').onclick=finish;
   root.querySelector('[data-story-next]').onclick=()=>{if(index===2)finish();else{index++;render();}};
   root.querySelector('[data-story-next]').focus();

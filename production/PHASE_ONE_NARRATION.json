@@ -1,0 +1,190 @@
+{
+  "voice": "am_michael",
+  "speed": 0.96,
+  "lines": [
+    {
+      "id": "recap-separated",
+      "text": "A fault separated your safety capsule from the crew’s ship."
+    },
+    {
+      "id": "recap-landed",
+      "text": "Your crew is still in orbit. Your capsule landed at the old base."
+    },
+    {
+      "id": "recap-goal",
+      "text": "Emergency air and heat are on. The radio is off. Find a way to reach your crew."
+    },
+    {
+      "id": "discover",
+      "text": "A little help can make a big difference."
+    },
+    {
+      "id": "quiz-yes",
+      "text": "That’s right! You can use that idea on your next mission."
+    },
+    {
+      "id": "quiz-retry",
+      "text": "Try again. Look at the picture, or hear the question once more."
+    },
+    {
+      "id": "lesson-garden-intro",
+      "text": "You grew and picked a crop for the crew."
+    },
+    {
+      "id": "lesson-garden-1",
+      "text": "Plants need suitable light, water, nutrients, temperature and air. Our two switches represent only part of that environment."
+    },
+    {
+      "id": "lesson-garden-2",
+      "text": "CSA lists about 21–28 days for leaf lettuce and 45–65 days for soybeans. Our planner used the upper end of each range. Real growing conditions can change the result."
+    },
+    {
+      "id": "lesson-garden-3",
+      "text": "The example soybeans need boiling. Lettuce can be eaten without cooking. Crops add different nutrients to meals, alongside stored food."
+    },
+    {
+      "id": "lesson-garden-question",
+      "text": "A new crop needs cooking. What should the crew include in its plan? A way to prepare the harvest, or Only the planting date?"
+    },
+    {
+      "id": "lesson-field-intro",
+      "text": "Your report keeps the measurements and the unanswered questions together."
+    },
+    {
+      "id": "lesson-field-1",
+      "text": "RAD aboard Curiosity measured radiation on Mars. Our archive shows 84 absorbed dose rate readings, in micrograys per hour, from 1 January 2015."
+    },
+    {
+      "id": "lesson-field-2",
+      "text": "In a separate 2016 study at Butte M12, surrounding terrain blocked part of the sky. Researchers found a 4% decrease in expected dose rate there."
+    },
+    {
+      "id": "lesson-field-3",
+      "text": "A missing value means that measurement is unavailable. A reading at one place does not tell us whether another site is safe."
+    },
+    {
+      "id": "lesson-field-question",
+      "text": "The new site has no radiation reading. What belongs in your report? A measurement is still needed, or The missing reading is zero?"
+    },
+    {
+      "id": "lesson-water-intro",
+      "text": "You used stored energy to prepare water for the crew."
+    },
+    {
+      "id": "lesson-water-1",
+      "text": "Solar panels turn sunlight into electricity. Some spacecraft use sunlight to run their equipment."
+    },
+    {
+      "id": "lesson-water-2",
+      "text": "A battery stores energy. Spacecraft can use that stored energy when sunlight is unavailable."
+    },
+    {
+      "id": "lesson-water-3",
+      "text": "An electric motor transfers energy into motion. In our base, the pump uses part of the battery reserve."
+    },
+    {
+      "id": "lesson-water-question",
+      "text": "When the solar panels are in shadow, what can provide stored energy? The battery, or An empty cable?"
+    },
+    {
+      "id": "lesson-power-intro",
+      "text": "Your plan got water ready and a message to the crew."
+    },
+    {
+      "id": "lesson-power-1",
+      "text": "On Hubble, electricity powers instruments, computers, heaters and transmitters."
+    },
+    {
+      "id": "lesson-power-2",
+      "text": "Running more devices at once asks for more power. In our base, the pump and radio together exceed the supply limit."
+    },
+    {
+      "id": "lesson-power-3",
+      "text": "Pausing one job made room for the next. The battery reserve showed how much stored energy remained."
+    },
+    {
+      "id": "lesson-power-question",
+      "text": "If two jobs exceed the supply limit, what could you try? Run them one after the other, or Switch both on again?"
+    },
+    {
+      "id": "wake-crew",
+      "text": "We can reach your crew. First, find the power console with me."
+    },
+    {
+      "id": "wake-place",
+      "text": "This was a research base. My team left recordings to help explorers like you."
+    },
+    {
+      "id": "window-view",
+      "text": "Look through the window. This is a real picture of Mars."
+    },
+    {
+      "id": "survey-start",
+      "text": "Let’s read a real rover record. Then tell the crew what the evidence shows."
+    },
+    {
+      "id": "end-demo",
+      "text": "Our base is awake. Next time, we’ll step outside and explore Mars together. This is the end of our demo."
+    },
+    {
+      "id": "radio-connect",
+      "text": "First, connect both radio plugs at the power console."
+    },
+    {
+      "id": "radio-tune",
+      "text": "Tune the antenna until the two signals line up."
+    },
+    {
+      "id": "radio-transmit",
+      "text": "The crew can hear us. Send the ready signal."
+    },
+    {
+      "id": "field-open",
+      "text": "Open the rover archive. Look for a missing reading."
+    },
+    {
+      "id": "field-dash",
+      "text": "A dash is not zero. What should we tell the crew?"
+    },
+    {
+      "id": "field-relay",
+      "text": "Repair the relay so the crew can receive your notes."
+    },
+    {
+      "id": "end-airlock",
+      "text": "The crew heard you. The garden is growing. Next time, we step outside."
+    },
+    {
+      "id": "log-summary",
+      "text": "Your journey log remembers the things you did."
+    },
+    {
+      "id": "menu-summary",
+      "text": "Choose where to go next, or replay the story."
+    },
+    {
+      "id": "credits-summary",
+      "text": "You reached the credits. Thank you for exploring Mars with us."
+    },
+    {
+      "id": "restart-summary",
+      "text": "Start a new journey, or keep the one you saved."
+    },
+    {
+      "id": "about-summary",
+      "text": "This is a playable demo. The base is imagined, but the rover readings come from Mars."
+    },
+    {
+      "id": "field-choose",
+      "text": "The crew needs a radio relay and a rover report. Which job will you start with?"
+    },
+    {
+      "id": "field-send",
+      "text": "Tell the crew what you know. The next site still needs a measurement."
+    },
+    {
+      "id": "field-delivered",
+      "text": "Your notes are ready for the next expedition."
+    }
+  ]
+}

@@ -12,7 +12,7 @@ export const cinematics = {
     { id: 'crew-signal', audio:'assets/audio/supplied-v1/crew-signal.mp3', image: 'assets/voyage.webp', video: null, duration: 11000, speaker: 'MISSION COMMANDER · RECEIVED MESSAGE', caption: 'We are safe in orbit. It is wonderful to hear from the base. Prepare your supplies, then send us your ready signal. We will plan the next step together.' }
   ],
   wake: [
-    { id:'discover', image:'assets/arrival-bay.webp', video:'assets/video/discover.mp4', narration:'none', duration:7500, speaker:'A NEW COMPANION', caption:'A little help can make a big difference.' },
+    { id:'discover', image:'assets/arrival-bay.webp', video:'assets/video/discover.mp4', audio:'assets/audio/michael/discover.mp3', duration:7500, speaker:'A NEW COMPANION', caption:'A little help can make a big difference.' },
     { id:'wake', audio:'assets/audio/michael/wake.mp3', image:'assets/arrival-bay.webp', video:'assets/video/wake.mp4', duration:7500, speaker:'NEILO', caption:'Oh! You are new. I am NEILO. Shall we explore together?' }
   ],
   signal: [

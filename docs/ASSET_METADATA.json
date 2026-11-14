@@ -5,6 +5,15 @@
   "scientific_data": "Original NASA/CSA sources, with AI-assisted interpretation and visualization. See source query and report.",
   "assets": [
     {
+      "file": "dist/assets/science/PIA21044.jpg",
+      "sha256": "0ba1cea422c22e393790d2ce7de28c3e79a34a18d8d80a5128a4b2717b6c0955",
+      "kind": "original rover photograph",
+      "provenance": "NASA/JPL-Caltech/MSSS, Curiosity Mastcam, Murray Buttes, 2016-09-08, sol 1454",
+      "source": "https://www.jpl.nasa.gov/images/pia21044-farewell-to-murray-buttes-image-4/",
+      "retrieved_on": "2026-11-14",
+      "ai_generated": false
+    },
+    {
       "file": "dist/assets/arrival-bay.webp",
       "sha256": "fa02608feca36de9f4a1a2684be1057973bc6ad831834138b079d4e429df94e6",
       "kind": "image",
@@ -615,6 +624,282 @@
       "sha256": "656220848a8b5987a034b735d929d108c64ccd295206397e4bc06885269a5025",
       "kind": "audio",
       "provenance": "AI-generated local Kokoro am_michael; selected by user; Apache-2.0 model. Script: Different foods provide different nutrients. Your harvest adds variety to stored meals."
+    },
+    {
+      "file": "dist/assets/audio/michael/recap-separated.mp3",
+      "sha256": "42e898ad51856e0c2231b080a095ccd0b93dbd5c750599482bbd39d013f3a3e4",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: A fault separated your safety capsule from the crew’s ship."
+    },
+    {
+      "file": "dist/assets/audio/michael/recap-landed.mp3",
+      "sha256": "efc595bcca2dd83104f21dfd4eae87d312aada9996ff387a576a751140ee3957",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Your crew is still in orbit. Your capsule landed at the old base."
+    },
+    {
+      "file": "dist/assets/audio/michael/recap-goal.mp3",
+      "sha256": "d29934a8cb7abfe2efca504aac16b86874b486304b979db62e0455b225421349",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Emergency air and heat are on. The radio is off. Find a way to reach your crew."
+    },
+    {
+      "file": "dist/assets/audio/michael/discover.mp3",
+      "sha256": "9e839e01614c4e37330189b0a8c7a0d4e3f15fe6b9357431503801eb74488d58",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: A little help can make a big difference."
+    },
+    {
+      "file": "dist/assets/audio/michael/quiz-yes.mp3",
+      "sha256": "00f34f04c46ed0574dbf66a77f2691458d5fb172d9741b4ba7f23c593ed79901",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: That’s right! You can use that idea on your next mission."
+    },
+    {
+      "file": "dist/assets/audio/michael/quiz-retry.mp3",
+      "sha256": "862d74cd41b9ee11400700d49c194cacb074db42717120969c8d2610deb8ec77",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Try again. Look at the picture, or hear the question once more."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-garden-intro.mp3",
+      "sha256": "77e66c8d7561cc162584ee93a7e7b2234ba331017987a35b5b022c856349310f",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: You grew and picked a crop for the crew."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-garden-1.mp3",
+      "sha256": "16170b4d3a35fe1aaace82c9cd553680c06a016f49a02e881fe8190fab82a1fb",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Plants need suitable light, water, nutrients, temperature and air. Our two switches represent only part of that environment."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-garden-2.mp3",
+      "sha256": "37aa00014c85826f043283802debf9f859367174d490bdd873483aa222f2e2f6",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: CSA lists about 21–28 days for leaf lettuce and 45–65 days for soybeans. Our planner used the upper end of each range. Real growing conditions can change the result."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-garden-3.mp3",
+      "sha256": "2a4679f0ee956fc2b34267c08d5eba9fb03e3bc7d90bc5259e90783cfc8604ad",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: The example soybeans need boiling. Lettuce can be eaten without cooking. Crops add different nutrients to meals, alongside stored food."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-garden-question.mp3",
+      "sha256": "b7119ad8d97a87aa0fdf532083833bbb9cf439bd4d05c03eb6cad861844dcd48",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: A new crop needs cooking. What should the crew include in its plan? A way to prepare the harvest, or Only the planting date?"
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-field-intro.mp3",
+      "sha256": "87f6ed8e513a07209ea7afe9e89a5cd750620b02d7f227afedf5ddfb4bced967",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Your report keeps the measurements and the unanswered questions together."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-field-1.mp3",
+      "sha256": "a886286b39554a505e24a2eea480af30f09af0387a77c720ff826ef083840660",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: RAD aboard Curiosity measured radiation on Mars. Our archive shows 84 absorbed dose rate readings, in micrograys per hour, from 1 January 2015."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-field-2.mp3",
+      "sha256": "465141ddb8af733bf19cefa3a42ea13f191d7043a7d7038f2bb3242972977566",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: In a separate 2016 study at Butte M12, surrounding terrain blocked part of the sky. Researchers found a 4% decrease in expected dose rate there."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-field-3.mp3",
+      "sha256": "a39d8b1a4ba5048baa4e86f200a43da1991cf27a5d31868ee6ae7e123f1dcff5",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: A missing value means that measurement is unavailable. A reading at one place does not tell us whether another site is safe."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-field-question.mp3",
+      "sha256": "d3023b487cb481af9bea43deb706beaf898c718eef66e769d17cf9ef1a12b1cf",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: The new site has no radiation reading. What belongs in your report? A measurement is still needed, or The missing reading is zero?"
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-water-intro.mp3",
+      "sha256": "180084cdeb937bf2001aa484510b92d064fd3b4fc7af7900325339aec7e41928",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: You used stored energy to prepare water for the crew."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-water-1.mp3",
+      "sha256": "0a2a5d4ae2aa3ac372f35fb250485c41680540f75567fc71006db0c41adfeda6",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Solar panels turn sunlight into electricity. Some spacecraft use sunlight to run their equipment."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-water-2.mp3",
+      "sha256": "311790c498de0916a18a08cb8f66c388dc8a31e887f6639984988cd5444ac4c9",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: A battery stores energy. Spacecraft can use that stored energy when sunlight is unavailable."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-water-3.mp3",
+      "sha256": "55b16e626aa30f030265477cac094667da5a76cfd6cc4fe12bf25b3be7a6bb60",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: An electric motor transfers energy into motion. In our base, the pump uses part of the battery reserve."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-water-question.mp3",
+      "sha256": "0e0584297df174fcebb54e0d14cb44dc121c20db1aa4a73461a6db68ac8030e8",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: When the solar panels are in shadow, what can provide stored energy? The battery, or An empty cable?"
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-power-intro.mp3",
+      "sha256": "1460ff1684f817bcea41c9a07ef9b4091fd48a0c4077dd215f4e6672a0d306d3",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Your plan got water ready and a message to the crew."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-power-1.mp3",
+      "sha256": "087a136fb9cc5ca85e837005d2c49f3bbf11b80180a1f84fa8bc6e256c27a1db",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: On Hubble, electricity powers instruments, computers, heaters and transmitters."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-power-2.mp3",
+      "sha256": "a5afe53b4a937c40931ceb88bd95950e7369bf9bd7a78c0d32eb71fbcf6671ed",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Running more devices at once asks for more power. In our base, the pump and radio together exceed the supply limit."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-power-3.mp3",
+      "sha256": "055755c88c5e63bba692f66a6cf6bcf077341c2d8ff86f0d86cb4d396ea557e4",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Pausing one job made room for the next. The battery reserve showed how much stored energy remained."
+    },
+    {
+      "file": "dist/assets/audio/michael/lesson-power-question.mp3",
+      "sha256": "802f14f73363ec4dfc0822b65e61b097ee615ad78c1458e2afa369853ed054b7",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: If two jobs exceed the supply limit, what could you try? Run them one after the other, or Switch both on again?"
+    },
+    {
+      "file": "dist/assets/audio/michael/wake-crew.mp3",
+      "sha256": "28dbf7bc3241f3f90931d8ace7a1a9b889c943c31a1a683985aa4e53f9ccb856",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: We can reach your crew. First, find the power console with me."
+    },
+    {
+      "file": "dist/assets/audio/michael/wake-place.mp3",
+      "sha256": "cdd5e660e723b78a9493560885783580e0fb8539fffc326b2d7e57f8a4d7544c",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: This was a research base. My team left recordings to help explorers like you."
+    },
+    {
+      "file": "dist/assets/audio/michael/window-view.mp3",
+      "sha256": "72d517a6b1fe1ff22872cb8596568c39a727e148fc55abb257f6f7fb0789638e",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Look through the window. This is a real picture of Mars."
+    },
+    {
+      "file": "dist/assets/audio/michael/survey-start.mp3",
+      "sha256": "85ee13e2230d505c6fcf9f3e4455a36bb55fd159fbaa4f7df542fb692c41c819",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Let’s read a real rover record. Then tell the crew what the evidence shows."
+    },
+    {
+      "file": "dist/assets/audio/michael/end-demo.mp3",
+      "sha256": "4e57cf89818fde8987718ba6542dc80caf6c2eee45086e5288de9860f5b75120",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Our base is awake. Next time, we’ll step outside and explore Mars together. This is the end of our demo."
+    },
+    {
+      "file": "dist/assets/audio/michael/radio-connect.mp3",
+      "sha256": "f398af833460efe3f42ef672f54683b0a77ea5f2be8bf40d8bc43963a3c18cd4",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: First, connect both radio plugs at the power console."
+    },
+    {
+      "file": "dist/assets/audio/michael/radio-tune.mp3",
+      "sha256": "ff646dd8ad8614d6f2e75054f62dc121cf92c4c61db71dbaf1d5784f8b9ccf83",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Tune the antenna until the two signals line up."
+    },
+    {
+      "file": "dist/assets/audio/michael/radio-transmit.mp3",
+      "sha256": "42f701ff8cf4af4464abac7465d6134acfb15bac0682ba6ff8b052160f296d98",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: The crew can hear us. Send the ready signal."
+    },
+    {
+      "file": "dist/assets/audio/michael/field-open.mp3",
+      "sha256": "19681a20196ae1b0f1746d6bfca94ba7cac88b4ba24bf618280fa89b35726307",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Open the rover archive. Look for a missing reading."
+    },
+    {
+      "file": "dist/assets/audio/michael/field-dash.mp3",
+      "sha256": "37c171c7eb8d7f82083078ab53f8a239df1834504a7fb668825b3ebb7cc30108",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: A dash is not zero. What should we tell the crew?"
+    },
+    {
+      "file": "dist/assets/audio/michael/field-relay.mp3",
+      "sha256": "dd1d48f9536dc7b0a81506007cf5abb33c2ad2f459745b24506117653559cb4c",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Repair the relay so the crew can receive your notes."
+    },
+    {
+      "file": "dist/assets/audio/michael/end-airlock.mp3",
+      "sha256": "c30b256ce9558937beb6d2f30e94e72ba437fd966f24da26e3208b95452c7e26",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: The crew heard you. The garden is growing. Next time, we step outside."
+    },
+    {
+      "file": "dist/assets/audio/michael/log-summary.mp3",
+      "sha256": "f6734feb17aee102aa2c01d242080fdcafca25877d7c741b9ce9b99e57043dc8",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Your journey log remembers the things you did."
+    },
+    {
+      "file": "dist/assets/audio/michael/menu-summary.mp3",
+      "sha256": "373b4e1a25108591c80536ea47ef2f7f6fc7d71fea3817edbf87fbc2943b1a8e",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Choose where to go next, or replay the story."
+    },
+    {
+      "file": "dist/assets/audio/michael/credits-summary.mp3",
+      "sha256": "534126c7ba4423febf45f09dc755d280e22a83853c9a86ba4bd5ec0ea9e88498",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: You reached the credits. Thank you for exploring Mars with us."
+    },
+    {
+      "file": "dist/assets/audio/michael/restart-summary.mp3",
+      "sha256": "a484bf340fddcec2d46e199ce5b8562cd88fb394fd843a22367deadaf32c586b",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Start a new journey, or keep the one you saved."
+    },
+    {
+      "file": "dist/assets/audio/michael/about-summary.mp3",
+      "sha256": "f284b03a32a00992828d7d0508720fc40fe174fc8b5dea16ad7ab5d76fdc012b",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: This is a playable demo. The base is imagined, but the rover readings come from Mars."
+    },
+    {
+      "file": "dist/assets/audio/michael/field-choose.mp3",
+      "sha256": "851e73647248d5d1e1336faa23ae2d18a572c7f6bf7b62b21f310b8dd05533ab",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: The crew needs a radio relay and a rover report. Which job will you start with?"
+    },
+    {
+      "file": "dist/assets/audio/michael/field-send.mp3",
+      "sha256": "962435eb7813e0f2624bed3a69a952e3c013550974c26a6a35545bc733f3b565",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Tell the crew what you know. The next site still needs a measurement."
+    },
+    {
+      "file": "dist/assets/audio/michael/field-delivered.mp3",
+      "sha256": "667a4bfaba55978395435811d46dd5365aa155d17556c92889781e521d02097d",
+      "kind": "audio",
+      "provenance": "AI-generated locally: Kokoro v1.0 INT8 / am_michael. Script: Your notes are ready for the next expedition."
     }
   ]
 }
