@@ -1,8 +1,12 @@
 # NEILO
 
+[Play the completed demo chapter](https://neilo-first-signal.richhake16.chatgpt.site/?v=9) · [Submission documentation](docs/SUBMISSION_DOSSIER.md) · [Narration audit](docs/NARRATION_AUDIT.md) · [Flow story prompts](production/FLOW_ARRIVAL_RECAP.md)
+
+Chapter one ends after the garden, rover report, repaired relay and discovery question. The finale introduces surface exploration as a future chapter. Public play needs no login or API key.
+
 A browser adventure for ages 7–12. A child meets NEILO in a quiet Mars base, restores the first signal, plans a garden and prepares a field report with NASA/CSA sources.
 
-Run npm start with Node.js 22 or later, then open http://localhost:4173. In PowerShell, set $env:PORT='4176' to select another port. Static hosting serves dist/. Complete First Signal to open Growing corner, then complete both crop plans to open Field notes in Mission control.
+Run npm start with Node.js 22 or later, then open http://localhost:4173. In PowerShell, set $env:PORT='4176' to select another port. Static hosting serves dist/. Complete First Signal to open Growing corner, then complete your chosen crop plan to open Field notes in Mission control.
 
 ## Scientific content
 

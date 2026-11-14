@@ -1,6 +1,8 @@
 # First Signal — completed demo chapter
 
-Prepared 14 November 2026, Africa/Cairo. Local implementation verified; publication identifiers follow below.
+Prepared 14 November 2026, Africa/Cairo. Public version 9 deployed successfully: https://neilo-first-signal.richhake16.chatgpt.site/?v=9 .
+
+Sites source `78ffa566a79af9f7007429347ccf94edf03110af`; deployment `appgdep_6af7f74f2e8881918589a3be2f5a6fcc`; GitHub implementation `e025c0a`. Public QA passed: complete fresh-start journey through physical wiring, soybean harvest, wrong/right answers, final-question reload recovery, ending and credits; all 46 supplemental Michael clips decoded and played from the public origin with zero browser TTS calls.
 
 Backup before edits: `backups/pre-phase-ending-v8.bundle`, verified complete Git history. The public v8 and its source remain in Sites version history.
 
